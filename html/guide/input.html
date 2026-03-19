@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input 컴포넌트 가이드</title>
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
+  <header>
+    <h1>Input 컴포넌트 가이드</h1>
+  </header>
+
+  <main>
+    <!-- Default 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Default 상태</h2>
+      <div class="guide-row">
+        <!-- Size 48 -->
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--default">
+              <input type="text" class="input-field input-field--default" placeholder="Text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Size 40 -->
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-40 input-box--default">
+              <input type="text" class="input-field input-field--default" placeholder="Text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Focus 상태</h2>
+      <div class="guide-row">
+        <!-- Size 48 -->
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--focus">
+              <input type="text" class="input-field input-field--focus" placeholder="Text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Size 40 -->
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-40 input-box--focus">
+              <input type="text" class="input-field input-field--focus" placeholder="Text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Completed 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Completed 상태</h2>
+      <div class="guide-row">
+        <!-- Size 48 -->
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--completed">
+              <input type="text" class="input-field input-field--completed" value="입력된 텍스트">
+            </div>
+          </div>
+        </div>
+
+        <!-- Size 40 -->
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-40 input-box--completed">
+              <input type="text" class="input-field input-field--completed" value="입력된 텍스트">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Error 상태</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--error">
+              <input type="text" class="input-field input-field--error" value="잘못된 입력">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disabled 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Disabled 상태</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--disabled">
+              <input type="text" class="input-field input-field--disabled" placeholder="Text" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">View 상태 (읽기전용)</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--view">
+              <input type="text" class="input-field input-field--view" value="읽기전용 텍스트" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 필수 입력 표시 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">필수 입력 표시</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨 <span class="input-required">*</span></label>
+            <div class="input-box input-box--size-48 input-box--default">
+              <input type="text" class="input-field input-field--default" placeholder="Text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 캡션 텍스트 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">캡션 텍스트</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--default">
+              <input type="text" class="input-field input-field--default" placeholder="Text">
+            </div>
+            <div class="input-caption">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="6" stroke="#697387" stroke-width="1.2"/>
+                <path d="M7 6.5V10" stroke="#697387" stroke-width="1.2" stroke-linecap="round"/>
+                <circle cx="7" cy="4.5" r="0.6" fill="#697387"/>
+              </svg>
+              이는 도움말 텍스트입니다
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 에러 메시지 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">에러 메시지</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="input-wrap">
+            <label class="input-label">라벨</label>
+            <div class="input-box input-box--size-48 input-box--error">
+              <input type="text" class="input-field input-field--error" value="잘못된 입력">
+            </div>
+            <div class="input-error-msg">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="6" stroke="#FF4444" stroke-width="1.2"/>
+                <path d="M7 4V8" stroke="#FF4444" stroke-width="1.2" stroke-linecap="round"/>
+                <circle cx="7" cy="10" r="0.6" fill="#FF4444"/>
+              </svg>
+              필수 입력항목입니다
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 HTML5 프로젝트 - Input 컴포넌트 가이드</p>
+  </footer>
+
+  <!-- jQuery 로드 -->
+  <script src="../../js/lib/jquery-3.7.1.min.js"></script>
+  <!-- 공통 JS 로드 -->
+  <script src="../../js/common.js"></script>
+</body>
+</html>

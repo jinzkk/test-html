@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select 컴포넌트 가이드</title>
+  <!-- jQuery UI CSS -->
+  <link rel="stylesheet" href="../../css/jquery-ui-1.14.1.min.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
+  <header>
+    <h1>Select 컴포넌트 가이드</h1>
+  </header>
+
+  <main>
+    <!-- Default 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Default 상태</h2>
+      <div class="guide-row">
+        <!-- Size 48 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-48 select-box--default" aria-label="기본 선택">
+              <option disabled selected class="select-text--placeholder">선택해주세요</option>
+              <option value="option1">옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Size 40 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-40 select-box--default" aria-label="기본 선택">
+              <option disabled selected class="select-text--placeholder">선택해주세요</option>
+              <option value="option1">옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Completed 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Completed 상태</h2>
+      <div class="guide-row">
+        <!-- Size 48 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-48 select-box--completed" aria-label="완료됨">
+              <option value="option1" selected>옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Size 40 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-40 select-box--completed" aria-label="완료됨">
+              <option value="option1" selected>옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disabled 상태 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">Disabled 상태</h2>
+      <div class="guide-row">
+        <!-- Size 48 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-48 select-box--disabled" disabled aria-label="비활성화됨">
+              <option value="option1" selected>옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Size 40 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-40 select-box--disabled" disabled aria-label="비활성화됨">
+              <option value="option1" selected>옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 상태 (읽기전용) -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">View 상태 (읽기전용)</h2>
+      <div class="guide-row">
+        <!-- Size 48 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-48 select-box--view" disabled aria-label="읽기전용">
+              <option value="option1" selected>옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Size 40 -->
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-40 select-box--view" disabled aria-label="읽기전용">
+              <option value="option1" selected>옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 레이블 옵션: 필수 표시 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">필수 입력 표시</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+              <span class="select-required">*</span>
+            </label>
+            <select class="select-box select-box--size-48 select-box--default" aria-label="필수 선택">
+              <option disabled selected class="select-text--placeholder">선택해주세요</option>
+              <option value="option1">옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 레이블 옵션: 캡션 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">캡션 텍스트</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-48 select-box--default" aria-label="캡션 있는 선택">
+              <option disabled selected class="select-text--placeholder">선택해주세요</option>
+              <option value="option1">옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+            <div class="select-caption">이는 도움말 텍스트입니다</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 레이블 옵션: 에러 -->
+    <section class="guide-section">
+      <h2 class="guide-section-title">에러 상태</h2>
+      <div class="guide-row">
+        <div class="guide-item">
+          <div class="select-wrap">
+            <label class="select-label">
+              라벨
+            </label>
+            <select class="select-box select-box--size-48 select-box--default" aria-label="에러 있는 선택" style="border-color: #ff4444;">
+              <option disabled selected class="select-text--placeholder">선택해주세요</option>
+              <option value="option1">옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+            <div class="select-error">필수 입력항목입니다</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 HTML5 프로젝트 - Select 컴포넌트 가이드</p>
+  </footer>
+
+  <!-- jQuery 로드 -->
+  <script src="../../js/lib/jquery-3.7.1.min.js"></script>
+  <!-- jQuery UI 로드 -->
+  <script src="../../js/lib/jquery-ui-1.14.1.min.js"></script>
+  <!-- 공통 JS 로드 -->
+  <script src="../../js/common.js"></script>
+</body>
+</html>

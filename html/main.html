@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FunETF 메인</title>
+  <link rel="stylesheet" href="../../css/common.css">
+  <!-- ECharts -->
+  <script src="../js/lib/echarts-5.6.1.min.js"></script>
+  <style>
+    /* ===========================
+       메인 페이지 전용 스타일
+       =========================== */
+
+    /* 공통 리셋 */
+    body {
+      background-color: #F2F3F8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', 'Segoe UI', sans-serif;
+      color: #141924;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 콘텐츠 최대 너비 컨테이너 */
+    .main-container {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 섹션 공통 여백 */
+    .main-section {
+      margin-bottom: 24px;
+    }
+
+    /* 카드 공통 */
+    .card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .card--sm {
+      padding: 16px;
+    }
+
+    /* 섹션 헤더 */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #141924;
+      margin: 0;
+    }
+
+    .view-all-btn {
+      font-size: 13px;
+      color: #99A1B1;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding: 0;
+    }
+
+    /* 색상 유틸 */
+    .color-rise { color: #0055FF; }
+    .color-fall { color: #FF4444; }
+    .color-neutral { color: #141924; }
+
+    /* ===========================
+       1. 서머리 영역
+       =========================== */
+    .summary-section {
+      background: #FFFFFF;
+      padding: 24px 0 0;
+    }
+
+    .summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .summary-greeting {
+      font-size: 16px;
+      color: #141924;
+    }
+
+    .summary-greeting strong {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* 로그인 CTA 배너 */
+    .login-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #EBF5FF 0%, #DCEEFF 100%);
+      border-radius: 12px;
+      padding: 12px 20px;
+      flex-shrink: 0;
+    }
+
+    .login-banner__text {
+      font-size: 14px;
+      color: #354153;
+    }
+
+    .login-banner__text strong {
+      color: #0055FF;
+      font-weight: 700;
+    }
+
+    .login-banner__btn {
+      background: #0055FF;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* 실시간 선물 지수 카드 리스트 */
+    .futures-list {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .futures-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .futures-card {
+      background: #F2F3F8;
+      border-radius: 12px;
+      padding: 14px 16px;
+      min-width: 200px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .futures-card__name {
+      font-size: 12px;
+      color: #99A1B1;
+      font-weight: 500;
+    }
+
+    .futures-card__price {
+      font-size: 16px;
+      font-weight: 700;
+      color: #141924;
+    }
+
+    .futures-card__change {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .futures-card__chart {
+      height: 40px;
+      width: 100%;
+    }
+
+    /* 날짜 기준 정보 */
+    .summary-meta {
+      font-size: 11px;
+      color: #99A1B1;
+      margin-top: 8px;
+      padding-bottom: 16px;
+    }
+
+    /* 검색 바 */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #F2F3F8;
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin: 16px 0;
+      cursor: pointer;
+    }
+
+    .search-bar__icon {
+      color: #99A1B1;
+      flex-shrink: 0;
+    }
+
+    .search-bar__placeholder {
+      font-size: 15px;
+      color: #B4BBCB;
+      flex: 1;
+    }
+
+    /* ===========================
+       2. 지수/ETF 리스트 탭 테이블
+       =========================== */
+    .etf-list-section .tab-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #E5E8EF;
+      margin-bottom: 0;
+    }
+
+    .etf-list-section .tabs {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .etf-list-section .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .etf-list-section .tab-item {
+      position: relative;
+      padding: 12px 16px;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      font-weight: 500;
+      color: #99A1B1;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+
+    .etf-list-section .tab-item--active {
+      color: #141924;
+      font-weight: 700;
+    }
+
+    .etf-list-section .tab-item--active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #0055FF;
+      border-radius: 1px;
+    }
+
+    .etf-list-section .tab-edit {
+      font-size: 12px;
+      color: #99A1B1;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 12px;
+      flex-shrink: 0;
+    }
+
+    /* ETF 테이블 */
+    .etf-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .etf-table thead tr {
+      border-bottom: 1px solid #E5E8EF;
+    }
+
+    .etf-table th {
+      padding: 10px 12px;
+      text-align: right;
+      font-size: 12px;
+      font-weight: 500;
+      color: #99A1B1;
+      white-space: nowrap;
+    }
+
+    .etf-table th:first-child,
+    .etf-table th:nth-child(2) {
+      text-align: left;
+    }
+
+    .etf-table td {
+      padding: 12px;
+      border-bottom: 1px solid #F2F3F8;
+      vertical-align: middle;
+      text-align: right;
+    }
+
+    .etf-table td:first-child,
+    .etf-table td:nth-child(2) {
+      text-align: left;
+    }
+
+    .etf-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .etf-table tbody tr:hover {
+      background: #F8F9FF;
+    }
+
+    .etf-code {
+      font-size: 12px;
+      color: #99A1B1;
+    }
+
+    .etf-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: #141924;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sparkline-cell {
+      width: 80px;
+    }
+
+    .sparkline-cell div {
+      height: 32px;
+      width: 80px;
+    }
+
+    .heart-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #CBD1DC;
+      font-size: 18px;
+      padding: 2px 6px;
+    }
+
+    .heart-btn.active {
+      color: #FF4444;
+    }
+
+    /* 전체보기 버튼 영역 */
+    .view-all-wrap {
+      text-align: center;
+      padding: 16px 0 4px;
+    }
+
+    /* ===========================
+       3. 2단 레이아웃 (상품은? + ETF 검색 필터)
+       =========================== */
+    .two-col-layout {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .two-col-layout--reverse {
+      grid-template-columns: 70% 30%;
+    }
+
+    /* 조회한 상품 순위 */
+    .ranking-section {}
+
+    .ranking-user-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #141924;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .ranking-user-title select {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0055FF;
+      border: 1px solid #0055FF;
+      border-radius: 4px;
+      padding: 2px 6px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .ranking-chart {
+      height: 120px;
+      margin-bottom: 12px;
+    }
+
+    .ranking-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #F2F3F8;
+      font-size: 13px;
+    }
+
+    .ranking-item:last-child {
+      border-bottom: none;
+    }
+
+    .ranking-num {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0055FF;
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+    .ranking-num--top3 {
+      color: #141924;
+    }
+
+    .ranking-info {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .ranking-code {
+      font-size: 11px;
+      color: #99A1B1;
+    }
+
+    .ranking-name {
+      font-size: 13px;
+      color: #141924;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ETF 검색 필터 */
+    .filter-section {}
+
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .filter-tag {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #E5E8EF;
+      background: #fff;
+      font-size: 13px;
+      color: #354153;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .filter-tag--active {
+      background: #0055FF;
+      border-color: #0055FF;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* 5컬럼 ETF 테이블 */
+    .etf-filter-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .etf-filter-table th {
+      padding: 8px 10px;
+      text-align: right;
+      font-size: 12px;
+      font-weight: 500;
+      color: #99A1B1;
+      border-bottom: 1px solid #E5E8EF;
+      white-space: nowrap;
+    }
+
+    .etf-filter-table th:first-child,
+    .etf-filter-table th:nth-child(2) {
+      text-align: left;
+    }
+
+    .etf-filter-table td {
+      padding: 10px;
+      border-bottom: 1px solid #F2F3F8;
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .etf-filter-table td:first-child,
+    .etf-filter-table td:nth-child(2) {
+      text-align: left;
+    }
+
+    .etf-filter-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .etf-filter-table tbody tr:hover {
+      background: #F8F9FF;
+    }
+
+    /* ===========================
+       4. 포트 성과 + 이달의 ETF 랭킹
+       =========================== */
+    .port-card {}
+
+    .port-name {
+      font-size: 13px;
+      color: #141924;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .port-chart {
+      height: 120px;
+      margin-bottom: 12px;
+    }
+
+    .port-stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .port-stat-item {
+      flex: 1;
+      background: #F2F3F8;
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .port-stat-label {
+      font-size: 11px;
+      color: #99A1B1;
+      margin-bottom: 4px;
+    }
+
+    .port-stat-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #141924;
+    }
+
+    /* 이달의 ETF 랭킹 */
+    .monthly-rank-card {}
+
+    .monthly-chart {
+      height: 140px;
+      margin: 12px 0;
+    }
+
+    .monthly-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .monthly-stat {
+      text-align: center;
+    }
+
+    .monthly-stat__value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0055FF;
+    }
+
+    .monthly-stat__label {
+      font-size: 11px;
+      color: #99A1B1;
+    }
+
+    /* ===========================
+       5. 이달의 ETF 1위 + 수익률 간편 찾기
+       =========================== */
+    .rank1-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .rank1-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #F2F3F8;
+    }
+
+    .rank1-item:last-child {
+      border-bottom: none;
+    }
+
+    .rank1-badge {
+      background: #0055FF;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 3px 8px;
+      flex-shrink: 0;
+    }
+
+    .rank1-info {
+      flex: 1;
+    }
+
+    .rank1-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #141924;
+      margin-bottom: 4px;
+    }
+
+    .rank1-meta {
+      font-size: 12px;
+      color: #99A1B1;
+    }
+
+    .rank1-score {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0055FF;
+    }
+
+    /* 수익률 간편 찾기 카드 */
+    .yield-cards {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .yield-cards::-webkit-scrollbar {
+      display: none;
+    }
+
+    .yield-card {
+      flex: 1;
+      min-width: 120px;
+      background: #F8F9FF;
+      border: 1px solid #E5E8EF;
+      border-radius: 12px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .yield-card:hover,
+    .yield-card--active {
+      border-color: #0055FF;
+      background: #EBF5FF;
+    }
+
+    .yield-card__name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #141924;
+      margin-bottom: 6px;
+    }
+
+    .yield-card__rate {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0055FF;
+    }
+
+    .yield-card__label {
+      font-size: 11px;
+      color: #99A1B1;
+    }
+
+    .yield-chart {
+      height: 100px;
+    }
+
+    /* ===========================
+       6. AI 투자 배너
+       =========================== */
+    .ai-banner {
+      background: linear-gradient(135deg, #1A1D2E 0%, #0D1030 100%);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ai-banner::before {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(0,85,255,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .ai-banner__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ai-banner__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      color: #FFC107;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 10px;
+    }
+
+    .ai-banner__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .ai-banner__sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .ai-banner__sub strong {
+      color: #7EB8FF;
+    }
+
+    .ai-banner__visual {
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* AI 코인 일러스트 (CSS 구현) */
+    .ai-coin-wrap {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+
+    .ai-coin {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 8px 24px rgba(255,193,7,0.4);
+      animation: coinFloat 3s ease-in-out infinite;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    .ai-badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #0055FF;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 4px 8px;
+    }
+
+    @keyframes coinFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .ai-banner__btn {
+      background: #0055FF;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-top: 14px;
+    }
+
+    /* ===========================
+       7. 유용한 투자 Tip
+       =========================== */
+    .tip-cards {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .tip-cards::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tip-card {
+      flex-shrink: 0;
+      width: 200px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.15s;
+    }
+
+    .tip-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .tip-card__thumb {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #EBF5FF 0%, #DCEEFF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+    }
+
+    .tip-card__body {
+      padding: 12px;
+    }
+
+    .tip-card__tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0055FF;
+      margin-bottom: 6px;
+    }
+
+    .tip-card__title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #141924;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ===========================
+       8. 하단 고정 네비게이션 (모바일)
+       =========================== */
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border-top: 1px solid #E5E8EF;
+      z-index: 1000;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .bottom-nav__inner {
+      display: flex;
+      height: 56px;
+    }
+
+    .bottom-nav__item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #99A1B1;
+      font-size: 10px;
+      font-weight: 500;
+      transition: color 0.15s;
+      padding: 0;
+    }
+
+    .bottom-nav__item--active {
+      color: #0055FF;
+    }
+
+    .bottom-nav__icon {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bottom-nav__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ===========================
+       반응형
+       =========================== */
+
+    /* 데스크탑 (1280px+) */
+    @media (min-width: 1280px) {
+      .main-container {
+        padding: 0 40px;
+      }
+
+      .summary-section .main-container {
+        padding: 24px 40px 0;
+      }
+    }
+
+    /* 태블릿 (768px~1279px) */
+    @media (max-width: 1279px) {
+      .two-col-layout,
+      .two-col-layout--reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .tip-card {
+        width: 180px;
+      }
+    }
+
+    /* 모바일 (767px 이하) */
+    @media (max-width: 767px) {
+      .main-container {
+        padding: 0 16px;
+      }
+
+      body {
+        padding-bottom: 60px;
+      }
+
+      .bottom-nav {
+        display: block;
+      }
+
+      .card {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .summary-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .login-banner {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .futures-card {
+        min-width: 160px;
+      }
+
+      .ai-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .ai-banner__visual {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 16px;
+      }
+
+      .two-col-layout,
+      .two-col-layout--reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .tip-card {
+        width: 160px;
+      }
+
+      .etf-name {
+        max-width: 140px;
+      }
+
+      .monthly-stats {
+        gap: 8px;
+      }
+
+      .yield-cards {
+        flex-wrap: nowrap;
+      }
+
+      .yield-card {
+        min-width: 100px;
+      }
+    }
+
+    /* 배경색 섹션 패딩 조정 */
+    .summary-section {
+      padding: 0;
+      background: transparent;
+    }
+
+    .summary-inner {
+      background: #FFFFFF;
+      padding: 24px 0 16px;
+      margin-bottom: 16px;
+    }
+
+    .futures-section-bg {
+      background: #FFFFFF;
+      padding: 0 0 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       1. 서머리 영역
+       =========================== -->
+  <section class="main-section summary-section">
+    <div class="summary-inner">
+      <div class="main-container">
+        <!-- 인사말 + 로그인 배너 -->
+        <div class="summary-top">
+          <div class="summary-greeting">
+            <strong>고객님, 안녕하세요!</strong><br>
+            오늘도 즐거운 하루 보내세요.
+          </div>
+          <div class="login-banner">
+            <div class="login-banner__text">
+              <strong>FunETF 로그인</strong>하고<br>맞춤 정보를 받아보세요
+            </div>
+            <button class="login-banner__btn">로그인</button>
+          </div>
+        </div>
+
+        <!-- 실시간 선물 지수 -->
+        <div class="futures-list" id="futuresList">
+          <div class="futures-card">
+            <div class="futures-card__name">S&amp;P Futures</div>
+            <div class="futures-card__price">5,253.50</div>
+            <div class="futures-card__change color-rise">+0.25 (+0.00%)</div>
+            <div class="futures-card__chart" id="sparkline0"></div>
+          </div>
+          <div class="futures-card">
+            <div class="futures-card__name">Dow Futures</div>
+            <div class="futures-card__price">39,185.00</div>
+            <div class="futures-card__change color-fall">-34.00 (-0.09%)</div>
+            <div class="futures-card__chart" id="sparkline1"></div>
+          </div>
+          <div class="futures-card">
+            <div class="futures-card__name">Nasdaq Futures</div>
+            <div class="futures-card__price">18,306.25</div>
+            <div class="futures-card__change color-rise">+11.25 (+0.06%)</div>
+            <div class="futures-card__chart" id="sparkline2"></div>
+          </div>
+          <div class="futures-card">
+            <div class="futures-card__name">Russel 2000 Futures</div>
+            <div class="futures-card__price">2,088.90</div>
+            <div class="futures-card__change color-fall">-3.50 (-0.17%)</div>
+            <div class="futures-card__chart" id="sparkline3"></div>
+          </div>
+          <div class="futures-card">
+            <div class="futures-card__name">Crude Oil</div>
+            <div class="futures-card__price">86.85</div>
+            <div class="futures-card__change color-rise">+0.42</div>
+            <div class="futures-card__chart" id="sparkline4"></div>
+          </div>
+        </div>
+
+        <!-- 날짜 기준 정보 -->
+        <div class="summary-meta">24.07.19 15:09:09 기준(장중)</div>
+
+        <!-- 통합검색 바 -->
+        <div class="search-bar">
+          <span class="search-bar__icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="9" cy="9" r="6" stroke="#99A1B1" stroke-width="1.5"/>
+              <path d="M13.5 13.5L17 17" stroke="#99A1B1" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="search-bar__placeholder">상품명과 코드로 검색해 보세요.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       2. 지수/ETF 리스트 탭 테이블
+       =========================== -->
+  <section class="main-section">
+    <div class="main-container">
+      <div class="card etf-list-section">
+        <!-- 탭 -->
+        <div class="tab-wrap">
+          <div class="tabs" id="etfListTabs">
+            <button class="tab-item tab-item--active" data-tab="recent-etf">최근 본 ETF</button>
+            <button class="tab-item" data-tab="recent-index">최근 본 지수</button>
+            <button class="tab-item" data-tab="watchlist">나만의 관심상품(3043)</button>
+          </div>
+          <button class="tab-edit">편집</button>
+        </div>
+
+        <!-- 테이블 -->
+        <div class="table-responsive">
+          <table class="etf-table">
+            <thead>
+              <tr>
+                <th>종목코드</th>
+                <th>종목명</th>
+                <th>현재가</th>
+                <th>등락</th>
+                <th>등락률</th>
+                <th>차트</th>
+                <th>관심</th>
+              </tr>
+            </thead>
+            <tbody id="etfListBody">
+              <tr>
+                <td><span class="etf-code">385510</span></td>
+                <td><span class="etf-name">KODEX K-신재생에너지액티브</span></td>
+                <td class="color-rise">9,270</td>
+                <td class="color-rise">+50</td>
+                <td class="color-rise">+0.54%</td>
+                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark0"></div></td>
+                <td><button class="heart-btn active">♥</button></td>
+              </tr>
+              <tr>
+                <td><span class="etf-code">400570</span></td>
+                <td><span class="etf-name">KODEX 유럽탄소배출권선물ICE(H)</span></td>
+                <td class="color-fall">8,120</td>
+                <td class="color-fall">-85</td>
+                <td class="color-fall">-1.04%</td>
+                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark1"></div></td>
+                <td><button class="heart-btn">♡</button></td>
+              </tr>
+              <tr>
+                <td><span class="etf-code">451670</span></td>
+                <td><span class="etf-name">삼성클래식차이나본토연금증권자투자신탁H</span></td>
+                <td class="color-neutral">11,540</td>
+                <td class="color-neutral">0</td>
+                <td class="color-neutral">0.00%</td>
+                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark2"></div></td>
+                <td><button class="heart-btn">♡</button></td>
+              </tr>
+              <tr>
+                <td><span class="etf-code">451670</span></td>
+                <td><span class="etf-name">삼성유럽인덱스증권자투자신탁H[주식]</span></td>
+                <td class="color-rise">10,280</td>
+                <td class="color-rise">+120</td>
+                <td class="color-rise">+1.18%</td>
+                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark3"></div></td>
+                <td><button class="heart-btn active">♥</button></td>
+              </tr>
+              <tr>
+                <td><span class="etf-code">463690</span></td>
+                <td><span class="etf-name">KODEX 미국S&amp;P500통신서비스</span></td>
+                <td class="color-fall">14,350</td>
+                <td class="color-fall">-215</td>
+                <td class="color-fall">-1.48%</td>
+                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark4"></div></td>
+                <td><button class="heart-btn">♡</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 전체보기 -->
+        <div class="view-all-wrap">
+          <button class="btn btn--function btn--size-40" style="width:100%; border-radius:8px;">전체보기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       3. 상품은? + ETF 상품 검색 필터 (2단)
+       =========================== -->
+  <section class="main-section">
+    <div class="main-container">
+      <div class="two-col-layout">
+
+        <!-- 좌측: 조회한 상품 순위 -->
+        <div class="card ranking-section">
+          <div class="section-header">
+            <div class="ranking-user-title">
+              홍*동님의
+              <select>
+                <option>조회한 상품</option>
+                <option>관심 상품</option>
+              </select>
+              순위
+            </div>
+          </div>
+          <!-- 라인 차트 -->
+          <div class="ranking-chart" id="rankingChart"></div>
+          <!-- 랭킹 리스트 -->
+          <ol class="ranking-list">
+            <li class="ranking-item">
+              <span class="ranking-num ranking-num--top3">1</span>
+              <div class="ranking-info">
+                <div class="ranking-code">385510</div>
+                <div class="ranking-name">KODEX K-신재생에너지액티브</div>
+              </div>
+              <span class="color-rise" style="font-size:12px;font-weight:600;">+0.54%</span>
+            </li>
+            <li class="ranking-item">
+              <span class="ranking-num ranking-num--top3">2</span>
+              <div class="ranking-info">
+                <div class="ranking-code">400570</div>
+                <div class="ranking-name">KODEX 유럽탄소배출권선물ICE(H)</div>
+              </div>
+              <span class="color-fall" style="font-size:12px;font-weight:600;">-1.04%</span>
+            </li>
+            <li class="ranking-item">
+              <span class="ranking-num ranking-num--top3">3</span>
+              <div class="ranking-info">
+                <div class="ranking-code">451670</div>
+                <div class="ranking-name">삼성클래식차이나본토연금...</div>
+              </div>
+              <span class="color-neutral" style="font-size:12px;font-weight:600;">0.00%</span>
+            </li>
+            <li class="ranking-item">
+              <span class="ranking-num">4</span>
+              <div class="ranking-info">
+                <div class="ranking-code">451670</div>
+                <div class="ranking-name">삼성유럽인덱스증권자투자신탁H</div>
+              </div>
+              <span class="color-rise" style="font-size:12px;font-weight:600;">+1.18%</span>
+            </li>
+            <li class="ranking-item">
+              <span class="ranking-num">5</span>
+              <div class="ranking-info">
+                <div class="ranking-code">463690</div>
+                <div class="ranking-name">KODEX 미국S&amp;P500통신서비스</div>
+              </div>
+              <span class="color-fall" style="font-size:12px;font-weight:600;">-1.48%</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 우측: ETF 상품 검색 필터 -->
+        <div class="card filter-section">
+          <div class="section-header">
+            <h2 class="section-title">ETF 상품 검색</h2>
+            <button class="view-all-btn">전체보기 ›</button>
+          </div>
+          <!-- 필터 태그 -->
+          <div class="filter-tags" id="filterTags">
+            <button class="filter-tag filter-tag--active" data-filter="overseas">해외주식</button>
+            <button class="filter-tag" data-filter="bond">채권</button>
+            <button class="filter-tag" data-filter="domestic">국내주식</button>
+            <button class="filter-tag" data-filter="commodity">원자재</button>
+            <button class="filter-tag" data-filter="leverage">레버리지</button>
+          </div>
+          <!-- ETF 필터 테이블 -->
+          <div class="table-responsive">
+            <table class="etf-filter-table">
+              <thead>
+                <tr>
+                  <th>코드</th>
+                  <th>상품명</th>
+                  <th>현재가</th>
+                  <th>전일대비</th>
+                  <th>등락률</th>
+                  <th>3개월수익률</th>
+                  <th>관심</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="etf-code">379800</span></td>
+                  <td><span class="etf-name">KODEX 미국S&amp;P500TR</span></td>
+                  <td class="color-rise">16,520</td>
+                  <td class="color-rise">+180</td>
+                  <td class="color-rise">+1.10%</td>
+                  <td class="color-rise">+8.42%</td>
+                  <td><button class="heart-btn">♡</button></td>
+                </tr>
+                <tr>
+                  <td><span class="etf-code">390390</span></td>
+                  <td><span class="etf-name">KODEX 미국반도체</span></td>
+                  <td class="color-rise">22,430</td>
+                  <td class="color-rise">+340</td>
+                  <td class="color-rise">+1.54%</td>
+                  <td class="color-rise">+12.30%</td>
+                  <td><button class="heart-btn active">♥</button></td>
+                </tr>
+                <tr>
+                  <td><span class="etf-code">101280</span></td>
+                  <td><span class="etf-name">KODEX 일본TOPIX100</span></td>
+                  <td class="color-fall">12,850</td>
+                  <td class="color-fall">-95</td>
+                  <td class="color-fall">-0.73%</td>
+                  <td class="color-rise">+5.18%</td>
+                  <td><button class="heart-btn">♡</button></td>
+                </tr>
+                <tr>
+                  <td><span class="etf-code">226490</span></td>
+                  <td><span class="etf-name">KODEX 코스피</span></td>
+                  <td class="color-neutral">35,200</td>
+                  <td class="color-neutral">0</td>
+                  <td class="color-neutral">0.00%</td>
+                  <td class="color-rise">+2.45%</td>
+                  <td><button class="heart-btn">♡</button></td>
+                </tr>
+                <tr>
+                  <td><span class="etf-code">229200</span></td>
+                  <td><span class="etf-name">KODEX 코스닥150</span></td>
+                  <td class="color-fall">9,760</td>
+                  <td class="color-fall">-120</td>
+                  <td class="color-fall">-1.21%</td>
+                  <td class="color-fall">-3.20%</td>
+                  <td><button class="heart-btn">♡</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="view-all-wrap">
+            <button class="btn btn--function btn--size-40" style="width:100%; border-radius:8px;">전체보기</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       4. 포트 성과 현황 + 이달의 ETF 랭킹 (2단)
+       =========================== -->
+  <section class="main-section">
+    <div class="main-container">
+      <div class="two-col-layout">
+
+        <!-- 좌측: 포트 성과 현황 -->
+        <div class="card port-card">
+          <div class="section-header">
+            <h2 class="section-title">포트 성과 현황</h2>
+          </div>
+          <!-- 포트 탭 -->
+          <div class="tab-small" style="margin-bottom:12px;">
+            <button class="tab-small__item tab-small__item--active">내 포트폴리오</button>
+            <button class="tab-small__item">추천 포트</button>
+          </div>
+          <div class="port-name">홍*동님의 내맘대로 설계입니다.</div>
+          <!-- 비교 차트 -->
+          <div class="port-chart" id="portChart"></div>
+          <!-- 통계 카드 -->
+          <div class="port-stats">
+            <div class="port-stat-item">
+              <div class="port-stat-label">수익률</div>
+              <div class="port-stat-value color-rise">+4.88%</div>
+            </div>
+            <div class="port-stat-item">
+              <div class="port-stat-label">변동성</div>
+              <div class="port-stat-value">0.30</div>
+            </div>
+            <div class="port-stat-item">
+              <div class="port-stat-label">샤프지수</div>
+              <div class="port-stat-value">4</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측: 이달의 ETF 랭킹 -->
+        <div class="card monthly-rank-card">
+          <div class="section-header">
+            <h2 class="section-title">이달의 ETF 랭킹</h2>
+            <button class="view-all-btn">전체보기 ›</button>
+          </div>
+          <!-- 탭 -->
+          <div class="tab-medium" id="monthlyRankTabs" style="margin-bottom:12px; flex-wrap:wrap; gap:6px;">
+            <button class="tab-medium__item tab-medium__item--active" data-tab-group="monthly">해외주식테마</button>
+            <button class="tab-medium__item" data-tab-group="monthly">국내주식테마</button>
+            <button class="tab-medium__item" data-tab-group="monthly">채권</button>
+          </div>
+          <!-- 비교 차트 -->
+          <div class="monthly-chart" id="monthlyChart"></div>
+          <!-- 통계값 -->
+          <div class="monthly-stats">
+            <div class="monthly-stat">
+              <div class="monthly-stat__value">0.30</div>
+              <div class="monthly-stat__label">변동성</div>
+            </div>
+            <div class="monthly-stat">
+              <div class="monthly-stat__value color-rise">4.88</div>
+              <div class="monthly-stat__label">수익률</div>
+            </div>
+            <div class="monthly-stat">
+              <div class="monthly-stat__value">4</div>
+              <div class="monthly-stat__label">샤프지수</div>
+            </div>
+          </div>
+          <!-- 랭킹 태그 -->
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;">
+            <span class="tag tag--solid-blue">AI테크</span>
+            <span class="tag tag--solid-blue">반도체</span>
+            <span class="tag tag--solid-black">미국주식</span>
+            <span class="tag tag--solid-black">나스닥</span>
+            <span class="tag tag--solid-blue">월배당</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       5. 이달의 ETF 1위 + 수익률로 간편 찾기 (2단)
+       =========================== -->
+  <section class="main-section">
+    <div class="main-container">
+      <div class="two-col-layout">
+
+        <!-- 좌측: 이달의 ETF 랭킹 1위 -->
+        <div class="card">
+          <div class="section-header">
+            <h2 class="section-title">이달의 ETF 랭킹 1위</h2>
+          </div>
+          <!-- 탭 -->
+          <div class="tab-small" id="rank1Tabs" style="margin-bottom:16px;">
+            <button class="tab-small__item tab-small__item--active" data-tab-group="rank1">해외주식테마</button>
+            <button class="tab-small__item" data-tab-group="rank1">국내주식테마</button>
+            <button class="tab-small__item" data-tab-group="rank1">채권</button>
+          </div>
+          <!-- 랭킹 리스트 -->
+          <ul class="rank1-list">
+            <li class="rank1-item">
+              <span class="rank1-badge">1위</span>
+              <div class="rank1-info">
+                <div class="rank1-name">KODEX 미국반도체MV</div>
+                <div class="rank1-meta">최근1년간 <strong style="color:#0055FF;">11번</strong> 1위</div>
+              </div>
+              <div class="rank1-score">총점<br><strong>30점</strong></div>
+            </li>
+            <li class="rank1-item">
+              <span class="rank1-badge" style="background:#354153;">1위</span>
+              <div class="rank1-info">
+                <div class="rank1-name">TIGER 차이나전기차SOLACTIVE</div>
+                <div class="rank1-meta">최근1년간 <strong style="color:#0055FF;">12번</strong> 1위</div>
+              </div>
+              <div class="rank1-score">총점<br><strong>30점</strong></div>
+            </li>
+            <li class="rank1-item">
+              <span class="rank1-badge" style="background:#697387;">1위</span>
+              <div class="rank1-info">
+                <div class="rank1-name">KODEX 차이나항셍테크</div>
+                <div class="rank1-meta">최근1년간 <strong style="color:#0055FF;">10번</strong> 1위</div>
+              </div>
+              <div class="rank1-score">총점<br><strong>28점</strong></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 우측: 수익률로 간편 찾기 -->
+        <div class="card">
+          <div class="section-header">
+            <h2 class="section-title">수익률로 간편 찾기</h2>
+          </div>
+          <!-- 탭 -->
+          <div class="tab-small" id="yieldTabs" style="margin-bottom:16px;">
+            <button class="tab-small__item tab-small__item--active" data-tab-group="yield">국내주식테마/섹터</button>
+            <button class="tab-small__item" data-tab-group="yield">채권</button>
+            <button class="tab-small__item" data-tab-group="yield">지수</button>
+          </div>
+          <p style="font-size:12px; color:#99A1B1; margin-bottom:12px;">지난 3년간 수익률 달성 상품</p>
+          <!-- 수익률 카드 -->
+          <div class="yield-cards">
+            <div class="yield-card yield-card--active">
+              <div class="yield-card__name">KODEX 글로벌로봇(합성)</div>
+              <div class="yield-card__rate">3%</div>
+              <div class="yield-card__label">달성</div>
+            </div>
+            <div class="yield-card">
+              <div class="yield-card__name">KODEX 배당성장채권혼합</div>
+              <div class="yield-card__rate">5%</div>
+              <div class="yield-card__label">달성</div>
+            </div>
+            <div class="yield-card">
+              <div class="yield-card__name">KODEX 철강</div>
+              <div class="yield-card__rate">7%</div>
+              <div class="yield-card__label">달성</div>
+            </div>
+          </div>
+          <!-- 수익률 차트 -->
+          <div class="yield-chart" id="yieldChart"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       6. AI 투자 배너
+       =========================== -->
+  <section class="main-section">
+    <div class="main-container">
+      <div class="ai-banner">
+        <div class="ai-banner__content">
+          <div class="ai-banner__tag">
+            🔥 HOT ETF
+          </div>
+          <div class="ai-banner__title">AI관련주 투자하며<br>월배당을 동시에!</div>
+          <div class="ai-banner__sub">
+            <strong>KODEX 미국AI테크TOP10 + 15%프리미엄</strong>
+          </div>
+          <button class="ai-banner__btn">자세히 보기 →</button>
+        </div>
+        <div class="ai-banner__visual">
+          <div class="ai-coin-wrap">
+            <div class="ai-badge">AI</div>
+            <div class="ai-coin">🪙</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       7. 유용한 투자 Tip
+       =========================== -->
+  <section class="main-section">
+    <div class="main-container">
+      <div class="card">
+        <div class="section-header">
+          <h2 class="section-title">유용한 투자 Tip</h2>
+          <button class="view-all-btn">전체보기 ›</button>
+        </div>
+        <div class="tip-cards">
+          <!-- 카드 1 -->
+          <div class="tip-card">
+            <div class="tip-card__thumb">📈</div>
+            <div class="tip-card__body">
+              <div class="tip-card__tag"># HOT ETF</div>
+              <div class="tip-card__title">[KODEX] 한국형 TSLY 월분배 끝판왕!</div>
+            </div>
+          </div>
+          <!-- 카드 2 -->
+          <div class="tip-card">
+            <div class="tip-card__thumb">🌍</div>
+            <div class="tip-card__body">
+              <div class="tip-card__tag"># 시장 전망</div>
+              <div class="tip-card__title">KODEX 미국S&amp;P500배당귀족커버드콜</div>
+            </div>
+          </div>
+          <!-- 카드 3 -->
+          <div class="tip-card">
+            <div class="tip-card__thumb">💡</div>
+            <div class="tip-card__body">
+              <div class="tip-card__tag"># 삼성자산 인사이트</div>
+              <div class="tip-card__title">[KODEX] 연금 투자 바이블 출시</div>
+            </div>
+          </div>
+          <!-- 카드 4 -->
+          <div class="tip-card">
+            <div class="tip-card__thumb">🔍</div>
+            <div class="tip-card__body">
+              <div class="tip-card__tag"># 프리미엄 콘텐츠</div>
+              <div class="tip-card__title">유망한 지역과 산업에 대한 전망</div>
+            </div>
+          </div>
+          <!-- 카드 5 -->
+          <div class="tip-card">
+            <div class="tip-card__thumb">🚀</div>
+            <div class="tip-card__body">
+              <div class="tip-card__tag"># 프리미엄 콘텐츠</div>
+              <div class="tip-card__title">유망한 지역과 산업에 대한 전망</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 하단 여백 (모바일 네비 대응) -->
+  <div style="height:24px;"></div>
+
+  <!-- ===========================
+       8. 하단 고정 네비게이션 (모바일)
+       =========================== -->
+  <nav class="bottom-nav" id="bottomNav">
+    <div class="bottom-nav__inner">
+      <button class="bottom-nav__item bottom-nav__item--active" data-nav="home">
+        <span class="bottom-nav__icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+        </span>
+        홈
+      </button>
+      <button class="bottom-nav__item" data-nav="etf">
+        <span class="bottom-nav__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </span>
+        ETF
+      </button>
+      <button class="bottom-nav__item" data-nav="search">
+        <span class="bottom-nav__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
+          </svg>
+        </span>
+        검색
+      </button>
+      <button class="bottom-nav__item" data-nav="port">
+        <span class="bottom-nav__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M7 16l4-4 4 4 4-6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        포트
+      </button>
+      <button class="bottom-nav__item" data-nav="more">
+        <span class="bottom-nav__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="5" cy="12" r="1.5" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+            <circle cx="19" cy="12" r="1.5" fill="currentColor"/>
+          </svg>
+        </span>
+        더보기
+      </button>
+    </div>
+  </nav>
+
+  <!-- jQuery -->
+  <script src="../../js/lib/jquery-3.7.1.min.js"></script>
+  <!-- 공통 JS -->
+  <script src="../../js/common.js"></script>
+
+  <script>
+    $(function() {
+
+      /* ===========================
+         ECharts 공통 옵션 헬퍼
+         =========================== */
+
+      /**
+       * 미니 스파크라인 데이터 생성 (랜덤)
+       * @param {boolean} isRise - 상승 여부
+       * @returns {number[]}
+       */
+      function genSparkData(isRise) {
+        var base = 100;
+        var data = [];
+        for (var i = 0; i < 20; i++) {
+          base += (Math.random() - (isRise ? 0.4 : 0.6)) * 2;
+          data.push(parseFloat(base.toFixed(2)));
+        }
+        return data;
+      }
+
+      /**
+       * 미니 스파크라인 차트 초기화
+       * @param {string} domId - 컨테이너 ID
+       * @param {boolean} isRise - 상승 여부
+       */
+      function initSparkline(domId, isRise) {
+        var dom = document.getElementById(domId);
+        if (!dom) return;
+        var chart = echarts.init(dom);
+        var color = isRise ? '#0055FF' : '#FF4444';
+        var data = genSparkData(isRise);
+        chart.setOption({
+          grid: { left: 0, right: 0, top: 2, bottom: 2 },
+          xAxis: { type: 'category', show: false },
+          yAxis: { type: 'value', show: false, scale: true },
+          series: [{
+            type: 'line',
+            data: data,
+            smooth: true,
+            symbol: 'none',
+            lineStyle: { color: color, width: 1.5 },
+            areaStyle: {
+              color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+                colorStops: [
+                  { offset: 0, color: color + '33' },
+                  { offset: 1, color: color + '00' }
+                ]
+              }
+            }
+          }],
+          tooltip: { show: false }
+        });
+      }
+
+      /* 선물 지수 스파크라인 초기화 */
+      var futuresRise = [true, false, true, false, true];
+      for (var i = 0; i < 5; i++) {
+        initSparkline('sparkline' + i, futuresRise[i]);
+      }
+
+      /* ETF 테이블 스파크라인 초기화 */
+      var etfRise = [true, false, true, true, false];
+      for (var j = 0; j < 5; j++) {
+        initSparkline('etfSpark' + j, etfRise[j]);
+      }
+
+      /* ===========================
+         조회한 상품 순위 라인 차트
+         =========================== */
+      (function initRankingChart() {
+        var dom = document.getElementById('rankingChart');
+        if (!dom) return;
+        var chart = echarts.init(dom);
+        var xData = ['05.13','05.20','05.27','06.03','06.10','06.14'];
+        var yData = [2712, 2718, 2725, 2720, 2733, 2738];
+        chart.setOption({
+          grid: { left: 40, right: 10, top: 10, bottom: 24 },
+          xAxis: {
+            type: 'category',
+            data: xData,
+            axisLine: { lineStyle: { color: '#E5E8EF' } },
+            axisTick: { show: false },
+            axisLabel: { fontSize: 10, color: '#99A1B1' }
+          },
+          yAxis: {
+            type: 'value',
+            min: 2705,
+            max: 2745,
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#F2F3F8' } },
+            axisLabel: { fontSize: 10, color: '#99A1B1' }
+          },
+          series: [{
+            type: 'line',
+            data: yData,
+            smooth: true,
+            symbol: 'none',
+            lineStyle: { color: '#0055FF', width: 2 },
+            areaStyle: {
+              color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+                colorStops: [
+                  { offset: 0, color: '#0055FF33' },
+                  { offset: 1, color: '#0055FF00' }
+                ]
+              }
+            }
+          }],
+          tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#141924',
+            borderColor: '#141924',
+            textStyle: { color: '#fff', fontSize: 11 }
+          }
+        });
+      })();
+
+      /* ===========================
+         포트 성과 비교 차트
+         =========================== */
+      (function initPortChart() {
+        var dom = document.getElementById('portChart');
+        if (!dom) return;
+        var chart = echarts.init(dom);
+        var xData = ['1월','2월','3월','4월','5월','6월','7월'];
+        chart.setOption({
+          grid: { left: 36, right: 10, top: 10, bottom: 24 },
+          legend: {
+            data: ['내 포트폴리오', '기준지수'],
+            top: 'bottom',
+            textStyle: { fontSize: 10, color: '#99A1B1' },
+            itemWidth: 12, itemHeight: 8
+          },
+          xAxis: {
+            type: 'category',
+            data: xData,
+            axisLine: { lineStyle: { color: '#E5E8EF' } },
+            axisTick: { show: false },
+            axisLabel: { fontSize: 10, color: '#99A1B1' }
+          },
+          yAxis: {
+            type: 'value',
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#F2F3F8' } },
+            axisLabel: { fontSize: 10, color: '#99A1B1', formatter: '{value}%' }
+          },
+          series: [
+            {
+              name: '내 포트폴리오',
+              type: 'line',
+              data: [0, 1.2, 2.8, 2.1, 3.5, 4.2, 4.88],
+              smooth: true,
+              symbol: 'none',
+              lineStyle: { color: '#0055FF', width: 2 }
+            },
+            {
+              name: '기준지수',
+              type: 'line',
+              data: [0, 0.8, 1.5, 1.2, 2.0, 2.5, 3.0],
+              smooth: true,
+              symbol: 'none',
+              lineStyle: { color: '#FF4444', width: 2, type: 'dashed' }
+            }
+          ],
+          tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#141924',
+            borderColor: '#141924',
+            textStyle: { color: '#fff', fontSize: 11 }
+          }
+        });
+      })();
+
+      /* ===========================
+         이달의 ETF 랭킹 비교 차트
+         =========================== */
+      (function initMonthlyChart() {
+        var dom = document.getElementById('monthlyChart');
+        if (!dom) return;
+        var chart = echarts.init(dom);
+        var xData = ['1월','2월','3월','4월','5월','6월','7월'];
+        chart.setOption({
+          grid: { left: 36, right: 10, top: 10, bottom: 24 },
+          legend: {
+            data: ['KODEX 미국반도체MV', 'KODEX S&P500TR'],
+            bottom: 0,
+            textStyle: { fontSize: 9, color: '#99A1B1' },
+            itemWidth: 12, itemHeight: 8
+          },
+          xAxis: {
+            type: 'category',
+            data: xData,
+            axisLine: { lineStyle: { color: '#E5E8EF' } },
+            axisTick: { show: false },
+            axisLabel: { fontSize: 10, color: '#99A1B1' }
+          },
+          yAxis: {
+            type: 'value',
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#F2F3F8' } },
+            axisLabel: { fontSize: 10, color: '#99A1B1', formatter: '{value}%' }
+          },
+          series: [
+            {
+              name: 'KODEX 미국반도체MV',
+              type: 'line',
+              data: [0, 2.5, 5.1, 4.2, 7.8, 10.2, 12.3],
+              smooth: true,
+              symbol: 'none',
+              lineStyle: { color: '#0055FF', width: 2 }
+            },
+            {
+              name: 'KODEX S&P500TR',
+              type: 'line',
+              data: [0, 1.2, 2.8, 3.5, 5.0, 6.8, 8.4],
+              smooth: true,
+              symbol: 'none',
+              lineStyle: { color: '#00B386', width: 2 }
+            }
+          ],
+          tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#141924',
+            borderColor: '#141924',
+            textStyle: { color: '#fff', fontSize: 11 }
+          }
+        });
+      })();
+
+      /* ===========================
+         수익률 간편 찾기 차트
+         =========================== */
+      (function initYieldChart() {
+        var dom = document.getElementById('yieldChart');
+        if (!dom) return;
+        var chart = echarts.init(dom);
+        var xData = ['2021','2022','2023','2024'];
+        chart.setOption({
+          grid: { left: 36, right: 10, top: 10, bottom: 24 },
+          xAxis: {
+            type: 'category',
+            data: xData,
+            axisLine: { lineStyle: { color: '#E5E8EF' } },
+            axisTick: { show: false },
+            axisLabel: { fontSize: 10, color: '#99A1B1' }
+          },
+          yAxis: {
+            type: 'value',
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#F2F3F8' } },
+            axisLabel: { fontSize: 10, color: '#99A1B1', formatter: '{value}%' }
+          },
+          series: [
+            {
+              name: 'KODEX 글로벌로봇(합성)',
+              type: 'line',
+              data: [-5.2, -12.1, 8.4, 3.0],
+              smooth: true,
+              symbol: 'circle',
+              symbolSize: 4,
+              lineStyle: { color: '#0055FF', width: 2 },
+              itemStyle: { color: '#0055FF' }
+            },
+            {
+              name: 'KODEX 배당성장채권혼합',
+              type: 'line',
+              data: [2.1, 1.5, 4.8, 5.0],
+              smooth: true,
+              symbol: 'circle',
+              symbolSize: 4,
+              lineStyle: { color: '#00B386', width: 2 },
+              itemStyle: { color: '#00B386' }
+            },
+            {
+              name: 'KODEX 철강',
+              type: 'line',
+              data: [15.0, -8.0, 12.0, 7.0],
+              smooth: true,
+              symbol: 'circle',
+              symbolSize: 4,
+              lineStyle: { color: '#FFC107', width: 2 },
+              itemStyle: { color: '#FFC107' }
+            }
+          ],
+          tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#141924',
+            borderColor: '#141924',
+            textStyle: { color: '#fff', fontSize: 11 }
+          }
+        });
+      })();
+
+      /* ===========================
+         탭 클릭 이벤트
+         =========================== */
+
+      /* ETF 리스트 탭 */
+      $('#etfListTabs').on('click', '.tab-item', function() {
+        $(this).siblings('.tab-item').removeClass('tab-item--active');
+        $(this).addClass('tab-item--active');
+      });
+
+      /* tab-small 공통 토글 */
+      $(document).on('click', '.tab-small__item', function() {
+        var group = $(this).data('tab-group');
+        if (group) {
+          $('[data-tab-group="' + group + '"]').removeClass('tab-small__item--active');
+        } else {
+          $(this).closest('.tab-small').find('.tab-small__item').removeClass('tab-small__item--active');
+        }
+        $(this).addClass('tab-small__item--active');
+      });
+
+      /* tab-medium 공통 토글 */
+      $(document).on('click', '.tab-medium__item', function() {
+        var group = $(this).data('tab-group');
+        if (group) {
+          $('[data-tab-group="' + group + '"]').removeClass('tab-medium__item--active');
+        } else {
+          $(this).closest('.tab-medium').find('.tab-medium__item').removeClass('tab-medium__item--active');
+        }
+        $(this).addClass('tab-medium__item--active');
+      });
+
+      /* 필터 태그 토글 */
+      $('#filterTags').on('click', '.filter-tag', function() {
+        $('#filterTags .filter-tag').removeClass('filter-tag--active');
+        $(this).addClass('filter-tag--active');
+      });
+
+      /* ===========================
+         하단 네비게이션
+         =========================== */
+      $('#bottomNav').on('click', '.bottom-nav__item', function() {
+        $('#bottomNav .bottom-nav__item').removeClass('bottom-nav__item--active');
+        $(this).addClass('bottom-nav__item--active');
+      });
+
+      /* ===========================
+         반응형 리사이즈 시 ECharts 재조정
+         =========================== */
+      $(window).on('resize', function() {
+        echarts.getInstanceByDom(document.getElementById('rankingChart')) && echarts.getInstanceByDom(document.getElementById('rankingChart')).resize();
+        echarts.getInstanceByDom(document.getElementById('portChart')) && echarts.getInstanceByDom(document.getElementById('portChart')).resize();
+        echarts.getInstanceByDom(document.getElementById('monthlyChart')) && echarts.getInstanceByDom(document.getElementById('monthlyChart')).resize();
+        echarts.getInstanceByDom(document.getElementById('yieldChart')) && echarts.getInstanceByDom(document.getElementById('yieldChart')).resize();
+      });
+
+    });
+  </script>
+</body>
+</html>

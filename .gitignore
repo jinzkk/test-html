@@ -1,0 +1,5 @@
+.mcp.json
+.playwright-mcp/
+.claude/
+*.png
+node_modules/

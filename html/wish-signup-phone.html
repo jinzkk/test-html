@@ -7,161 +7,144 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
   <style>
-    :root {
-      --primary: #1345d1;
-      --primary-light: #e8edfc;
-    }
+    :root { --primary: #1345d1; }
+
+    body { background: #fff; margin: 0; font-family: 'Pretendard', sans-serif; }
 
     .page-header {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 56px; background: #fff;
-      border-bottom: 1px solid #E6E9EF;
-      display: flex; align-items: center; padding: 0 8px 0 4px; z-index: 100;
+      display: flex; align-items: center; padding: 0 20px; z-index: 100;
     }
-    .page-header__back {
-      display: flex; align-items: center; justify-content: center;
-      width: 44px; height: 44px; background: none; border: none; cursor: pointer; color: #232433;
-    }
-    .progress-bar {
-      position: fixed; top: 56px; left: 0;
-      width: 100%; height: 3px; background: #E6E9EF; z-index: 100;
-    }
-    .progress-bar__fill { height: 100%; background: var(--primary); border-radius: 0 2px 2px 0; width: 90%; }
+    .btn-back { width: 24px; height: 24px; background: none; border: none; cursor: pointer; padding: 0; }
 
-    .content-area { padding: 28px 20px 20px; }
-    .content-area__title { font-size: 22px; font-weight: 800; color: #232433; margin-bottom: 28px; line-height: 1.35; }
+    main { padding: 56px 20px 340px; }
+    .page-title { font-size: 24px; font-weight: 700; line-height: 32px; color: #141924; margin: 16px 0 32px; }
 
-    .input-list { display: flex; flex-direction: column; gap: 16px; }
-    .input-item__label { font-size: 12px; font-weight: 600; color: #93959C; margin-bottom: 6px; }
-    .input-item__field {
-      width: 100%; height: 48px; padding: 0 14px;
-      border: 1.5px solid #E6E9EF; border-radius: 4px;
-      font-size: 15px; color: #232433; background: #fff; outline: none; font-family: inherit;
+    .input-group { display: flex; flex-direction: column; gap: 24px; }
+    .input-wrap { display: flex; flex-direction: column; gap: 8px; }
+    .input-label { font-size: 12px; font-weight: 500; color: #141924; line-height: 18px; }
+    .input-field {
+      width: 100%; padding: 12px 16px; border-radius: 4px;
+      font-size: 16px; font-family: 'Pretendard', sans-serif;
+      line-height: 24px; outline: none; box-sizing: border-box; background: #fff;
     }
-    .input-item__field:read-only { background: #F8F9FF; color: #71747C; }
-    .input-item__field--focused { border-color: var(--primary); border-width: 2px; }
-    .input-item__field-wrap { position: relative; }
-    .input-item__field-wrap .input-item__field { padding-right: 40px; }
-    .input-clear {
-      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-      width: 22px; height: 22px; border-radius: 50%; background: #D0D3DC;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; border: none;
+    .input-field--active {
+      border: 1px solid #1345d1; color: #141924; font-weight: 500;
+      display: flex; align-items: center; justify-content: space-between;
     }
+    .input-field--filled { border: 1px solid #b4bbcb; color: #141924; font-weight: 500; }
 
-    /* 숫자 키보드 */
-    .num-keyboard {
-      position: fixed; bottom: 0; left: 0;
-      width: 100%; background: #F4F6FB;
-      border-top: 1px solid #E6E9EF;
-      z-index: 200;
+    .clear-btn {
+      background: none; border: none; cursor: pointer; padding: 0;
+      display: flex; align-items: center;
     }
-    /* 확인 버튼 */
-    .num-keyboard__confirm-bar {
-      padding: 10px 16px 6px;
-    }
-    .btn-full {
-      width: 100%; height: 50px; border: none; border-radius: 8px;
-      background: var(--primary); font-size: 16px; font-weight: 700; color: #fff; cursor: pointer;
-    }
-    .btn-full:disabled { background: #B5B8C0; cursor: default; }
+    .clear-btn svg { width: 20px; height: 20px; }
 
-    .num-keyboard__rows { padding: 4px 4px 12px; }
-    .num-keyboard__row {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 4px;
+    /* 하단 키보드 영역 */
+    .keyboard-area {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: #e6e9ed; z-index: 200;
+      padding: 16px 8px 32px;
+      border-radius: 27px 27px 0 0;
+      box-sizing: border-box;
     }
-    .num-key {
-      height: 54px; border: none; border-radius: 8px;
-      background: #fff; font-size: 20px; font-weight: 600; color: #232433;
-      cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.08);
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.1s;
+    .verify-btn {
+      width: 100%; height: 52px; background: #1345d1; border: none; border-radius: 8px;
+      font-size: 18px; font-weight: 500; color: #fff; cursor: pointer;
+      margin-bottom: 8px; font-family: 'Pretendard', sans-serif;
     }
-    .num-key:active { background: #E6E9EF; }
-    .num-key--empty { background: transparent; box-shadow: none; cursor: default; }
-    .num-key--del { background: #E6E9EF; font-size: 16px; }
-    .num-key--del:active { background: #D0D3DC; }
+    .verify-btn:disabled { background: #b4bbcb; }
+
+    .keyboard-rows { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
+    .keyboard-row { display: flex; gap: 6px; }
+    .key {
+      flex: 1; height: 50px; background: rgba(255,255,255,0.8); border: none;
+      border-radius: 8.5px; font-size: 23px; color: #141924;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-family: -apple-system, sans-serif;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+    .key:active { background: #c7c7cc; }
+    .key--empty { background: transparent; box-shadow: none; cursor: default; }
+    .key--del { background: rgba(255,255,255,0.5); }
   </style>
 </head>
 <body>
   <header class="page-header">
-    <button class="page-header__back" onclick="history.back()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="15 18 9 12 15 6"/>
+    <button class="btn-back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="#141924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
   </header>
-  <div class="progress-bar"><div class="progress-bar__fill"></div></div>
 
-  <main style="padding-bottom: 280px;">
-    <div class="content-area">
-      <h2 class="content-area__title">휴대폰 번호를<br>알려주세요</h2>
-      <div class="input-list">
-        <div class="input-item">
-          <div class="input-item__label">이름</div>
-          <input class="input-item__field" type="text" value="김한투" readonly>
+  <main>
+    <h1 class="page-title">휴대폰 번호를 알려주세요</h1>
+    <div class="input-group">
+      <!-- 현재 입력: 휴대폰 번호 (포커스, 상단) -->
+      <div class="input-wrap">
+        <div class="input-label">휴대폰 번호</div>
+        <div class="input-field input-field--active">
+          <span id="phoneDisplay" style="flex:1; color:#b4bbcb; font-weight:400;">01012341234</span>
+          <button class="clear-btn" id="clearBtn" onclick="clearPhone()">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#b4bbcb"/>
+              <path d="M9 9L15 15M15 9L9 15" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
         </div>
-        <div class="input-item">
-          <div class="input-item__label">생년월일</div>
-          <input class="input-item__field" type="text" value="1990.01.01" readonly>
-        </div>
-        <div class="input-item">
-          <div class="input-item__label">성별</div>
-          <input class="input-item__field" type="text" value="여성" readonly>
-        </div>
-        <div class="input-item">
-          <div class="input-item__label">국적</div>
-          <input class="input-item__field" type="text" value="예 (대한민국)" readonly>
-        </div>
-        <div class="input-item">
-          <div class="input-item__label">통신사</div>
-          <input class="input-item__field" type="text" value="SKT" readonly>
-        </div>
-        <!-- 휴대폰 번호 (포커스 + X버튼) -->
-        <div class="input-item">
-          <div class="input-item__label">휴대폰 번호</div>
-          <div class="input-item__field-wrap">
-            <input class="input-item__field input-item__field--focused"
-              type="text" id="phoneInput" placeholder="숫자만 입력" readonly>
-            <button class="input-clear" id="clearBtn" onclick="clearPhone()" style="display:none;">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
-                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>
-          </div>
-        </div>
+      </div>
+      <!-- 이전 입력된 필드들 -->
+      <div class="input-wrap">
+        <div class="input-label">통신사</div>
+        <div class="input-field input-field--filled">SKT</div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">국적</div>
+        <div class="input-field input-field--filled">대한민국</div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">성별</div>
+        <div class="input-field input-field--filled">남성</div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">생년월일</div>
+        <div class="input-field input-field--filled">1999년 1월 23일</div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">이름</div>
+        <div class="input-field input-field--filled">김한투</div>
       </div>
     </div>
   </main>
 
-  <!-- 숫자 키보드 -->
-  <div class="num-keyboard" id="numKeyboard">
-    <div class="num-keyboard__confirm-bar">
-      <button class="btn-full" id="verifyBtn" disabled>본인 인증하기</button>
-    </div>
-    <div class="num-keyboard__rows">
-      <div class="num-keyboard__row">
-        <button class="num-key" onclick="pressKey('1')">1</button>
-        <button class="num-key" onclick="pressKey('2')">2</button>
-        <button class="num-key" onclick="pressKey('3')">3</button>
+  <!-- 하단 키보드 -->
+  <div class="keyboard-area">
+    <button class="verify-btn" id="verifyBtn">본인 인증하기</button>
+    <div class="keyboard-rows">
+      <div class="keyboard-row">
+        <button class="key" onclick="pressKey('1')">1</button>
+        <button class="key" onclick="pressKey('2')">2</button>
+        <button class="key" onclick="pressKey('3')">3</button>
       </div>
-      <div class="num-keyboard__row">
-        <button class="num-key" onclick="pressKey('4')">4</button>
-        <button class="num-key" onclick="pressKey('5')">5</button>
-        <button class="num-key" onclick="pressKey('6')">6</button>
+      <div class="keyboard-row">
+        <button class="key" onclick="pressKey('4')">4</button>
+        <button class="key" onclick="pressKey('5')">5</button>
+        <button class="key" onclick="pressKey('6')">6</button>
       </div>
-      <div class="num-keyboard__row">
-        <button class="num-key" onclick="pressKey('7')">7</button>
-        <button class="num-key" onclick="pressKey('8')">8</button>
-        <button class="num-key" onclick="pressKey('9')">9</button>
+      <div class="keyboard-row">
+        <button class="key" onclick="pressKey('7')">7</button>
+        <button class="key" onclick="pressKey('8')">8</button>
+        <button class="key" onclick="pressKey('9')">9</button>
       </div>
-      <div class="num-keyboard__row">
-        <button class="num-key num-key--empty"></button>
-        <button class="num-key" onclick="pressKey('0')">0</button>
-        <button class="num-key num-key--del" onclick="pressDelete()">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
-            <line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/>
+      <div class="keyboard-row">
+        <button class="key key--empty"></button>
+        <button class="key" onclick="pressKey('0')">0</button>
+        <button class="key key--del" onclick="pressDelete()">
+          <svg width="22" height="16" viewBox="0 0 24 18" fill="none">
+            <path d="M9 1H22C22.5523 1 23 1.44772 23 2V16C23 16.5523 22.5523 17 22 17H9L1 9L9 1Z" stroke="#595959" stroke-width="1.5"/>
+            <path d="M13 6L19 12M19 6L13 12" stroke="#595959" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </button>
       </div>
@@ -171,28 +154,22 @@
   <script src="../js/lib/jquery-3.7.1.min.js"></script>
   <script src="../js/common.js"></script>
   <script>
-    var phoneVal = '';
+    var phoneVal = '01012341234';
 
-    /* 전화번호 포맷 */
     function formatPhone(num) {
-      num = num.replace(/\D/g, '');
       if (num.length <= 3) return num;
-      if (num.length <= 7) return num.slice(0, 3) + '-' + num.slice(3);
-      return num.slice(0, 3) + '-' + num.slice(3, 7) + '-' + num.slice(7, 11);
+      if (num.length <= 7) return num.slice(0,3) + '-' + num.slice(3);
+      return num.slice(0,3) + '-' + num.slice(3,7) + '-' + num.slice(7,11);
     }
 
     function updateDisplay() {
-      $('#phoneInput').val(formatPhone(phoneVal));
+      var $disp = $('#phoneDisplay');
       if (phoneVal.length > 0) {
+        $disp.text(phoneVal).css('color', '#141924');
         $('#clearBtn').show();
       } else {
+        $disp.text('01012341234').css('color', '#b4bbcb');
         $('#clearBtn').hide();
-      }
-      /* 11자리 이상이면 인증 버튼 활성화 */
-      if (phoneVal.length >= 10) {
-        $('#verifyBtn').prop('disabled', false);
-      } else {
-        $('#verifyBtn').prop('disabled', true);
       }
     }
 
@@ -211,6 +188,9 @@
       phoneVal = '';
       updateDisplay();
     }
+
+    // 초기 상태 (이미 번호 있음)
+    updateDisplay();
   </script>
 </body>
 </html>

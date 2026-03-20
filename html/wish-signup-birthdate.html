@@ -7,231 +7,252 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
   <style>
-    :root {
-      --primary: #1345d1;
-      --primary-light: #e8edfc;
-    }
+    :root { --primary: #1345d1; }
+
+    body { background: #fff; margin: 0; font-family: 'Pretendard', sans-serif; }
 
     .page-header {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 56px;
-      background: #fff;
-      border-bottom: 1px solid #E6E9EF;
-      display: flex; align-items: center;
-      padding: 0 8px 0 4px;
-      z-index: 100;
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 56px; background: #fff;
+      display: flex; align-items: center; padding: 0 20px; z-index: 100;
     }
-    .page-header__back {
-      display: flex; align-items: center; justify-content: center;
-      width: 44px; height: 44px;
-      background: none; border: none; cursor: pointer; color: #232433;
+    .btn-back { background: none; border: none; cursor: pointer; padding: 0; }
+
+    main { padding: 56px 20px 20px; }
+    .page-title { font-size: 24px; font-weight: 700; line-height: 32px; color: #141924; margin: 16px 0 32px; }
+
+    .input-group { display: flex; flex-direction: column; gap: 24px; }
+    .input-wrap { display: flex; flex-direction: column; gap: 8px; }
+    .input-label { font-size: 12px; font-weight: 500; color: #141924; line-height: 18px; }
+    .input-field--filled {
+      width: 100%; padding: 12px 16px; border: 1px solid #b4bbcb; border-radius: 4px;
+      font-size: 16px; font-weight: 500; color: #141924; line-height: 24px;
+      box-sizing: border-box; background: #fff;
     }
 
-    /* 진행 바 */
-    .progress-bar {
-      position: fixed; top: 56px; left: 0;
-      width: 100%; height: 3px; background: #E6E9EF; z-index: 100;
+    /* 오버레이 */
+    .overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 300;
     }
-    .progress-bar__fill {
-      height: 100%; background: var(--primary);
-      border-radius: 0 2px 2px 0; width: 40%;
-    }
+    .overlay.is-open { display: block; }
 
-    /* 콘텐츠 */
-    .content-area { padding: 28px 20px 20px; }
-    .content-area__title { font-size: 22px; font-weight: 800; color: #232433; margin-bottom: 28px; line-height: 1.35; }
+    /* 롤러 패널 */
+    .roller-panel {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: #fff; border-radius: 27px 27px 0 0; z-index: 400;
+      padding: 24px 16px 32px; box-sizing: border-box;
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .roller-panel.is-open { transform: translateY(0); }
 
-    /* 입력 필드 */
-    .input-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 0; }
-    .input-item {}
-    .input-item__label { font-size: 12px; font-weight: 600; color: #93959C; margin-bottom: 6px; }
-    .input-item__field {
-      width: 100%; height: 48px;
-      padding: 0 14px;
-      border: 1.5px solid #E6E9EF;
-      border-radius: 4px;
-      font-size: 15px; color: #232433; background: #fff;
-      outline: none;
-      font-family: inherit;
-    }
-    .input-item__field:read-only { background: #F8F9FF; color: #71747C; }
-    .input-item__field--focused {
-      border-color: var(--primary);
-      border-width: 2px;
-    }
-
-    /* 날짜 롤러 키보드 */
-    .date-roller {
-      position: fixed;
-      bottom: 0; left: 0;
-      width: 100%;
-      background: #F4F6FB;
-      border-top: 1px solid #E6E9EF;
-      z-index: 200;
-    }
-    .date-roller__header {
-      display: flex;
-      justify-content: flex-end;
-      padding: 10px 16px 6px;
-    }
-    .date-roller__done {
-      font-size: 14px; font-weight: 700; color: var(--primary);
-      background: none; border: none; cursor: pointer;
-    }
-    .date-roller__columns {
-      display: flex;
-      height: 200px;
+    /* 롤러 */
+    .roller-container {
+      display: flex; position: relative; margin-bottom: 16px; height: 176px;
       overflow: hidden;
-      position: relative;
     }
-    .date-roller__column {
-      flex: 1;
-      overflow-y: auto;
-      scrollbar-width: none;
-      scroll-snap-type: y mandatory;
-      padding: 80px 0;
+    .roller-highlight {
+      position: absolute; left: 0; right: 0; height: 48px;
+      background: #f2f3f8; border-radius: 8px;
+      top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1;
     }
-    .date-roller__column::-webkit-scrollbar { display: none; }
-    .date-roller__item {
-      height: 40px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; color: #B5B8C0;
-      scroll-snap-align: center;
-      cursor: pointer;
+    /* 위아래 페이드 */
+    .roller-container::before,
+    .roller-container::after {
+      content: ''; position: absolute; left: 0; right: 0; height: 35%; z-index: 3; pointer-events: none;
     }
-    .date-roller__item--selected {
-      font-size: 18px; font-weight: 700; color: #232433;
+    .roller-container::before {
+      top: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.95), transparent);
     }
-    .date-roller__highlight {
-      position: absolute;
-      top: 50%; left: 0; right: 0;
-      height: 40px;
-      transform: translateY(-50%);
-      background: rgba(19,69,209,0.07);
-      border-top: 1px solid var(--primary);
-      border-bottom: 1px solid var(--primary);
-      pointer-events: none;
+    .roller-container::after {
+      bottom: 0; background: linear-gradient(to top, rgba(255,255,255,0.95), transparent);
     }
-    .date-roller__divider {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex; align-items: center; gap: 60px;
-      pointer-events: none;
+
+    .roller-col {
+      flex: 1; overflow: hidden; position: relative;
+      display: flex; flex-direction: column; align-items: center;
     }
-    .date-roller__label {
-      font-size: 13px; font-weight: 600; color: #71747C;
+    .roller-col-inner {
+      display: flex; flex-direction: column; align-items: center;
+      transition: transform 0.15s ease;
+    }
+    .roller-item {
+      height: 32px; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: #8a949e; line-height: 24px; width: 100%;
+      text-align: center;
+    }
+    .roller-item.is-sel {
+      height: 48px; font-size: 24px; font-weight: 500; color: #1e2124;
+    }
+
+    .btn-next {
+      width: 100%; height: 52px; background: #1345d1; border: none; border-radius: 8px;
+      font-size: 18px; font-weight: 500; color: #fff; cursor: pointer;
+      font-family: 'Pretendard', sans-serif;
     }
   </style>
 </head>
 <body>
   <header class="page-header">
-    <button class="page-header__back" onclick="history.back()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="15 18 9 12 15 6"/>
+    <button class="btn-back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="#141924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
   </header>
-  <div class="progress-bar"><div class="progress-bar__fill"></div></div>
 
-  <main style="padding-bottom: 260px;">
-    <div class="content-area">
-      <h2 class="content-area__title">생년월일을<br>알려주세요</h2>
-
-      <div class="input-list">
-        <!-- 이름 (읽기전용) -->
-        <div class="input-item">
-          <div class="input-item__label">이름</div>
-          <input class="input-item__field" type="text" value="김한투" readonly>
-        </div>
-        <!-- 생년월일 (포커스) -->
-        <div class="input-item">
-          <div class="input-item__label">생년월일</div>
-          <input class="input-item__field input-item__field--focused" type="text"
-            id="birthdateInput" placeholder="YYYY.MM.DD" readonly>
-        </div>
+  <main>
+    <h1 class="page-title">생년월일을 알려주세요</h1>
+    <div class="input-group">
+      <!-- 현재 입력: 생년월일 -->
+      <div class="input-wrap">
+        <div class="input-label">생년월일</div>
+        <button id="bdBtn" onclick="openRoller()"
+          style="width:100%; padding:12px 16px; border:1px solid #e5e8ef; border-radius:4px;
+                 font-size:16px; font-family:Pretendard,sans-serif; color:#b4bbcb;
+                 line-height:24px; background:#fff; text-align:left; cursor:pointer; box-sizing:border-box;">
+          <span id="bdDisplay">생년월일</span>
+        </button>
+      </div>
+      <!-- 이전 입력: 이름 -->
+      <div class="input-wrap">
+        <div class="input-label">이름</div>
+        <div class="input-field--filled">김한투</div>
       </div>
     </div>
   </main>
 
-  <!-- 날짜 롤러 키보드 -->
-  <div class="date-roller" id="dateRoller">
-    <div class="date-roller__header">
-      <button class="date-roller__done" id="rollerDone">확인</button>
+  <div class="overlay" id="overlay" onclick="closeRoller()"></div>
+
+  <!-- 롤러 패널 -->
+  <div class="roller-panel" id="rollerPanel">
+    <div class="roller-container">
+      <div class="roller-highlight"></div>
+      <div class="roller-col" id="colYear"><div class="roller-col-inner" id="innerYear"></div></div>
+      <div class="roller-col" id="colMonth"><div class="roller-col-inner" id="innerMonth"></div></div>
+      <div class="roller-col" id="colDay"><div class="roller-col-inner" id="innerDay"></div></div>
     </div>
-    <div class="date-roller__columns">
-      <div class="date-roller__highlight"></div>
-      <!-- 년 -->
-      <div class="date-roller__column" id="yearCol"></div>
-      <!-- 월 -->
-      <div class="date-roller__column" id="monthCol"></div>
-      <!-- 일 -->
-      <div class="date-roller__column" id="dayCol"></div>
-    </div>
+    <button class="btn-next" onclick="confirmDate()">다음</button>
   </div>
 
   <script src="../js/lib/jquery-3.7.1.min.js"></script>
   <script src="../js/common.js"></script>
   <script>
-    var selectedYear = 1990, selectedMonth = 1, selectedDay = 1;
+    var selY = 1999, selM = 1, selD = 23;
+    var yearList = [], monthList = [], dayList = [];
 
-    /* 년 생성 (1940~2010) */
-    var yearHtml = '';
-    for (var y = 1940; y <= 2010; y++) {
-      var cls = y === 1990 ? ' date-roller__item--selected' : '';
-      yearHtml += '<div class="date-roller__item' + cls + '" data-val="' + y + '">' + y + '년</div>';
+    for (var y = 1940; y <= 2010; y++) yearList.push(y);
+    for (var m = 1; m <= 12; m++) monthList.push(m);
+
+    function buildDays() {
+      dayList = [];
+      var max = new Date(selY, selM, 0).getDate();
+      for (var d = 1; d <= max; d++) dayList.push(d);
+      if (selD > max) selD = max;
     }
-    $('#yearCol').html(yearHtml);
 
-    /* 월 생성 */
-    var monthHtml = '';
-    for (var m = 1; m <= 12; m++) {
-      var cls = m === 1 ? ' date-roller__item--selected' : '';
-      monthHtml += '<div class="date-roller__item' + cls + '" data-val="' + m + '">' + m + '월</div>';
+    var ITEM_H = 32, SEL_H = 48, COL_H = 176;
+
+    function renderCol(innerId, list, selected) {
+      var $inner = $('#' + innerId);
+      $inner.empty();
+      list.forEach(function(v) {
+        var cls = (v === selected) ? 'roller-item is-sel' : 'roller-item';
+        $inner.append('<div class="' + cls + '">' + v + '</div>');
+      });
+      // 상하 패딩 (선택 항목이 가운데 오도록)
+      var topPad = (COL_H / 2) - (SEL_H / 2);
+      $inner.css('padding-top', topPad + 'px').css('padding-bottom', topPad + 'px');
+      // 위치 조정
+      var selIdx = list.indexOf(selected);
+      var offset = -(selIdx * ITEM_H);
+      $inner.css('transform', 'translateY(' + offset + 'px)');
     }
-    $('#monthCol').html(monthHtml);
 
-    /* 일 생성 */
-    function buildDays(month, year) {
-      var days = new Date(year, month, 0).getDate();
-      var html = '';
-      for (var d = 1; d <= days; d++) {
-        var cls = d === selectedDay ? ' date-roller__item--selected' : '';
-        html += '<div class="date-roller__item' + cls + '" data-val="' + d + '">' + d + '일</div>';
+    function setupCol(colId, innerId, list, getSelected, setSelected, callback) {
+      var $col = $('#' + colId);
+      var $inner = $('#' + innerId);
+      var startY, startOffset;
+
+      function getTranslate() {
+        var mat = $inner.css('transform');
+        if (!mat || mat === 'none') return 0;
+        var m = mat.match(/translateY\(([-\d.]+)px\)/);
+        if (m) return parseFloat(m[1]);
+        var arr = mat.match(/matrix\([^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^)]+)\)/);
+        return arr ? parseFloat(arr[1]) : 0;
       }
-      $('#dayCol').html(html);
-    }
-    buildDays(selectedMonth, selectedYear);
 
-    /* 초기 스크롤 위치 */
-    function scrollToSelected($col) {
-      var $sel = $col.find('.date-roller__item--selected');
-      if ($sel.length) {
-        var itemH = 40;
-        var idx = $sel.index();
-        $col[0].scrollTop = idx * itemH;
+      function snap(offset) {
+        var idx = Math.round(-offset / ITEM_H);
+        idx = Math.max(0, Math.min(list.length - 1, idx));
+        setSelected(list[idx]);
+        if (callback) callback();
+        renderCol(innerId, list, list[idx]);
+        setupCol(colId, innerId, list, getSelected, setSelected, callback);
       }
+
+      $col.off('touchstart mousedown').on('touchstart', function(e) {
+        startY = e.originalEvent.touches[0].clientY;
+        startOffset = getTranslate();
+        $inner.css('transition', 'none');
+      }).on('touchmove', function(e) {
+        e.preventDefault();
+        var dy = e.originalEvent.touches[0].clientY - startY;
+        $inner.css('transform', 'translateY(' + (startOffset + dy) + 'px)');
+      }).on('touchend', function() {
+        snap(getTranslate());
+      });
+
+      $col.on('mousedown', function(e) {
+        startY = e.clientY; startOffset = getTranslate();
+        $inner.css('transition', 'none');
+        $(document).on('mousemove.rc', function(ev) {
+          var dy = ev.clientY - startY;
+          $inner.css('transform', 'translateY(' + (startOffset + dy) + 'px)');
+        }).on('mouseup.rc', function() {
+          snap(getTranslate());
+          $(document).off('mousemove.rc mouseup.rc');
+        });
+      });
     }
-    scrollToSelected($('#yearCol'));
 
-    /* 항목 클릭 선택 */
-    $(document).on('click', '.date-roller__item', function() {
-      var $col = $(this).closest('.date-roller__column');
-      $col.find('.date-roller__item--selected').removeClass('date-roller__item--selected');
-      $(this).addClass('date-roller__item--selected');
-      var val = parseInt($(this).data('val'));
-      if ($col.attr('id') === 'yearCol') selectedYear = val;
-      if ($col.attr('id') === 'monthCol') { selectedMonth = val; buildDays(selectedMonth, selectedYear); }
-      if ($col.attr('id') === 'dayCol') selectedDay = val;
-    });
+    function initRoller() {
+      buildDays();
+      renderCol('innerYear', yearList, selY);
+      renderCol('innerMonth', monthList, selM);
+      renderCol('innerDay', dayList, selD);
 
-    /* 확인 버튼 */
-    $('#rollerDone').on('click', function() {
-      var mm = String(selectedMonth).padStart(2, '0');
-      var dd = String(selectedDay).padStart(2, '0');
-      $('#birthdateInput').val(selectedYear + '.' + mm + '.' + dd);
-    });
+      setupCol('colYear', 'innerYear', yearList, function() { return selY; }, function(v) { selY = v; }, function() {
+        buildDays();
+        renderCol('innerDay', dayList, selD);
+        setupCol('colDay', 'innerDay', dayList, function() { return selD; }, function(v) { selD = v; }, null);
+      });
+      setupCol('colMonth', 'innerMonth', monthList, function() { return selM; }, function(v) { selM = v; }, function() {
+        buildDays();
+        renderCol('innerDay', dayList, selD);
+        setupCol('colDay', 'innerDay', dayList, function() { return selD; }, function(v) { selD = v; }, null);
+      });
+      setupCol('colDay', 'innerDay', dayList, function() { return selD; }, function(v) { selD = v; }, null);
+    }
+
+    function openRoller() {
+      $('#overlay').addClass('is-open');
+      $('#rollerPanel').addClass('is-open');
+      initRoller();
+    }
+
+    function closeRoller() {
+      $('#overlay').removeClass('is-open');
+      $('#rollerPanel').removeClass('is-open');
+    }
+
+    function confirmDate() {
+      var text = selY + '년 ' + selM + '월 ' + selD + '일';
+      $('#bdDisplay').text(text);
+      $('#bdBtn').css({ 'border-color': '#b4bbcb', 'color': '#141924' });
+      closeRoller();
+    }
   </script>
 </body>
 </html>

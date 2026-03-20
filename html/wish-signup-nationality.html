@@ -7,138 +7,114 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
   <style>
-    :root {
-      --primary: #1345d1;
-      --primary-light: #e8edfc;
-    }
+    :root { --primary: #1345d1; }
+
+    body { background: #fff; margin: 0; font-family: 'Pretendard', sans-serif; }
 
     .page-header {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 56px; background: #fff;
-      border-bottom: 1px solid #E6E9EF;
-      display: flex; align-items: center; padding: 0 8px 0 4px; z-index: 100;
+      display: flex; align-items: center; padding: 0 20px; z-index: 100;
     }
-    .page-header__back {
-      display: flex; align-items: center; justify-content: center;
-      width: 44px; height: 44px; background: none; border: none; cursor: pointer; color: #232433;
-    }
-    .progress-bar {
-      position: fixed; top: 56px; left: 0;
-      width: 100%; height: 3px; background: #E6E9EF; z-index: 100;
-    }
-    .progress-bar__fill { height: 100%; background: var(--primary); border-radius: 0 2px 2px 0; width: 65%; }
-
-    .content-area { padding: 28px 20px 20px; }
-    .content-area__title { font-size: 22px; font-weight: 800; color: #232433; margin-bottom: 28px; line-height: 1.35; }
-
-    .input-list { display: flex; flex-direction: column; gap: 16px; }
-    .input-item__label { font-size: 12px; font-weight: 600; color: #93959C; margin-bottom: 6px; }
-    .input-item__field {
-      width: 100%; height: 48px; padding: 0 14px;
-      border: 1.5px solid #E6E9EF; border-radius: 4px;
-      font-size: 15px; color: #232433; background: #fff; outline: none; font-family: inherit;
-    }
-    .input-item__field:read-only { background: #F8F9FF; color: #71747C; }
-    .input-item__field--focused { border-color: var(--primary); border-width: 2px; }
-    .input-item__field-wrap { position: relative; }
-    .input-item__field-wrap .input-item__field { padding-right: 40px; }
-    .input-item__chevron {
-      position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #93959C; pointer-events: none;
+    .btn-back {
+      width: 24px; height: 24px; background: none; border: none; cursor: pointer; padding: 0;
     }
 
-    .bottom-sheet-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 300; display: none;
+    main { padding: 56px 20px 20px; }
+    .page-title {
+      font-size: 24px; font-weight: 700; line-height: 32px;
+      color: #141924; margin: 16px 0 32px;
     }
-    .bottom-sheet-overlay.is-open { display: block; }
+
+    .input-group { display: flex; flex-direction: column; gap: 24px; }
+    .input-wrap { display: flex; flex-direction: column; gap: 8px; }
+    .input-label { font-size: 12px; font-weight: 500; color: #141924; line-height: 18px; }
+    .input-field {
+      width: 100%; padding: 12px 16px; border-radius: 4px;
+      font-size: 16px; font-family: 'Pretendard', sans-serif;
+      line-height: 24px; outline: none; box-sizing: border-box; background: #fff;
+    }
+    .input-field--active { border: 1px solid #e5e8ef; color: #b4bbcb; }
+    .input-field--filled { border: 1px solid #b4bbcb; color: #141924; font-weight: 500; }
+
+    .overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 300;
+    }
+    .overlay.is-open { display: block; }
 
     .bottom-sheet {
       position: fixed; bottom: 0; left: 0; width: 100%;
-      background: #fff; border-radius: 20px 20px 0 0; z-index: 400;
-      padding-bottom: 24px;
-      transform: translateY(100%); transition: transform 0.3s ease;
+      background: #fff; border-radius: 27px 27px 0 0; z-index: 400;
+      padding: 24px 20px 40px; transform: translateY(100%);
+      transition: transform 0.3s ease; box-sizing: border-box;
     }
     .bottom-sheet.is-open { transform: translateY(0); }
-    .bottom-sheet__handle {
-      width: 36px; height: 4px; background: #D0D3DC; border-radius: 2px; margin: 12px auto 20px;
-    }
-    .bottom-sheet__title {
-      padding: 0 20px 14px; font-size: 16px; font-weight: 700; color: #232433;
-      border-bottom: 1px solid #F4F6FB;
-    }
-    .bottom-sheet__options { padding: 8px 0; }
-    .bottom-sheet__option {
+    .sheet-title { font-size: 18px; font-weight: 700; color: #1e2124; margin: 0 0 24px; line-height: 24px; }
+    .sheet-option {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 20px; font-size: 16px; color: #232433; cursor: pointer;
-      background: none; border: none; width: 100%; text-align: left;
+      padding: 12px 0; width: 100%; background: none; border: none;
+      cursor: pointer; font-size: 18px; font-family: 'Pretendard', sans-serif;
+      color: #1e2124; line-height: 24px; text-align: left;
     }
-    .bottom-sheet__option:hover { background: #F8F9FF; }
-    .bottom-sheet__option--selected { color: var(--primary); font-weight: 700; }
-    .bottom-sheet__check { color: var(--primary); }
+    .sheet-check { display: none; }
+    .sheet-check.visible { display: block; }
   </style>
 </head>
 <body>
   <header class="page-header">
-    <button class="page-header__back" onclick="history.back()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="15 18 9 12 15 6"/>
+    <button class="btn-back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="#141924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
   </header>
-  <div class="progress-bar"><div class="progress-bar__fill"></div></div>
 
-  <main style="padding-bottom: 20px;">
-    <div class="content-area">
-      <h2 class="content-area__title">대한민국 국적을<br>갖고 있나요?</h2>
-      <div class="input-list">
-        <div class="input-item">
-          <div class="input-item__label">이름</div>
-          <input class="input-item__field" type="text" value="김한투" readonly>
-        </div>
-        <div class="input-item">
-          <div class="input-item__label">생년월일</div>
-          <input class="input-item__field" type="text" value="1990.01.01" readonly>
-        </div>
-        <div class="input-item">
-          <div class="input-item__label">성별</div>
-          <input class="input-item__field" type="text" value="여성" readonly>
-        </div>
-        <div class="input-item">
-          <div class="input-item__label">국적</div>
-          <div class="input-item__field-wrap">
-            <div class="input-item__field input-item__field--focused"
-              style="cursor:pointer; line-height:48px; display:flex; align-items:center;" onclick="openSheet()">
-              <span id="nationalityDisplay" style="color:#B5B8C0;">선택하세요</span>
-            </div>
-            <span class="input-item__chevron">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </span>
-          </div>
-        </div>
+  <main>
+    <h1 class="page-title">대한민국 국적을<br>갖고 있나요?</h1>
+    <div class="input-group">
+      <!-- 현재 입력: 국적 (포커스, 상단) -->
+      <div class="input-wrap">
+        <div class="input-label">국적</div>
+        <button id="nationalityBtn" onclick="openSheet()"
+          style="width:100%; padding:12px 16px; border:1px solid #e5e8ef; border-radius:4px;
+                 font-size:16px; font-family:Pretendard,sans-serif; color:#b4bbcb;
+                 line-height:24px; background:#fff; text-align:left; cursor:pointer; box-sizing:border-box;">
+          <span id="nationalityDisplay">국적</span>
+        </button>
+      </div>
+      <!-- 이전 입력된 필드들 -->
+      <div class="input-wrap">
+        <div class="input-label">성별</div>
+        <div class="input-field input-field--filled">남성</div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">생년월일</div>
+        <div class="input-field input-field--filled">1999년 1월 23일</div>
+      </div>
+      <div class="input-wrap">
+        <div class="input-label">이름</div>
+        <div class="input-field input-field--filled">김한투</div>
       </div>
     </div>
   </main>
 
-  <div class="bottom-sheet-overlay" id="overlay" onclick="closeSheet()"></div>
+  <div class="overlay" id="overlay" onclick="closeSheet()"></div>
 
   <div class="bottom-sheet" id="sheet">
-    <div class="bottom-sheet__handle"></div>
-    <div class="bottom-sheet__title">대한민국 국적이 있으신가요?</div>
-    <div class="bottom-sheet__options">
-      <button class="bottom-sheet__option" data-val="예" onclick="selectOption(this)">
-        <span>예</span>
-        <svg class="bottom-sheet__check" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
-      </button>
-      <button class="bottom-sheet__option" data-val="아니요" onclick="selectOption(this)">
-        <span>아니요</span>
-        <svg class="bottom-sheet__check" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
-      </button>
-    </div>
+    <p class="sheet-title">대한민국 국적을 갖고 있나요?</p>
+    <button class="sheet-option" onclick="selectOption('예')">
+      <span>예</span>
+      <svg class="sheet-check" id="check-yes" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12L10 17L19 7" stroke="#1345d1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="sheet-option" onclick="selectOption('아니요')">
+      <span>아니요</span>
+      <svg class="sheet-check" id="check-no" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12L10 17L19 7" stroke="#1345d1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
   <script src="../js/lib/jquery-3.7.1.min.js"></script>
@@ -152,13 +128,12 @@
       $('#overlay').removeClass('is-open');
       $('#sheet').removeClass('is-open');
     }
-    function selectOption(el) {
-      var val = $(el).data('val');
-      $('.bottom-sheet__option').removeClass('bottom-sheet__option--selected');
-      $('.bottom-sheet__check').hide();
-      $(el).addClass('bottom-sheet__option--selected');
-      $(el).find('.bottom-sheet__check').show();
-      $('#nationalityDisplay').text(val).css('color', '#232433');
+    function selectOption(val) {
+      $('.sheet-check').removeClass('visible');
+      if (val === '예') $('#check-yes').addClass('visible');
+      else $('#check-no').addClass('visible');
+      $('#nationalityDisplay').text(val);
+      $('#nationalityBtn').css({ 'border-color': '#b4bbcb', 'color': '#141924' });
       setTimeout(closeSheet, 200);
     }
   </script>

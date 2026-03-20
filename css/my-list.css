@@ -1,0 +1,317 @@
+/* ===========================
+   My List 페이지 전용 스타일
+   =========================== */
+
+/* 폰트 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
+/* 공통 리셋 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: #fff;
+  font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif;
+  color: #232433;
+  margin: 0;
+  padding: 0;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===========================
+   색상 유틸
+   =========================== */
+.color-rise { color: #F14E4E; }
+.color-fall { color: #336AFF; }
+
+/* ===========================
+   SVG 아이콘 유틸
+   =========================== */
+.icon-arrow-up {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 5px solid #F14E4E;
+  margin-right: 2px;
+}
+
+.icon-arrow-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #336AFF;
+  margin-right: 2px;
+}
+
+/* ===========================
+   My List 섹션
+   =========================== */
+.my-list-section {
+  padding: 0 20px 24px;
+}
+
+/* 타이틀 영역 */
+.my-list-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0 16px;
+}
+
+.my-list-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #232433;
+  line-height: 1.5;
+}
+
+/* 설정 버튼 */
+.btn-setting {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #F0F2F6;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 10px 8px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #494B55;
+  cursor: pointer;
+  height: 32px;
+}
+
+.btn-setting svg { width: 20px; height: 20px; }
+
+/* ===========================
+   아코디언 그룹
+   =========================== */
+.my-list-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 아코디언 카드 */
+.accordion {
+  border: 1px solid #D9DDEE;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: #F3F4F7;
+}
+
+.accordion--collapsed {
+  box-shadow: none;
+  border-color: #E7E8EF;
+}
+
+/* 아코디언 헤더 */
+.accordion__header {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 56px;
+  background: #F0F2F8;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.accordion--collapsed .accordion__header {
+  background: #F3F4F7;
+  border-radius: 6px;
+}
+
+.accordion__title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: #232433;
+  line-height: 1.4;
+}
+
+.accordion__arrow {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.accordion--collapsed .accordion__arrow {
+  transform: rotate(180deg);
+}
+
+/* 아코디언 바디 */
+.accordion__body {
+  padding: 0 1px 12px;
+}
+
+.accordion--collapsed .accordion__body {
+  display: none;
+}
+
+/* ===========================
+   ETF 리스트 테이블
+   =========================== */
+.my-list-table {
+  width: 100%;
+}
+
+.my-list-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 61px;
+  padding-left: 16px;
+  background: #fff;
+  border-bottom: 1px solid #F3F4F7;
+}
+
+.my-list-row:last-child {
+  border-bottom: none;
+}
+
+/* 상품명 + 날짜코드 */
+.my-list-row__info {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 0;
+}
+
+.my-list-row__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #494B55;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-list-row__code {
+  font-size: 12px;
+  font-weight: 400;
+  color: #93959C;
+  line-height: 1.4;
+}
+
+/* 스파크라인 차트 */
+.my-list-row__chart {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+/* 가격 + 변동 */
+.my-list-row__price-area {
+  width: 96px;
+  flex-shrink: 0;
+  text-align: right;
+  padding: 8px 0;
+}
+
+.my-list-row__price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #232433;
+  line-height: 1.4;
+}
+
+.my-list-row__change {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+/* 하트 버튼 */
+.my-list-row__heart {
+  width: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B4B6BC;
+}
+
+.heart-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 하트 활성화 상태 */
+.heart-btn--active svg path {
+  fill: #F14E4E;
+  stroke: #F14E4E;
+}
+
+/* 기준일 텍스트 */
+.my-list-date {
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.5);
+  font-size: 12px;
+  font-weight: 400;
+  color: #93959C;
+}
+
+/* 전체보기 버튼 */
+.my-list-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-list-view-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #494B55;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-list-view-all .arrow {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid #494B55;
+  border-right: 1.5px solid #494B55;
+  transform: rotate(45deg);
+}
+
+/* ===========================
+   구분선
+   =========================== */
+.my-list-divider {
+  height: 8px;
+  background: #F4F6FB;
+}

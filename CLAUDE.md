@@ -9,24 +9,33 @@
 
 ```
 test-html/
-├── index.html                         # HTML5 진입점
+├── index.html                         # HTML5 진입점 (파일 인덱스)
 ├── html/                              # HTML 페이지 폴더
-│   └── guide/                         # 가이드 페이지
+│   ├── main.html                      # FunETF PC 메인 페이지
+│   ├── main_mo.html                   # FunETF 모바일 메인 페이지
+│   └── guide/                         # UI 컴포넌트 가이드 페이지
+│       ├── select.html
+│       ├── input.html
+│       ├── button.html
+│       ├── tab.html
+│       ├── checkbox.html
+│       └── icon.html
 ├── css/
-│   ├── common.css                     # 공통 CSS (리셋, 레이아웃, 반응형)
+│   ├── common.css                     # 공통 CSS (리셋, 레이아웃, 반응형, 모바일 헤더/네비)
+│   ├── main.css                       # 모바일 메인 페이지 전용 CSS
 │   └── jquery-ui-1.14.1.min.css       # jQuery UI 테마 CSS
 ├── img/                               # 이미지 폴더
 │   ├── common/                        # 공통 이미지 (로고, 아이콘 등)
 │   ├── contents/                      # 컨텐츠별 이미지
 │   │   └── [page-name]/               # 페이지별 이미지 폴더
 │   └── lib/                           # 외부 라이브러리 이미지
-│       ├── jquery-ui/                 # jQuery UI 아이콘 이미지
-│       └── [plugin-name]/             # 기타 플러그인 이미지 폴더
+│       └── jquery-ui/                 # jQuery UI 아이콘 이미지
 └── js/
-    ├── lib/
-    │   ├── jquery-3.7.1.min.js        # jQuery 라이브러리
-    │   └── jquery-ui-1.14.1.min.js    # jQuery UI 라이브러리
-    └── common.js                      # 공통 JavaScript (유틸, 이벤트 핸들러)
+    ├── common.js                      # 공통 JavaScript (유틸, 이벤트 핸들러)
+    └── lib/
+        ├── jquery-3.7.1.min.js        # jQuery 라이브러리
+        ├── jquery-ui-1.14.1.min.js    # jQuery UI 라이브러리
+        └── echarts-5.6.1.min.js       # ECharts 차트 라이브러리
 ```
 
 ## 언어 및 커뮤니케이션 규칙
@@ -49,14 +58,16 @@ test-html/
 - **스크립트**:
   - jQuery 3.7.1
   - jQuery UI 1.14.1 (datepicker, dialog, tabs 등)
+  - Apache ECharts 5.6.1 (차트)
 - **기타**: 바닐라 JavaScript 권장 (필요시 jQuery 활용)
 
 ## 파일 관리 규칙
 
 ### CSS
-- 모든 CSS는 `css/common.css`에 작성
-- 페이지별 전용 CSS가 필요한 경우 `css/[page-name].css` 생성 가능
-- CSS는 반응형 디자인 기준으로 작성 필수
+- **공통 CSS**: `css/common.css`에 리셋, 레이아웃, 공통 컴포넌트 스타일 작성
+- **페이지별 전용 CSS**: 필요시 `css/[page-name].css` 생성 가능
+  - 예: `css/main.css` (모바일 메인 페이지 전용)
+- CSS는 반응형 디자인 기준으로 작성 필수 (모바일-퍼스트 접근)
 
 ### JavaScript
 - 공통 함수: `js/common.js` 작성
@@ -101,8 +112,9 @@ test-html/
   - 이미지: 각 플러그인 폴더 내 `kebab-case` (예: `img/lib/jquery-ui/spinner-icon.png`)
 - **로드 순서**:
   1. jQuery (필수)
-  2. 기타 라이브러리 (JS, CSS)
-  3. 공통 JS (common.js)
+  2. jQuery UI
+  3. 기타 라이브러리 (ECharts 등)
+  4. 공통 JS (common.js)
 
 ## 주의사항
 - 외부 라이브러리는 항상 최소화 버전(minified) 사용

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WISH. 서비스 약관 동의</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    :root {
+      --primary: #1345d1;
+      --primary-light: #e8edfc;
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #E6E9EF;
+      display: flex; align-items: center;
+      padding: 0 8px 0 4px;
+      z-index: 100;
+    }
+    .page-header__back {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      background: none; border: none; cursor: pointer; color: #232433;
+    }
+    .page-header__title {
+      flex: 1; font-size: 18px; font-weight: 700; color: #232433; margin: 0;
+    }
+
+    /* 콘텐츠 */
+    .content-area { padding: 28px 20px 100px; }
+    .content-area__title { font-size: 22px; font-weight: 800; color: #232433; margin-bottom: 24px; line-height: 1.35; }
+
+    /* 전체 동의 */
+    .agree-all {
+      background: #F4F6FB;
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    .agree-all__text {
+      font-size: 15px;
+      font-weight: 700;
+      color: #232433;
+    }
+
+    /* 체크박스 */
+    .custom-checkbox {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid #D0D3DC;
+      display: flex; align-items: center; justify-content: center;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .custom-checkbox.checked {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .custom-checkbox svg { display: none; }
+    .custom-checkbox.checked svg { display: block; }
+
+    /* 약관 목록 */
+    .terms-list { display: flex; flex-direction: column; gap: 0; }
+    .terms-item {
+      display: flex; align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #F4F6FB;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .terms-item:last-child { border-bottom: none; }
+    .terms-item__text { flex: 1; font-size: 14px; color: #354153; line-height: 1.5; }
+    .terms-item__required {
+      font-size: 11px; font-weight: 700; color: var(--primary); margin-right: 4px;
+    }
+    .terms-item__optional {
+      font-size: 11px; font-weight: 700; color: #93959C; margin-right: 4px;
+    }
+    .terms-item__arrow {
+      color: #93959C;
+      flex-shrink: 0;
+    }
+
+    /* 마케팅 설명 */
+    .marketing-desc {
+      background: #F8F9FF;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+    .marketing-desc p {
+      font-size: 12px;
+      color: #71747C;
+      line-height: 1.7;
+    }
+
+    /* 하단 버튼 */
+    .bottom-btn-bar {
+      position: fixed; bottom: 0; left: 0;
+      width: 100%; background: #fff; border-top: 1px solid #E6E9EF;
+      padding: 12px 16px;
+    }
+    .btn-full {
+      width: 100%; height: 52px;
+      border: none; border-radius: 8px;
+      background: var(--primary);
+      font-size: 16px; font-weight: 700; color: #fff; cursor: pointer;
+    }
+    .btn-full:disabled { background: #B5B8C0; cursor: default; }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <button class="page-header__back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <h1 class="page-header__title">서비스 약관 동의</h1>
+  </header>
+
+  <main>
+    <div class="content-area">
+      <h2 class="content-area__title">서비스 약관에<br>동의해주세요.</h2>
+
+      <!-- 전체 동의 -->
+      <div class="agree-all" id="agreeAll">
+        <div class="custom-checkbox" id="checkAll">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <span class="agree-all__text">전체 동의하기</span>
+      </div>
+
+      <!-- 약관 항목 -->
+      <div class="terms-list">
+        <!-- 만 14세 -->
+        <div class="terms-item" data-required="true">
+          <div class="custom-checkbox checked" data-idx="0">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <span class="terms-item__text">
+            <span class="terms-item__required">[필수]</span>만 14세 이상입니다.
+          </span>
+        </div>
+        <!-- 이용약관 -->
+        <div class="terms-item" data-required="true">
+          <div class="custom-checkbox checked" data-idx="1">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <span class="terms-item__text">
+            <span class="terms-item__required">[필수]</span>이용약관
+          </span>
+          <span class="terms-item__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </span>
+        </div>
+        <!-- 개인정보 -->
+        <div class="terms-item" data-required="true">
+          <div class="custom-checkbox checked" data-idx="2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <span class="terms-item__text">
+            <span class="terms-item__required">[필수]</span>개인정보 수집 및 이용 동의
+          </span>
+          <span class="terms-item__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </span>
+        </div>
+        <!-- 마케팅 -->
+        <div class="terms-item" data-required="false">
+          <div class="custom-checkbox" data-idx="3">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <span class="terms-item__text">
+            <span class="terms-item__optional">[선택]</span>마케팅 활용 동의
+          </span>
+          <span class="terms-item__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- 마케팅 설명 -->
+      <div class="marketing-desc">
+        <p>
+          마케팅 활용에 동의하시면 신규 서비스 및 이벤트 안내,<br>
+          경품 수령 등 다양한 혜택을 받으실 수 있습니다.<br>
+          동의 여부는 설정에서 언제든지 변경 가능합니다.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- 하단 버튼 -->
+  <div class="bottom-btn-bar">
+    <button class="btn-full" id="nextBtn">다음</button>
+  </div>
+
+  <script src="../js/lib/jquery-3.7.1.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script>
+    /* 개별 체크박스 클릭 */
+    $('.terms-item').on('click', function(e) {
+      if ($(e.target).closest('.terms-item__arrow').length) return;
+      var $chk = $(this).find('.custom-checkbox');
+      $chk.toggleClass('checked');
+      updateAllCheck();
+    });
+
+    /* 전체 동의 클릭 */
+    $('#agreeAll').on('click', function() {
+      var allChecked = $('.terms-list .custom-checkbox.checked').length === 4;
+      if (allChecked) {
+        $('.terms-list .custom-checkbox').removeClass('checked');
+        $('#checkAll').removeClass('checked');
+      } else {
+        $('.terms-list .custom-checkbox').addClass('checked');
+        $('#checkAll').addClass('checked');
+      }
+    });
+
+    /* 전체 동의 상태 업데이트 */
+    function updateAllCheck() {
+      var total = $('.terms-list .custom-checkbox').length;
+      var checked = $('.terms-list .custom-checkbox.checked').length;
+      if (checked === total) {
+        $('#checkAll').addClass('checked');
+      } else {
+        $('#checkAll').removeClass('checked');
+      }
+    }
+  </script>
+</body>
+</html>

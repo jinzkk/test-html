@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WISH. 포트폴리오 제안 결과</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    :root {
+      --primary: #1345d1;
+      --primary-light: #e8edfc;
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #E6E9EF;
+      display: flex; align-items: center;
+      padding: 0 8px 0 4px;
+      z-index: 100;
+    }
+    .page-header__back {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      background: none; border: none; cursor: pointer; color: #232433;
+    }
+    .page-header__title {
+      flex: 1; font-size: 18px; font-weight: 700; color: #232433; margin: 0;
+    }
+    .page-header__btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      background: none; border: none; cursor: pointer; color: #494B55;
+    }
+
+    /* Max 배지 */
+    .max-badge {
+      background: linear-gradient(90deg, var(--primary) 0%, #3b6bff 100%);
+      margin: 16px 20px 0;
+      padding: 14px 20px;
+      border-radius: 10px;
+    }
+    .max-badge__label {
+      font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 4px;
+    }
+    .max-badge__text { font-size: 16px; font-weight: 700; color: #fff; }
+
+    /* 필터 탭 */
+    .filter-row {
+      display: flex; gap: 8px; padding: 16px 20px 8px;
+    }
+    .filter-select {
+      height: 36px; padding: 0 12px;
+      border: 1px solid #E6E9EF; border-radius: 100px;
+      background: #F4F6FB; font-size: 13px; color: #494B55; cursor: pointer;
+      -webkit-appearance: none; appearance: none;
+    }
+
+    /* 결과 섹션 */
+    .result-section { padding: 12px 20px 16px; }
+    .result-label { font-size: 13px; color: #71747C; margin-bottom: 6px; }
+    .result-value {
+      font-size: 24px; font-weight: 800; color: #232433; line-height: 1.3;
+    }
+    .result-value em { color: var(--primary); font-style: normal; }
+    .result-notice { margin-top: 8px; font-size: 12px; color: #93959C; line-height: 1.6; }
+
+    /* 포트 목록 */
+    .port-list-area { padding: 0 20px; }
+    .port-list-label {
+      font-size: 14px; font-weight: 700; color: #232433;
+      margin-bottom: 10px; padding-bottom: 10px;
+      border-bottom: 1px solid #E6E9EF;
+    }
+    .port-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid #F4F6FB;
+    }
+    .port-item:last-child { border-bottom: none; }
+    .port-item__left {}
+    .port-item__name { font-size: 14px; font-weight: 600; color: #232433; margin-bottom: 3px; }
+    .port-item__amount { font-size: 13px; color: #71747C; }
+    .port-item__right { text-align: right; }
+    .port-item__dividend { font-size: 15px; font-weight: 700; color: var(--primary); }
+    .port-item__rate { font-size: 12px; color: #93959C; margin-top: 2px; }
+
+    /* 하단 2버튼 */
+    .bottom-action-bar {
+      position: fixed; bottom: 0; left: 0;
+      width: 100%; background: #fff; border-top: 1px solid #E6E9EF;
+      padding: 12px 16px; display: flex; gap: 8px;
+    }
+    .btn-secondary {
+      flex: 1; height: 52px; border: 1.5px solid #E6E9EF; border-radius: 8px;
+      background: #fff; font-size: 15px; font-weight: 600; color: #494B55; cursor: pointer;
+    }
+    .btn-primary {
+      flex: 2; height: 52px; border: none; border-radius: 8px;
+      background: var(--primary); font-size: 15px; font-weight: 600; color: #fff; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <button class="page-header__back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <h1 class="page-header__title">포트폴리오 제안</h1>
+    <div>
+      <button class="page-header__btn" aria-label="공유">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-bottom:80px;">
+    <!-- Max 배지 -->
+    <div class="max-badge">
+      <div class="max-badge__label">추천 포트폴리오</div>
+      <div class="max-badge__text">Max 월배당 홀릭</div>
+    </div>
+
+    <!-- 필터 -->
+    <div class="filter-row">
+      <select class="filter-select">
+        <option>최근 1년</option>
+        <option>최근 3년</option>
+        <option>최근 5년</option>
+      </select>
+      <select class="filter-select">
+        <option>5,000만원</option>
+        <option>1,000만원</option>
+        <option>3,000만원</option>
+      </select>
+    </div>
+
+    <!-- 결과 -->
+    <div class="result-section">
+      <p class="result-label">5,000만원 투자 시 · 최근 1년</p>
+      <div class="result-value">
+        <em>760만원(15.21%)</em><br>배당받았을 거예요!
+      </div>
+      <p class="result-notice">
+        ※ 과거 실적 기준이며 미래 수익을 보장하지 않습니다.<br>
+        ※ 세금 및 수수료 제외 전 기준입니다.
+      </p>
+    </div>
+
+    <!-- 포트 목록 -->
+    <div class="port-list-area">
+      <div class="port-list-label">투자 포트 구성 (4종)</div>
+      <div class="port-item">
+        <div class="port-item__left">
+          <div class="port-item__name">ACE 원자력TOP10</div>
+          <div class="port-item__amount">투자액 1,250만원</div>
+        </div>
+        <div class="port-item__right">
+          <div class="port-item__dividend">+218만원</div>
+          <div class="port-item__rate">배당 17.4%</div>
+        </div>
+      </div>
+      <div class="port-item">
+        <div class="port-item__left">
+          <div class="port-item__name">ACE AI반도체TOP3+</div>
+          <div class="port-item__amount">투자액 1,250만원</div>
+        </div>
+        <div class="port-item__right">
+          <div class="port-item__dividend">+196만원</div>
+          <div class="port-item__rate">배당 15.7%</div>
+        </div>
+      </div>
+      <div class="port-item">
+        <div class="port-item__left">
+          <div class="port-item__name">ACE 200</div>
+          <div class="port-item__amount">투자액 1,250만원</div>
+        </div>
+        <div class="port-item__right">
+          <div class="port-item__dividend">+181만원</div>
+          <div class="port-item__rate">배당 14.5%</div>
+        </div>
+      </div>
+      <div class="port-item">
+        <div class="port-item__left">
+          <div class="port-item__name">ACE 코리아밸류업</div>
+          <div class="port-item__amount">투자액 1,250만원</div>
+        </div>
+        <div class="port-item__right">
+          <div class="port-item__dividend">+165만원</div>
+          <div class="port-item__rate">배당 13.2%</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 하단 2버튼 -->
+  <div class="bottom-action-bar">
+    <button class="btn-secondary">새로 만들기</button>
+    <button class="btn-primary">저장하기</button>
+  </div>
+
+  <script src="../js/lib/jquery-3.7.1.min.js"></script>
+  <script src="../js/common.js"></script>
+</body>
+</html>

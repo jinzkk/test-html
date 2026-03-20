@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WISH. 헤더 컴포넌트 - 포트폴리오 제안</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    :root {
+      --primary: #1345d1;
+      --primary-light: #e8edfc;
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #E6E9EF;
+      display: flex; align-items: center;
+      padding: 0 8px 0 4px;
+      z-index: 100;
+    }
+    .page-header__back {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      background: none; border: none; cursor: pointer; color: #232433;
+    }
+    .page-header__title {
+      flex: 1; font-size: 18px; font-weight: 700; color: #232433; margin: 0;
+    }
+
+    /* 쇼케이스 영역 */
+    .showcase-area {
+      padding: 24px 20px;
+    }
+    .showcase-label {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .showcase-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #232433;
+      margin-bottom: 8px;
+    }
+    .showcase-desc {
+      font-size: 14px;
+      color: #71747C;
+      line-height: 1.6;
+    }
+
+    /* 스펙 표 */
+    .spec-table {
+      margin-top: 20px;
+      border: 1px solid #E6E9EF;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .spec-row {
+      display: flex;
+      border-bottom: 1px solid #F4F6FB;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key {
+      width: 100px; flex-shrink: 0;
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #71747C;
+      background: #F8F9FF;
+    }
+    .spec-val {
+      flex: 1;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #232433;
+    }
+  </style>
+</head>
+<body>
+  <!-- 포트폴리오 제안 헤더 -->
+  <header class="page-header">
+    <button class="page-header__back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <h1 class="page-header__title">포트폴리오 제안</h1>
+  </header>
+
+  <main>
+    <div class="showcase-area">
+      <span class="showcase-label">Header Component</span>
+      <h2 class="showcase-title">포트폴리오 제안 헤더</h2>
+      <p class="showcase-desc">
+        포트폴리오 제안 플로우에서 사용하는 헤더 컴포넌트입니다.<br>
+        뒤로가기 버튼 + 제목 텍스트로 구성됩니다.
+      </p>
+
+      <div class="spec-table">
+        <div class="spec-row">
+          <div class="spec-key">높이</div>
+          <div class="spec-val">56px</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">배경</div>
+          <div class="spec-val">#FFFFFF</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">구분선</div>
+          <div class="spec-val">하단 1px #E6E9EF</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">뒤로가기</div>
+          <div class="spec-val">44x44px 터치 영역</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">타이틀</div>
+          <div class="spec-val">18px / 700 / #232433</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-key">용도</div>
+          <div class="spec-val">포트폴리오 제안 플로우</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/lib/jquery-3.7.1.min.js"></script>
+  <script src="../js/common.js"></script>
+</body>
+</html>

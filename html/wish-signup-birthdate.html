@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WISH. 생년월일 입력</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    :root {
+      --primary: #1345d1;
+      --primary-light: #e8edfc;
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #E6E9EF;
+      display: flex; align-items: center;
+      padding: 0 8px 0 4px;
+      z-index: 100;
+    }
+    .page-header__back {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      background: none; border: none; cursor: pointer; color: #232433;
+    }
+
+    /* 진행 바 */
+    .progress-bar {
+      position: fixed; top: 56px; left: 0;
+      width: 100%; height: 3px; background: #E6E9EF; z-index: 100;
+    }
+    .progress-bar__fill {
+      height: 100%; background: var(--primary);
+      border-radius: 0 2px 2px 0; width: 40%;
+    }
+
+    /* 콘텐츠 */
+    .content-area { padding: 28px 20px 20px; }
+    .content-area__title { font-size: 22px; font-weight: 800; color: #232433; margin-bottom: 28px; line-height: 1.35; }
+
+    /* 입력 필드 */
+    .input-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 0; }
+    .input-item {}
+    .input-item__label { font-size: 12px; font-weight: 600; color: #93959C; margin-bottom: 6px; }
+    .input-item__field {
+      width: 100%; height: 48px;
+      padding: 0 14px;
+      border: 1.5px solid #E6E9EF;
+      border-radius: 4px;
+      font-size: 15px; color: #232433; background: #fff;
+      outline: none;
+      font-family: inherit;
+    }
+    .input-item__field:read-only { background: #F8F9FF; color: #71747C; }
+    .input-item__field--focused {
+      border-color: var(--primary);
+      border-width: 2px;
+    }
+
+    /* 날짜 롤러 키보드 */
+    .date-roller {
+      position: fixed;
+      bottom: 0; left: 0;
+      width: 100%;
+      background: #F4F6FB;
+      border-top: 1px solid #E6E9EF;
+      z-index: 200;
+    }
+    .date-roller__header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 16px 6px;
+    }
+    .date-roller__done {
+      font-size: 14px; font-weight: 700; color: var(--primary);
+      background: none; border: none; cursor: pointer;
+    }
+    .date-roller__columns {
+      display: flex;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .date-roller__column {
+      flex: 1;
+      overflow-y: auto;
+      scrollbar-width: none;
+      scroll-snap-type: y mandatory;
+      padding: 80px 0;
+    }
+    .date-roller__column::-webkit-scrollbar { display: none; }
+    .date-roller__item {
+      height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: #B5B8C0;
+      scroll-snap-align: center;
+      cursor: pointer;
+    }
+    .date-roller__item--selected {
+      font-size: 18px; font-weight: 700; color: #232433;
+    }
+    .date-roller__highlight {
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      height: 40px;
+      transform: translateY(-50%);
+      background: rgba(19,69,209,0.07);
+      border-top: 1px solid var(--primary);
+      border-bottom: 1px solid var(--primary);
+      pointer-events: none;
+    }
+    .date-roller__divider {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex; align-items: center; gap: 60px;
+      pointer-events: none;
+    }
+    .date-roller__label {
+      font-size: 13px; font-weight: 600; color: #71747C;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <button class="page-header__back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+  </header>
+  <div class="progress-bar"><div class="progress-bar__fill"></div></div>
+
+  <main style="padding-bottom: 260px;">
+    <div class="content-area">
+      <h2 class="content-area__title">생년월일을<br>알려주세요</h2>
+
+      <div class="input-list">
+        <!-- 이름 (읽기전용) -->
+        <div class="input-item">
+          <div class="input-item__label">이름</div>
+          <input class="input-item__field" type="text" value="김한투" readonly>
+        </div>
+        <!-- 생년월일 (포커스) -->
+        <div class="input-item">
+          <div class="input-item__label">생년월일</div>
+          <input class="input-item__field input-item__field--focused" type="text"
+            id="birthdateInput" placeholder="YYYY.MM.DD" readonly>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 날짜 롤러 키보드 -->
+  <div class="date-roller" id="dateRoller">
+    <div class="date-roller__header">
+      <button class="date-roller__done" id="rollerDone">확인</button>
+    </div>
+    <div class="date-roller__columns">
+      <div class="date-roller__highlight"></div>
+      <!-- 년 -->
+      <div class="date-roller__column" id="yearCol"></div>
+      <!-- 월 -->
+      <div class="date-roller__column" id="monthCol"></div>
+      <!-- 일 -->
+      <div class="date-roller__column" id="dayCol"></div>
+    </div>
+  </div>
+
+  <script src="../js/lib/jquery-3.7.1.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script>
+    var selectedYear = 1990, selectedMonth = 1, selectedDay = 1;
+
+    /* 년 생성 (1940~2010) */
+    var yearHtml = '';
+    for (var y = 1940; y <= 2010; y++) {
+      var cls = y === 1990 ? ' date-roller__item--selected' : '';
+      yearHtml += '<div class="date-roller__item' + cls + '" data-val="' + y + '">' + y + '년</div>';
+    }
+    $('#yearCol').html(yearHtml);
+
+    /* 월 생성 */
+    var monthHtml = '';
+    for (var m = 1; m <= 12; m++) {
+      var cls = m === 1 ? ' date-roller__item--selected' : '';
+      monthHtml += '<div class="date-roller__item' + cls + '" data-val="' + m + '">' + m + '월</div>';
+    }
+    $('#monthCol').html(monthHtml);
+
+    /* 일 생성 */
+    function buildDays(month, year) {
+      var days = new Date(year, month, 0).getDate();
+      var html = '';
+      for (var d = 1; d <= days; d++) {
+        var cls = d === selectedDay ? ' date-roller__item--selected' : '';
+        html += '<div class="date-roller__item' + cls + '" data-val="' + d + '">' + d + '일</div>';
+      }
+      $('#dayCol').html(html);
+    }
+    buildDays(selectedMonth, selectedYear);
+
+    /* 초기 스크롤 위치 */
+    function scrollToSelected($col) {
+      var $sel = $col.find('.date-roller__item--selected');
+      if ($sel.length) {
+        var itemH = 40;
+        var idx = $sel.index();
+        $col[0].scrollTop = idx * itemH;
+      }
+    }
+    scrollToSelected($('#yearCol'));
+
+    /* 항목 클릭 선택 */
+    $(document).on('click', '.date-roller__item', function() {
+      var $col = $(this).closest('.date-roller__column');
+      $col.find('.date-roller__item--selected').removeClass('date-roller__item--selected');
+      $(this).addClass('date-roller__item--selected');
+      var val = parseInt($(this).data('val'));
+      if ($col.attr('id') === 'yearCol') selectedYear = val;
+      if ($col.attr('id') === 'monthCol') { selectedMonth = val; buildDays(selectedMonth, selectedYear); }
+      if ($col.attr('id') === 'dayCol') selectedDay = val;
+    });
+
+    /* 확인 버튼 */
+    $('#rollerDone').on('click', function() {
+      var mm = String(selectedMonth).padStart(2, '0');
+      var dd = String(selectedDay).padStart(2, '0');
+      $('#birthdateInput').val(selectedYear + '.' + mm + '.' + dd);
+    });
+  </script>
+</body>
+</html>

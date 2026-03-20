@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WISH. 회원 유형 선택</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    :root {
+      --primary: #1345d1;
+      --primary-light: #e8edfc;
+    }
+
+    .page-header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #E6E9EF;
+      display: flex; align-items: center;
+      padding: 0 8px 0 4px;
+      z-index: 100;
+    }
+    .page-header__back {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      background: none; border: none; cursor: pointer; color: #232433;
+    }
+    .page-header__title {
+      flex: 1; font-size: 18px; font-weight: 700; color: #232433; margin: 0;
+    }
+
+    /* 콘텐츠 */
+    .content-area { padding: 28px 20px 100px; }
+    .content-area__title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #232433;
+      margin-bottom: 24px;
+      line-height: 1.35;
+    }
+
+    /* 선택 카드 */
+    .type-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .type-card {
+      border: 2px solid #E6E9EF;
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.15s;
+      position: relative;
+      background: #fff;
+    }
+    .type-card--selected {
+      border-color: var(--primary);
+      background: #fff;
+    }
+    .type-card__badge {
+      display: inline-block;
+      background: #F4F6FB;
+      color: #71747C;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .type-card--selected .type-card__badge {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .type-card__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #232433;
+      margin-bottom: 6px;
+    }
+    .type-card__desc {
+      font-size: 13px;
+      color: #71747C;
+      line-height: 1.6;
+    }
+    .type-card__check {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 2px solid #E6E9EF;
+      display: flex; align-items: center; justify-content: center;
+      background: #fff;
+    }
+    .type-card--selected .type-card__check {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .type-card__check-icon {
+      display: none;
+    }
+    .type-card--selected .type-card__check-icon {
+      display: block;
+    }
+
+    /* 하단 버튼 */
+    .bottom-btn-bar {
+      position: fixed; bottom: 0; left: 0;
+      width: 100%; background: #fff; border-top: 1px solid #E6E9EF;
+      padding: 12px 16px;
+    }
+    .btn-full {
+      width: 100%; height: 52px;
+      border: none; border-radius: 8px;
+      background: var(--primary);
+      font-size: 16px; font-weight: 700; color: #fff; cursor: pointer;
+    }
+    .btn-full:disabled {
+      background: #B5B8C0; cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <button class="page-header__back" onclick="history.back()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <h1 class="page-header__title">회원 유형 선택</h1>
+  </header>
+
+  <main>
+    <div class="content-area">
+      <h2 class="content-area__title">회원 유형을<br>선택해주세요.</h2>
+
+      <div class="type-card-list">
+        <!-- 초보자 -->
+        <div class="type-card" data-type="beginner">
+          <div class="type-card__check">
+            <svg class="type-card__check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="type-card__badge">PB · 투권인 · 금융사 임직원 전용</div>
+          <div class="type-card__title">주식 초보자</div>
+          <div class="type-card__desc">ETF 투자를 처음 시작하는 분들을 위한<br>기본 포트폴리오를 추천드립니다.</div>
+        </div>
+
+        <!-- 중수 -->
+        <div class="type-card" data-type="intermediate">
+          <div class="type-card__check">
+            <svg class="type-card__check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="type-card__badge">PB · 투권인 · 금융사 임직원 전용</div>
+          <div class="type-card__title">주식 중수</div>
+          <div class="type-card__desc">어느 정도 투자 경험이 있는 분들을 위한<br>균형 잡힌 포트폴리오를 추천드립니다.</div>
+        </div>
+
+        <!-- 고수 -->
+        <div class="type-card type-card--selected" data-type="expert">
+          <div class="type-card__check">
+            <svg class="type-card__check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="type-card__badge">ETF와 펀드 투자자</div>
+          <div class="type-card__title">주식 고수</div>
+          <div class="type-card__desc">ETF와 펀드에 익숙한 투자자를 위한<br>전략적 포트폴리오를 추천드립니다.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 하단 버튼 -->
+  <div class="bottom-btn-bar">
+    <button class="btn-full" id="nextBtn">다음</button>
+  </div>
+
+  <script src="../js/lib/jquery-3.7.1.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script>
+    /* 카드 선택 전환 */
+    $('.type-card').on('click', function() {
+      $('.type-card').removeClass('type-card--selected');
+      $(this).addClass('type-card--selected');
+    });
+  </script>
+</body>
+</html>

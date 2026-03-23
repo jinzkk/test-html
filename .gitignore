@@ -3,3 +3,4 @@
 .claude/
 *.png
 node_modules/
+.env

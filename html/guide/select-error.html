@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Error State</title>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .select-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .select-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #141924;
+      line-height: 18px;
+    }
+
+    .select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 16px;
+      border: 1px solid #FF4444;
+      border-radius: 4px;
+      background-color: #ffffff;
+    }
+
+    .select-wrapper--size-40 {
+      padding: 8px 16px;
+      min-height: 40px;
+    }
+
+    .select-wrapper--size-48 {
+      padding: 12px 16px;
+      min-height: 48px;
+    }
+
+    .select-text {
+      flex: 1;
+      font-size: 16px;
+      font-weight: 400;
+      color: #141924;
+      line-height: 24px;
+    }
+
+    .select-text--placeholder {
+      color: #b4bbcb;
+    }
+
+    .select-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .chevron-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .select-error {
+      display: flex;
+      gap: 4px;
+      align-items: flex-start;
+      margin-top: 4px;
+    }
+
+    .error-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .error-text {
+      font-size: 12px;
+      font-weight: 400;
+      color: #FF4444;
+      line-height: 16px;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #141924;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 style="font-size: 24px; font-weight: 700; color: #141924; margin-bottom: 40px;">Select Error State</h2>
+
+    <h3>Error State - Size 40 & 48</h3>
+    <div class="row">
+      <div class="select-group">
+        <div class="select-label">Label</div>
+        <div class="select-wrapper select-wrapper--size-40">
+          <span class="select-text select-text--placeholder">Text</span>
+          <div class="select-icon">
+            <svg class="chevron-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.5 7.5L10 12L14.5 7.5" stroke="#141924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="select-error">
+          <svg class="error-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="7" stroke="#FF4444" stroke-width="1"/>
+            <circle cx="8" cy="5" r="0.5" fill="#FF4444"/>
+            <path d="M8 7v3" stroke="#FF4444" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          <span class="error-text">Error message</span>
+        </div>
+      </div>
+
+      <div class="select-group">
+        <div class="select-label">Label</div>
+        <div class="select-wrapper select-wrapper--size-48">
+          <span class="select-text select-text--placeholder">Text</span>
+          <div class="select-icon">
+            <svg class="chevron-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.5 7.5L10 12L14.5 7.5" stroke="#141924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="select-error">
+          <svg class="error-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="7" stroke="#FF4444" stroke-width="1"/>
+            <circle cx="8" cy="5" r="0.5" fill="#FF4444"/>
+            <path d="M8 7v3" stroke="#FF4444" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          <span class="error-text">Error message</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 40px;">Error State - With Value</h3>
+    <div class="row">
+      <div class="select-group">
+        <div class="select-label">Label</div>
+        <div class="select-wrapper select-wrapper--size-40">
+          <span class="select-text">Selected Value</span>
+          <div class="select-icon">
+            <svg class="chevron-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.5 7.5L10 12L14.5 7.5" stroke="#141924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="select-error">
+          <svg class="error-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="7" stroke="#FF4444" stroke-width="1"/>
+            <circle cx="8" cy="5" r="0.5" fill="#FF4444"/>
+            <path d="M8 7v3" stroke="#FF4444" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          <span class="error-text">This field is required</span>
+        </div>
+      </div>
+
+      <div class="select-group">
+        <div class="select-label">Label</div>
+        <div class="select-wrapper select-wrapper--size-48">
+          <span class="select-text">Selected Value</span>
+          <div class="select-icon">
+            <svg class="chevron-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.5 7.5L10 12L14.5 7.5" stroke="#141924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="select-error">
+          <svg class="error-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="7" stroke="#FF4444" stroke-width="1"/>
+            <circle cx="8" cy="5" r="0.5" fill="#FF4444"/>
+            <path d="M8 7v3" stroke="#FF4444" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          <span class="error-text">This field is required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

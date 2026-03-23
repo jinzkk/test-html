@@ -17,7 +17,7 @@
       background: #f5f7fa; display: flex; align-items: center;
       justify-content: space-between; padding: 0 16px; z-index: 100;
     }
-    .logo-text { font-size: 22px; font-weight: 900; color: #141924; letter-spacing: -0.5px; }
+    .logo-img { height: 30px; display: block; }
     .header-actions { display: flex; gap: 4px; align-items: center; }
     .icon-btn { background: none; border: none; cursor: pointer; padding: 8px; }
 
@@ -73,10 +73,8 @@
 
     /* 빈 상태 */
     .empty-state { padding: 32px 20px 24px; text-align: center; }
-    .empty-icon {
-      width: 72px; height: 72px; background: #f2f3f8; border-radius: 50%;
-      margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
-    }
+    .empty-icon { margin: 0 auto 16px; }
+    .empty-illust { width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto; }
     .empty-state__text { font-size: 13px; color: #697387; line-height: 19px; margin-bottom: 16px; }
     .btn-add-wish {
       display: inline-block; padding: 10px 20px; background: #1345d1; color: #fff;
@@ -105,7 +103,7 @@
 <body>
   <!-- 헤더 -->
   <header class="page-header">
-    <span class="logo-text">WISH.</span>
+    <img src="../img/common/logo-wish.png" alt="WISH." class="logo-img">
     <div class="header-actions">
       <button class="icon-btn">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141924" stroke-width="2">
@@ -177,9 +175,7 @@
       </div>
       <div class="empty-state">
         <div class="empty-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <path d="M16 6L18.5 11.5H24.5L19.5 15.5L21.5 21L16 17.5L10.5 21L12.5 15.5L7.5 11.5H13.5L16 6Z" fill="#d0d3dc"/>
-          </svg>
+          <img src="../img/contents/wish-home/empty-mylist.png" alt="관심상품 빈 상태" class="empty-illust">
         </div>
         <div class="empty-state__text">관심상품을 담고<br>시세와 수익률 체크를 한 번에!</div>
         <button class="btn-add-wish">관심상품 등록하기</button>

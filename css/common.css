@@ -968,3 +968,49 @@ footer p {
 .bottom-nav__item--active .bottom-nav__label {
   font-weight: 600;
 }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   아이콘 (Figma SVG 에셋 → CSS 배경 이미지)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* 헤더 액션 아이콘 (22px, fill=#141924) */
+.icon-bell         { background-image: url('../img/icons/icon-bell.svg');          width: 22px; height: 22px; }
+.icon-heart        { background-image: url('../img/icons/icon-heart.svg');         width: 22px; height: 22px; }
+.icon-search       { background-image: url('../img/icons/icon-search.svg');        width: 22px; height: 22px; }
+.icon-arrow-left   { background-image: url('../img/icons/icon-arrow-left.svg');    width: 22px; height: 22px; }
+.icon-share        { background-image: url('../img/icons/icon-share.svg');         width: 22px; height: 22px; }
+
+/* 범용 아이콘 */
+.icon-plus         { background-image: url('../img/icons/icon-plus.svg');          width: 20px; height: 20px; }
+.icon-check        { background-image: url('../img/icons/icon-check.svg');         width: 20px; height: 20px; }
+.icon-close-circle { background-image: url('../img/icons/icon-close-circle.svg'); width: 20px; height: 20px; }
+.icon-chevron-right{ background-image: url('../img/icons/icon-chevron-right.svg'); width: 20px; height: 20px; }
+.icon-chevron-down { background-image: url('../img/icons/icon-chevron-down.svg');  width: 20px; height: 20px; }
+.icon-setting      { background-image: url('../img/icons/icon-setting.svg');       width: 20px; height: 20px; }
+.icon-menu         { background-image: url('../img/icons/icon-menu.svg');          width: 22px; height: 22px; }
+
+/* 바텀 내비게이션 아이콘 (기본=회색 #697387) */
+.icon-nav-etf       { background-image: url('../img/icons/icon-nav-etf.svg');       width: 22px; height: 22px; }
+.icon-nav-invest    { background-image: url('../img/icons/icon-nav-invest.svg');    width: 22px; height: 22px; }
+.icon-nav-home      { background-image: url('../img/icons/icon-home.svg');          width: 22px; height: 22px; }
+.icon-nav-portfolio { background-image: url('../img/icons/icon-nav-portfolio.svg'); width: 22px; height: 22px; }
+.icon-nav-menu      { background-image: url('../img/icons/icon-nav-menu.svg');      width: 22px; height: 22px; }
+
+/* 홈 활성 상태: 별도 파란색(#1345d1) SVG 사용 */
+.icon-nav-home.active { background-image: url('../img/icons/icon-home-active.svg'); }
+
+/* 기타 내비 항목 활성 상태: CSS filter로 회색 → 파란색(#1345d1) 근사 */
+.icon-nav-etf.active,
+.icon-nav-invest.active,
+.icon-nav-portfolio.active,
+.icon-nav-menu.active {
+  filter: invert(22%) sepia(90%) saturate(2000%) hue-rotate(215deg) brightness(100%) contrast(100%);
+}

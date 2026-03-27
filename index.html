@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML5 프로젝트</title>
   <!-- jQuery UI CSS -->
@@ -9,23 +9,23 @@
   <link rel="stylesheet" href="css/common.css">
   <style>
     /* 가로 스크롤 처리 (모바일 반응형) */
-    .table-responsive {
+    .table_responsive {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
 
-    .file-list-table {
+    .file_list_table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
     }
 
-    .file-list-table thead tr {
+    .file_list_table thead tr {
       background: #f2f3f8;
       border-bottom: 2px solid #e5e8ef;
     }
 
-    .file-list-table th {
+    .file_list_table th {
       padding: 12px 16px;
       text-align: left;
       font-weight: 600;
@@ -33,27 +33,27 @@
       white-space: nowrap;
     }
 
-    .file-list-table td {
+    .file_list_table td {
       padding: 12px 16px;
       border-bottom: 1px solid #f2f3f8;
       color: #354153;
       vertical-align: middle;
     }
 
-    .file-list-table tbody tr:hover {
+    .file_list_table tbody tr:hover {
       background: #f8f9ff;
     }
 
-    .file-list-table a {
+    .file_list_table a {
       color: #0055ff;
       text-decoration: none;
     }
 
-    .file-list-table a:hover {
+    .file_list_table a:hover {
       text-decoration: underline;
     }
 
-    .depth-badge {
+    .depth_badge {
       display: inline-block;
       padding: 2px 8px;
       border-radius: 4px;
@@ -64,8 +64,8 @@
     }
 
     /* No 컬럼: 좁게 */
-    .file-list-table th:first-child,
-    .file-list-table td:first-child {
+    .file_list_table th:first-child,
+    .file_list_table td:first-child {
       width: 48px;
       text-align: center;
       color: #99a1b1;
@@ -80,8 +80,8 @@
   <main>
     <section>
       <h2>파일 목록</h2>
-      <div class="table-responsive">
-        <table class="file-list-table">
+      <div class="table_responsive">
+        <table class="file_list_table">
           <thead>
             <tr>
               <th>No</th>
@@ -95,7 +95,7 @@
           <tbody>
             <tr>
               <td>0</td>
-              <td><span class="depth-badge" style="background:#fff0f5;color:#e0006a;">main</span></td>
+              <td><span class="depth_badge" style="background:#fff0f5;color:#e0006a;">main</span></td>
               <td><a href="html/main.html">main.html</a></td>
               <td>FunETF 메인 페이지</td>
               <td>2026-03-19</td>
@@ -103,7 +103,7 @@
             </tr>
             <tr>
               <td>0-1</td>
-              <td><span class="depth-badge" style="background:#fff0f5;color:#e0006a;">main</span></td>
+              <td><span class="depth_badge" style="background:#fff0f5;color:#e0006a;">main</span></td>
               <td><a href="html/main_mo.html">main_mo.html</a></td>
               <td>FunETF 모바일 메인 페이지</td>
               <td>2026-03-19</td>
@@ -111,7 +111,7 @@
             </tr>
             <tr>
               <td>N</td>
-              <td><span class="depth-badge">2</span></td>
+              <td><span class="depth_badge">2</span></td>
               <td><a href="html/my-list.html">my-list.html</a></td>
               <td>My List (모바일)</td>
               <td>2026-03-20</td>
@@ -119,7 +119,7 @@
             </tr>
             <tr>
               <td>M1</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/home.html">home.html</a></td>
               <td>FunETF 홈 (관심상품 빈 상태)</td>
               <td>2026-03-20</td>
@@ -127,7 +127,7 @@
             </tr>
             <tr>
               <td>M2</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/portrabbit.html">portrabbit.html</a></td>
               <td>포트래빗 홈</td>
               <td>2026-03-20</td>
@@ -135,7 +135,7 @@
             </tr>
             <tr>
               <td>M3</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/portrabbit-monthly.html">portrabbit-monthly.html</a></td>
               <td>포트래빗 - 월배당 포트 키워드 선택</td>
               <td>2026-03-20</td>
@@ -143,7 +143,7 @@
             </tr>
             <tr>
               <td>M4</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/portfolio-loading.html">portfolio-loading.html</a></td>
               <td>포트폴리오 제안 - 로딩 중</td>
               <td>2026-03-20</td>
@@ -151,7 +151,7 @@
             </tr>
             <tr>
               <td>M5</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/portfolio-proposal.html">portfolio-proposal.html</a></td>
               <td>포트폴리오 제안 - 로그인 필요</td>
               <td>2026-03-20</td>
@@ -159,7 +159,7 @@
             </tr>
             <tr>
               <td>M6</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/portfolio-result.html">portfolio-result.html</a></td>
               <td>포트폴리오 제안 - 결과</td>
               <td>2026-03-20</td>
@@ -167,7 +167,7 @@
             </tr>
             <tr>
               <td>M7</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/social-login.html">social-login.html</a></td>
               <td>소셜 로그인 연동</td>
               <td>2026-03-20</td>
@@ -175,7 +175,7 @@
             </tr>
             <tr>
               <td>M8</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/signup-type.html">signup-type.html</a></td>
               <td>회원가입 01. 유형 선택</td>
               <td>2026-03-20</td>
@@ -183,7 +183,7 @@
             </tr>
             <tr>
               <td>M9</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/signup-terms.html">signup-terms.html</a></td>
               <td>회원가입 02. 약관 동의</td>
               <td>2026-03-20</td>
@@ -191,7 +191,7 @@
             </tr>
             <tr>
               <td>M10</td>
-              <td><span class="depth-badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
+              <td><span class="depth_badge" style="background:#e8f5ff;color:#0055ff;">mo-page</span></td>
               <td><a href="html/signup-info.html">signup-info.html</a></td>
               <td>회원가입 03. 정보입력</td>
               <td>2026-03-20</td>
@@ -199,7 +199,7 @@
             </tr>
             <tr>
               <td>1</td>
-              <td><span class="depth-badge">guide</span></td>
+              <td><span class="depth_badge">guide</span></td>
               <td><a href="html/guide/select.html">select.html</a></td>
               <td>Select 컴포넌트 가이드</td>
               <td>2026-03-19</td>
@@ -207,7 +207,7 @@
             </tr>
             <tr>
               <td>2</td>
-              <td><span class="depth-badge">guide</span></td>
+              <td><span class="depth_badge">guide</span></td>
               <td><a href="html/guide/input.html">input.html</a></td>
               <td>Input 컴포넌트 가이드</td>
               <td>2026-03-19</td>
@@ -215,7 +215,7 @@
             </tr>
             <tr>
               <td>3</td>
-              <td><span class="depth-badge">guide</span></td>
+              <td><span class="depth_badge">guide</span></td>
               <td><a href="html/guide/button.html">button.html</a></td>
               <td>Button 컴포넌트 가이드</td>
               <td>2026-03-19</td>
@@ -223,7 +223,7 @@
             </tr>
             <tr>
               <td>4</td>
-              <td><span class="depth-badge">guide</span></td>
+              <td><span class="depth_badge">guide</span></td>
               <td><a href="html/guide/tab.html">tab.html</a></td>
               <td>Tab 컴포넌트 가이드</td>
               <td>2026-03-19</td>
@@ -231,7 +231,7 @@
             </tr>
             <tr>
               <td>5</td>
-              <td><span class="depth-badge">guide</span></td>
+              <td><span class="depth_badge">guide</span></td>
               <td><a href="html/guide/checkbox.html">checkbox.html</a></td>
               <td>Checkbox 컴포넌트 가이드</td>
               <td>2026-03-19</td>
@@ -239,7 +239,7 @@
             </tr>
             <tr>
               <td>6</td>
-              <td><span class="depth-badge">guide</span></td>
+              <td><span class="depth_badge">guide</span></td>
               <td><a href="html/guide/icon.html">icon.html</a></td>
               <td>Icon 가이드</td>
               <td>2026-03-19</td>
@@ -248,7 +248,7 @@
             <!-- WISH. 브랜드 페이지 -->
             <tr>
               <td>W1</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-home-empty.html">wish-home-empty.html</a></td>
               <td>WISH. 홈 (빈 상태)</td>
               <td>2026-03-20</td>
@@ -256,7 +256,7 @@
             </tr>
             <tr>
               <td>W2</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-portfolio-home.html">wish-portfolio-home.html</a></td>
               <td>WISH. 포트폴리오 홈</td>
               <td>2026-03-20</td>
@@ -264,7 +264,7 @@
             </tr>
             <tr>
               <td>W3</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-portfolio-keyword.html">wish-portfolio-keyword.html</a></td>
               <td>WISH. 투자 키워드 선택</td>
               <td>2026-03-20</td>
@@ -272,7 +272,7 @@
             </tr>
             <tr>
               <td>W4</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-portfolio-propose.html">wish-portfolio-propose.html</a></td>
               <td>WISH. 포트폴리오 제안 생성 중</td>
               <td>2026-03-20</td>
@@ -280,7 +280,7 @@
             </tr>
             <tr>
               <td>W5</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-home.html">wish-home.html</a></td>
               <td>WISH. 홈 (관심상품 있는 상태)</td>
               <td>2026-03-20</td>
@@ -288,7 +288,7 @@
             </tr>
             <tr>
               <td>W6</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-header-portfolio.html">wish-header-portfolio.html</a></td>
               <td>WISH. 헤더 컴포넌트 - 포트폴리오 제안</td>
               <td>2026-03-20</td>
@@ -296,7 +296,7 @@
             </tr>
             <tr>
               <td>W7</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-portfolio-result.html">wish-portfolio-result.html</a></td>
               <td>WISH. 포트폴리오 제안 결과</td>
               <td>2026-03-20</td>
@@ -304,7 +304,7 @@
             </tr>
             <tr>
               <td>W8</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-header-basic.html">wish-header-basic.html</a></td>
               <td>WISH. 헤더 컴포넌트 - 기본형</td>
               <td>2026-03-20</td>
@@ -312,7 +312,7 @@
             </tr>
             <tr>
               <td>W9</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-member-type.html">wish-member-type.html</a></td>
               <td>WISH. 회원 유형 선택</td>
               <td>2026-03-20</td>
@@ -320,7 +320,7 @@
             </tr>
             <tr>
               <td>W10</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-terms.html">wish-terms.html</a></td>
               <td>WISH. 서비스 약관 동의</td>
               <td>2026-03-20</td>
@@ -328,7 +328,7 @@
             </tr>
             <tr>
               <td>W11</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-header-signup.html">wish-header-signup.html</a></td>
               <td>WISH. 헤더 컴포넌트 - 회원가입</td>
               <td>2026-03-20</td>
@@ -336,7 +336,7 @@
             </tr>
             <tr>
               <td>W12</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-signup-birthdate.html">wish-signup-birthdate.html</a></td>
               <td>WISH. 생년월일 입력</td>
               <td>2026-03-20</td>
@@ -344,7 +344,7 @@
             </tr>
             <tr>
               <td>W13</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-signup-gender.html">wish-signup-gender.html</a></td>
               <td>WISH. 성별 선택 (바텀 시트)</td>
               <td>2026-03-20</td>
@@ -352,7 +352,7 @@
             </tr>
             <tr>
               <td>W14</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-signup-nationality.html">wish-signup-nationality.html</a></td>
               <td>WISH. 국적 확인 (바텀 시트)</td>
               <td>2026-03-20</td>
@@ -360,7 +360,7 @@
             </tr>
             <tr>
               <td>W15</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-signup-carrier.html">wish-signup-carrier.html</a></td>
               <td>WISH. 통신사 선택 (바텀 시트)</td>
               <td>2026-03-20</td>
@@ -368,7 +368,7 @@
             </tr>
             <tr>
               <td>W16</td>
-              <td><span class="depth-badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
+              <td><span class="depth_badge" style="background:#e8edfc;color:#1345d1;">wish</span></td>
               <td><a href="html/wish-signup-phone.html">wish-signup-phone.html</a></td>
               <td>WISH. 휴대폰 번호 입력 (숫자 키보드)</td>
               <td>2026-03-20</td>

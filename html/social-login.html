@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>소셜 로그인 연동</title>
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
   <style>
     /* B형 헤더 */
-    .page-header {
+    .page_header {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 56px;
@@ -18,41 +18,41 @@
       padding: 0 8px 0 4px;
       z-index: 100;
     }
-    .page-header__back {
+    .page_header_back {
       display: flex; align-items: center; justify-content: center;
       width: 44px; height: 44px;
       background: none; border: none; cursor: pointer; color: #232433;
     }
-    .page-header__title {
+    .page_header_title {
       flex: 1; font-size: 18px; font-weight: 700; color: #232433; margin: 0;
     }
-    .page-header__btn {
+    .page_header_btn {
       display: flex; align-items: center; justify-content: center;
       width: 44px; height: 44px;
       background: none; border: none; cursor: pointer; color: #494B55;
     }
 
     /* 페이지 콘텐츠 */
-    .page-content { padding: 28px 20px; }
+    .page_content { padding: 28px 20px; }
 
     /* 페이지 타이틀 */
-    .page-title {
+    .page_title {
       font-size: 20px; font-weight: 700; color: #232433;
       line-height: 1.5; margin-bottom: 8px;
     }
-    .page-desc {
+    .page_desc {
       font-size: 14px; color: #71747C;
       line-height: 1.6; margin-bottom: 28px;
     }
 
     /* 폼 */
-    .form-group { margin-bottom: 16px; }
-    .form-label {
+    .form_group { margin-bottom: 16px; }
+    .form_label {
       display: block;
       font-size: 13px; font-weight: 600; color: #494B55;
       margin-bottom: 6px;
     }
-    .form-input {
+    .form_input {
       width: 100%; height: 52px;
       border: 1.5px solid #D4D8E2;
       border-radius: 8px;
@@ -62,15 +62,15 @@
       outline: none;
       box-sizing: border-box;
     }
-    .form-input::placeholder { color: #B4B6BC; }
-    .form-input:focus { border-color: #0055FF; }
+    .form_input::placeholder { color: #B4B6BC; }
+    .form_input:focus { border-color: #0055FF; }
 
     /* 로그인 유지 체크박스 */
-    .keep-login {
+    .keep_login {
       display: flex; align-items: center; gap: 8px;
       margin-bottom: 24px; cursor: pointer;
     }
-    .keep-login__check {
+    .keep_login_check {
       width: 20px; height: 20px;
       border: 1.5px solid #0055FF;
       border-radius: 4px;
@@ -78,12 +78,12 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .keep-login__label {
+    .keep_login_label {
       font-size: 14px; font-weight: 500; color: #232433;
     }
 
     /* 연동 버튼 (비활성) */
-    .connect-btn {
+    .connect_btn {
       width: 100%; height: 56px;
       background: #E5E8EF;
       color: #fff;
@@ -92,44 +92,44 @@
       cursor: not-allowed;
       margin-bottom: 20px;
     }
-    .connect-btn--active {
+    .connect_btn_active {
       background: #0055FF;
       cursor: pointer;
     }
 
     /* 링크 영역 */
-    .link-area {
+    .link_area {
       display: flex; align-items: center;
       justify-content: center; gap: 0;
       margin-bottom: 32px;
     }
-    .link-area__item {
+    .link_area_item {
       font-size: 14px; color: #71747C;
       background: none; border: none; cursor: pointer;
       padding: 8px 12px;
       text-decoration: none;
     }
-    .link-area__divider {
+    .link_area_divider {
       width: 1px; height: 14px; background: #D4D8E2;
     }
 
     /* 구분선 */
-    .divider-line {
+    .divider_line {
       border: none; border-top: 1px solid #F0F2F6;
       margin: 0 0 28px;
     }
 
     /* 회원가입 섹션 */
-    .signup-section { }
-    .signup-section__title {
+    .signup_section { }
+    .signup_section_title {
       font-size: 16px; font-weight: 700; color: #232433;
       margin-bottom: 6px;
     }
-    .signup-section__desc {
+    .signup_section_desc {
       font-size: 14px; color: #71747C;
       line-height: 1.5; margin-bottom: 16px;
     }
-    .signup-btn {
+    .signup_btn {
       width: 100%; height: 52px;
       background: #232433; color: #fff;
       border: none; border-radius: 10px;
@@ -140,14 +140,14 @@
 <body>
 
   <!-- B형 헤더 -->
-  <header class="page-header">
-    <button class="page-header__back" onclick="history.back()" aria-label="뒤로">
+  <header class="page_header">
+    <button class="page_header_back" onclick="history.back()" aria-label="뒤로">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-    <h1 class="page-header__title">소셜 로그인 연동</h1>
-    <button class="page-header__btn" aria-label="검색">
+    <h1 class="page_header_title">소셜 로그인 연동</h1>
+    <button class="page_header_btn" aria-label="검색">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
         <path d="M16.5 16.5L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -156,49 +156,49 @@
   </header>
 
   <!-- 콘텐츠 -->
-  <div class="page-content">
-    <h2 class="page-title">기존에 가입하신 e-mail 계정에<br>카카오 연동을 진행합니다.</h2>
-    <p class="page-desc">카카오 계정으로 간편하게 로그인하고<br>FunETF의 모든 서비스를 이용해 보세요.</p>
+  <div class="page_content">
+    <h2 class="page_title">기존에 가입하신 e-mail 계정에<br>카카오 연동을 진행합니다.</h2>
+    <p class="page_desc">카카오 계정으로 간편하게 로그인하고<br>FunETF의 모든 서비스를 이용해 보세요.</p>
 
     <!-- 이메일 입력 -->
-    <div class="form-group">
-      <label class="form-label">이메일</label>
-      <input type="email" class="form-input" placeholder="이메일 주소를 입력해 주세요" id="emailInput">
+    <div class="form_group">
+      <label class="form_label">이메일</label>
+      <input type="email" class="form_input" placeholder="이메일 주소를 입력해 주세요" id="emailInput">
     </div>
 
     <!-- 비밀번호 입력 -->
-    <div class="form-group">
-      <label class="form-label">비밀번호</label>
-      <input type="password" class="form-input" placeholder="비밀번호를 입력해 주세요" id="pwInput">
+    <div class="form_group">
+      <label class="form_label">비밀번호</label>
+      <input type="password" class="form_input" placeholder="비밀번호를 입력해 주세요" id="pwInput">
     </div>
 
     <!-- 로그인 유지 체크박스 -->
-    <label class="keep-login" id="keepLoginCheck">
-      <div class="keep-login__check" id="keepCheckBox">
+    <label class="keep_login" id="keepLoginCheck">
+      <div class="keep_login_check" id="keepCheckBox">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none">
           <path d="M5 13l4 4L19 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span class="keep-login__label">로그인 유지하기</span>
+      <span class="keep_login_label">로그인 유지하기</span>
     </label>
 
     <!-- 연동 버튼 -->
-    <button class="connect-btn" id="connectBtn">계정 연동 &amp; 로그인</button>
+    <button class="connect_btn" id="connectBtn">계정 연동 &amp; 로그인</button>
 
     <!-- 링크 (이메일 찾기 / 비밀번호 찾기) -->
-    <div class="link-area">
-      <button class="link-area__item">이메일 찾기</button>
-      <div class="link-area__divider"></div>
-      <button class="link-area__item">비밀번호 찾기</button>
+    <div class="link_area">
+      <button class="link_area_item">이메일 찾기</button>
+      <div class="link_area_divider"></div>
+      <button class="link_area_item">비밀번호 찾기</button>
     </div>
 
-    <hr class="divider-line">
+    <hr class="divider_line">
 
     <!-- 회원가입 섹션 -->
-    <div class="signup-section">
-      <div class="signup-section__title">아직 FunETF 회원이 아니신가요?</div>
-      <div class="signup-section__desc">지금 가입하고 포트래빗의 맞춤 포트폴리오<br>서비스를 무료로 경험해 보세요!</div>
-      <button class="signup-btn" onclick="location.href='signup-type.html'">회원가입</button>
+    <div class="signup_section">
+      <div class="signup_section_title">아직 FunETF 회원이 아니신가요?</div>
+      <div class="signup_section_desc">지금 가입하고 포트래빗의 맞춤 포트폴리오<br>서비스를 무료로 경험해 보세요!</div>
+      <button class="signup_btn" onclick="location.href='signup-type.html'">회원가입</button>
     </div>
   </div>
 
@@ -224,9 +224,9 @@
       var email = $('#emailInput').val();
       var pw = $('#pwInput').val();
       if (email && pw) {
-        $('#connectBtn').addClass('connect-btn--active').css('cursor', 'pointer').prop('disabled', false);
+        $('#connectBtn').addClass('connect_btn_active').css('cursor', 'pointer').prop('disabled', false);
       } else {
-        $('#connectBtn').removeClass('connect-btn--active').css('cursor', 'not-allowed');
+        $('#connectBtn').removeClass('connect_btn_active').css('cursor', 'not_allowed');
       }
     }
     $('#emailInput, #pwInput').on('input', checkInputs);

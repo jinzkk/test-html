@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>FunETF My List</title>
   <link rel="stylesheet" href="../css/common.css">
@@ -14,21 +14,21 @@
   <!-- ===========================
        모바일 헤더
        =========================== -->
-  <header class="mo-header">
-    <div class="mo-header__logo">FUNETF</div>
-    <div class="mo-header__actions">
-      <button class="mo-header__btn" aria-label="알림">
+  <header class="mo_header">
+    <div class="mo_header_logo">FUNETF</div>
+    <div class="mo_header_actions">
+      <button class="mo_header_btn" aria-label="알림">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M18 8A6 6 0 106 8c0 7-3 9-3 9h18s-3-2-3-9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="mo-header__btn" aria-label="찜">
+      <button class="mo_header_btn" aria-label="찜">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="mo-header__btn" aria-label="검색">
+      <button class="mo_header_btn" aria-label="검색">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
           <path d="M16.5 16.5L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -40,12 +40,12 @@
   <!-- ===========================
        My List 섹션
        =========================== -->
-  <section class="my-list-section">
+  <section class="my_list_section">
 
     <!-- 타이틀 + 설정 버튼 -->
-    <div class="my-list-title-wrap">
-      <h1 class="my-list-title">My List</h1>
-      <button class="btn-setting">
+    <div class="my_list_title_wrap">
+      <h1 class="my_list_title">My List</h1>
+      <button class="btn_setting">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M10 13a3 3 0 100-6 3 3 0 000 6z" stroke="#494B55" stroke-width="1.5"/>
           <path d="M16.47 12.12A1.29 1.29 0 0016.82 13.49l-.46.8a1.29 1.29 0 01-1.57.53l-.2-.08a1.29 1.29 0 00-1.39.28 1.29 1.29 0 00-.38.91v.18A1.29 1.29 0 0111.53 17h-.92a1.29 1.29 0 01-1.29-1.29v-.1a1.29 1.29 0 00-.85-1.18 1.29 1.29 0 00-1.39.28l-.07.07a1.29 1.29 0 01-1.82 0 1.29 1.29 0 01-.17-.17l-.46-.8a1.29 1.29 0 01.35-1.63l.06-.05a1.29 1.29 0 000-2.24l-.06-.05a1.29 1.29 0 01-.35-1.63l.46-.8a1.29 1.29 0 011.57-.53l.2.08a1.29 1.29 0 001.39-.28c.25-.25.38-.58.38-.91v-.18A1.29 1.29 0 018.61 3h.92c.71 0 1.29.58 1.29 1.29v.1c0 .34.13.67.38.91a1.29 1.29 0 001.39.28l.2-.08a1.29 1.29 0 011.57.53l.46.8a1.29 1.29 0 01-.35 1.63l-.06.05a1.29 1.29 0 000 2.24l.06.05z" stroke="#494B55" stroke-width="1.2"/>
@@ -55,34 +55,34 @@
     </div>
 
     <!-- 아코디언 그룹 -->
-    <div class="my-list-accordion-group">
+    <div class="my_list_accordion_group">
 
       <!-- 최근 본 ETF (기본 열림) -->
       <div class="accordion" id="accordion1">
-        <button class="accordion__header" onclick="toggleAccordion('accordion1')">
-          <span class="accordion__title">최근 본 ETF</span>
-          <span class="accordion__arrow">
+        <button class="accordion_header" onclick="toggleAccordion('accordion1')">
+          <span class="accordion_title">최근 본 ETF</span>
+          <span class="accordion_arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
-        <div class="accordion__body">
-          <div class="my-list-table">
+        <div class="accordion_body">
+          <div class="my_list_table">
 
             <!-- 행 1 -->
-            <div class="my-list-row">
-              <div class="my-list-row__info">
-                <div class="my-list-row__name">KODEX 미국S&amp;P500TR</div>
-                <div class="my-list-row__code">24.05.24 · 379800</div>
+            <div class="my_list_row">
+              <div class="my_list_row_info">
+                <div class="my_list_row_name">KODEX 미국S&amp;P500TR</div>
+                <div class="my_list_row_code">24.05.24 · 379800</div>
               </div>
-              <div class="my-list-row__chart" id="myListChart0"></div>
-              <div class="my-list-row__price-area">
-                <div class="my-list-row__price">16,435원</div>
-                <div class="my-list-row__change color-rise"><span class="icon-arrow-up"></span>45(0.27%)</div>
+              <div class="my_list_row_chart" id="myListChart0"></div>
+              <div class="my_list_row_price_area">
+                <div class="my_list_row_price">16,435원</div>
+                <div class="my_list_row_change color_rise"><span class="icon_arrow_up"></span>45(0.27%)</div>
               </div>
-              <div class="my-list-row__heart">
-                <button class="heart-btn" aria-label="관심상품 등록">
+              <div class="my_list_row_heart">
+                <button class="heart_btn" aria-label="관심상품 등록">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#B4B6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -91,18 +91,18 @@
             </div>
 
             <!-- 행 2 -->
-            <div class="my-list-row">
-              <div class="my-list-row__info">
-                <div class="my-list-row__name">KODEX 미국나스닥100TR</div>
-                <div class="my-list-row__code">24.05.24 · 379810</div>
+            <div class="my_list_row">
+              <div class="my_list_row_info">
+                <div class="my_list_row_name">KODEX 미국나스닥100TR</div>
+                <div class="my_list_row_code">24.05.24 · 379810</div>
               </div>
-              <div class="my-list-row__chart" id="myListChart1"></div>
-              <div class="my-list-row__price-area">
-                <div class="my-list-row__price">17,075원</div>
-                <div class="my-list-row__change color-rise"><span class="icon-arrow-up"></span>90(0.53%)</div>
+              <div class="my_list_row_chart" id="myListChart1"></div>
+              <div class="my_list_row_price_area">
+                <div class="my_list_row_price">17,075원</div>
+                <div class="my_list_row_change color_rise"><span class="icon_arrow_up"></span>90(0.53%)</div>
               </div>
-              <div class="my-list-row__heart">
-                <button class="heart-btn heart-btn--active" aria-label="관심상품 등록">
+              <div class="my_list_row_heart">
+                <button class="heart_btn heart_btn_active" aria-label="관심상품 등록">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" fill="#F14E4E" stroke="#F14E4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -111,18 +111,18 @@
             </div>
 
             <!-- 행 3 -->
-            <div class="my-list-row">
-              <div class="my-list-row__info">
-                <div class="my-list-row__name">KODEX 미국반도체MV</div>
-                <div class="my-list-row__code">24.05.24 · 390390</div>
+            <div class="my_list_row">
+              <div class="my_list_row_info">
+                <div class="my_list_row_name">KODEX 미국반도체MV</div>
+                <div class="my_list_row_code">24.05.24 · 390390</div>
               </div>
-              <div class="my-list-row__chart" id="myListChart2"></div>
-              <div class="my-list-row__price-area">
-                <div class="my-list-row__price">22,810원</div>
-                <div class="my-list-row__change color-rise"><span class="icon-arrow-up"></span>400(1.78%)</div>
+              <div class="my_list_row_chart" id="myListChart2"></div>
+              <div class="my_list_row_price_area">
+                <div class="my_list_row_price">22,810원</div>
+                <div class="my_list_row_change color_rise"><span class="icon_arrow_up"></span>400(1.78%)</div>
               </div>
-              <div class="my-list-row__heart">
-                <button class="heart-btn" aria-label="관심상품 등록">
+              <div class="my_list_row_heart">
+                <button class="heart_btn" aria-label="관심상품 등록">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#B4B6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -131,18 +131,18 @@
             </div>
 
             <!-- 행 4 -->
-            <div class="my-list-row">
-              <div class="my-list-row__info">
-                <div class="my-list-row__name">KODEX 2차전지산업</div>
-                <div class="my-list-row__code">24.05.24 · 305720</div>
+            <div class="my_list_row">
+              <div class="my_list_row_info">
+                <div class="my_list_row_name">KODEX 2차전지산업</div>
+                <div class="my_list_row_code">24.05.24 · 305720</div>
               </div>
-              <div class="my-list-row__chart" id="myListChart3"></div>
-              <div class="my-list-row__price-area">
-                <div class="my-list-row__price">18,465원</div>
-                <div class="my-list-row__change color-fall"><span class="icon-arrow-down"></span>80(-0.43%)</div>
+              <div class="my_list_row_chart" id="myListChart3"></div>
+              <div class="my_list_row_price_area">
+                <div class="my_list_row_price">18,465원</div>
+                <div class="my_list_row_change color_fall"><span class="icon_arrow_down"></span>80(-0.43%)</div>
               </div>
-              <div class="my-list-row__heart">
-                <button class="heart-btn" aria-label="관심상품 등록">
+              <div class="my_list_row_heart">
+                <button class="heart_btn" aria-label="관심상품 등록">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#B4B6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -151,18 +151,18 @@
             </div>
 
             <!-- 행 5 -->
-            <div class="my-list-row">
-              <div class="my-list-row__info">
-                <div class="my-list-row__name">KODEX CD금리액티브(합성)</div>
-                <div class="my-list-row__code">24.05.24 · 459580</div>
+            <div class="my_list_row">
+              <div class="my_list_row_info">
+                <div class="my_list_row_name">KODEX CD금리액티브(합성)</div>
+                <div class="my_list_row_code">24.05.24 · 459580</div>
               </div>
-              <div class="my-list-row__chart" id="myListChart4"></div>
-              <div class="my-list-row__price-area">
-                <div class="my-list-row__price">1,037,060원</div>
-                <div class="my-list-row__change color-rise"><span class="icon-arrow-up"></span>70(0.01%)</div>
+              <div class="my_list_row_chart" id="myListChart4"></div>
+              <div class="my_list_row_price_area">
+                <div class="my_list_row_price">1,037,060원</div>
+                <div class="my_list_row_change color_rise"><span class="icon_arrow_up"></span>70(0.01%)</div>
               </div>
-              <div class="my-list-row__heart">
-                <button class="heart-btn" aria-label="관심상품 등록">
+              <div class="my_list_row_heart">
+                <button class="heart_btn" aria-label="관심상품 등록">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#B4B6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -172,64 +172,64 @@
 
           </div>
           <!-- 기준일 텍스트 -->
-          <div class="my-list-date">기준일 : 24.07.19 실시간(장마감) *그래프:1개월 수익률</div>
+          <div class="my_list_date">기준일 : 24.07.19 실시간(장마감) *그래프:1개월 수익률</div>
           <!-- 전체보기 버튼 -->
-          <div class="my-list-more">
-            <button class="btn-list-view-all">전체보기 <span class="arrow"></span></button>
+          <div class="my_list_more">
+            <button class="btn_list_view_all">전체보기 <span class="arrow"></span></button>
           </div>
         </div>
       </div>
 
       <!-- 최근 본 펀드 (닫힘) -->
-      <div class="accordion accordion--collapsed" id="accordion2">
-        <button class="accordion__header" onclick="toggleAccordion('accordion2')">
-          <span class="accordion__title">최근 본 펀드</span>
-          <span class="accordion__arrow">
+      <div class="accordion accordion_collapsed" id="accordion2">
+        <button class="accordion_header" onclick="toggleAccordion('accordion2')">
+          <span class="accordion_title">최근 본 펀드</span>
+          <span class="accordion_arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
-        <div class="accordion__body"></div>
+        <div class="accordion_body"></div>
       </div>
 
       <!-- 지수 (닫힘) -->
-      <div class="accordion accordion--collapsed" id="accordion3">
-        <button class="accordion__header" onclick="toggleAccordion('accordion3')">
-          <span class="accordion__title">지수</span>
-          <span class="accordion__arrow">
+      <div class="accordion accordion_collapsed" id="accordion3">
+        <button class="accordion_header" onclick="toggleAccordion('accordion3')">
+          <span class="accordion_title">지수</span>
+          <span class="accordion_arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
-        <div class="accordion__body"></div>
+        <div class="accordion_body"></div>
       </div>
 
       <!-- 나만의 관심상품 2404 (닫힘) -->
-      <div class="accordion accordion--collapsed" id="accordion4">
-        <button class="accordion__header" onclick="toggleAccordion('accordion4')">
-          <span class="accordion__title">나만의 관심상품 2404</span>
-          <span class="accordion__arrow">
+      <div class="accordion accordion_collapsed" id="accordion4">
+        <button class="accordion_header" onclick="toggleAccordion('accordion4')">
+          <span class="accordion_title">나만의 관심상품 2404</span>
+          <span class="accordion_arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
-        <div class="accordion__body"></div>
+        <div class="accordion_body"></div>
       </div>
 
       <!-- 나만의 관심상품 2403 (닫힘) -->
-      <div class="accordion accordion--collapsed" id="accordion5">
-        <button class="accordion__header" onclick="toggleAccordion('accordion5')">
-          <span class="accordion__title">나만의 관심상품 2403</span>
-          <span class="accordion__arrow">
+      <div class="accordion accordion_collapsed" id="accordion5">
+        <button class="accordion_header" onclick="toggleAccordion('accordion5')">
+          <span class="accordion_title">나만의 관심상품 2403</span>
+          <span class="accordion_arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
-        <div class="accordion__body"></div>
+        <div class="accordion_body"></div>
       </div>
 
     </div><!-- /.my-list-accordion-group -->
@@ -237,42 +237,42 @@
   </section>
 
   <!-- 구분선 -->
-  <div class="my-list-divider"></div>
+  <div class="my_list_divider"></div>
 
   <!-- ===========================
        하단 고정 네비게이션
        =========================== -->
-  <nav class="bottom-nav" id="bottomNav">
-    <div class="bottom-nav__inner">
-      <button class="bottom-nav__item" data-nav="home">
-        <span class="bottom-nav__icon">
+  <nav class="bottom_nav" id="bottomNav">
+    <div class="bottom_nav_inner">
+      <button class="bottom_nav_item" data-nav="home">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L4 9v11a1 1 0 001 1h4v-6h6v6h4a1 1 0 001-1V9l-8-6z"/></svg>
         </span>
-        <span class="bottom-nav__label">홈</span>
+        <span class="bottom_nav_label">홈</span>
       </button>
-      <button class="bottom-nav__item" data-nav="etf">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="etf">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="14" width="4" height="7" rx="0.5"/><rect x="10" y="5" width="4" height="16" rx="0.5"/><rect x="17" y="9" width="4" height="12" rx="0.5"/></svg>
         </span>
-        <span class="bottom-nav__label">ETF</span>
+        <span class="bottom_nav_label">ETF</span>
       </button>
-      <button class="bottom-nav__item" data-nav="fund">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="fund">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
         </span>
-        <span class="bottom-nav__label">펀드</span>
+        <span class="bottom_nav_label">펀드</span>
       </button>
-      <button class="bottom-nav__item bottom-nav__item--active" data-nav="manage">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item bottom_nav_item_active" data-nav="manage">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </span>
-        <span class="bottom-nav__label">포트관리</span>
+        <span class="bottom_nav_label">포트관리</span>
       </button>
-      <button class="bottom-nav__item" data-nav="menu">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="menu">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </span>
-        <span class="bottom-nav__label">메뉴</span>
+        <span class="bottom_nav_label">메뉴</span>
       </button>
     </div>
   </nav>
@@ -371,15 +371,15 @@
        =========================== */
     $(document).on('click', '.heart-btn', function() {
       var $btn = $(this);
-      var isActive = $btn.hasClass('heart-btn--active');
+      var isActive = $btn.hasClass('heart_btn_active');
 
       if (isActive) {
         /* 활성화 해제 */
-        $btn.removeClass('heart-btn--active');
+        $btn.removeClass('heart_btn_active');
         $btn.find('path').attr('fill', 'none').attr('stroke', '#B4B6BC');
       } else {
         /* 활성화 */
-        $btn.addClass('heart-btn--active');
+        $btn.addClass('heart_btn_active');
         $btn.find('path').attr('fill', '#F14E4E').attr('stroke', '#F14E4E');
       }
     });
@@ -388,8 +388,8 @@
        하단 네비게이션 탭 전환
        =========================== */
     $('#bottomNav').on('click', '.bottom-nav__item', function() {
-      $('#bottomNav .bottom-nav__item').removeClass('bottom-nav__item--active');
-      $(this).addClass('bottom-nav__item--active');
+      $('#bottomNav .bottom-nav__item').removeClass('bottom_nav_item_active');
+      $(this).addClass('bottom_nav_item_active');
     });
   </script>
 </body>

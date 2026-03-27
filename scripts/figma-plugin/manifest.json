@@ -1,0 +1,7 @@
+{
+  "name": "Add Error Select Variant",
+  "id": "add-error-select-variant",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"]
+}

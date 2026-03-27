@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>포트래빗</title>
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
   <style>
     /* B형 헤더 */
-    .page-header {
+    .page_header {
       position: fixed;
       top: 0;
       left: 0;
@@ -22,7 +22,7 @@
       z-index: 100;
       gap: 4px;
     }
-    .page-header__back {
+    .page_header_back {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -34,19 +34,19 @@
       color: #232433;
       flex-shrink: 0;
     }
-    .page-header__title {
+    .page_header_title {
       flex: 1;
       font-size: 18px;
       font-weight: 700;
       color: #232433;
       margin: 0;
     }
-    .page-header__actions {
+    .page_header_actions {
       display: flex;
       align-items: center;
       gap: 4px;
     }
-    .page-header__btn {
+    .page_header_btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -57,7 +57,7 @@
       cursor: pointer;
       color: #494B55;
     }
-    .page-header__story-btn {
+    .page_header_story_btn {
       height: 32px;
       padding: 0 14px;
       background: #5B5FE4;
@@ -71,14 +71,14 @@
     }
 
     /* 토끼 캐릭터 영역 */
-    .rabbit-hero {
+    .rabbit_hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 32px 20px 16px;
       background: linear-gradient(180deg, #F0F2FF 0%, #fff 100%);
     }
-    .rabbit-avatar {
+    .rabbit_avatar {
       width: 120px;
       height: 120px;
       background: linear-gradient(135deg, #E8ECFF 0%, #C8CCFF 100%);
@@ -89,7 +89,7 @@
       margin-bottom: 16px;
       font-size: 56px;
     }
-    .rabbit-hero__title {
+    .rabbit_hero_title {
       font-size: 20px;
       font-weight: 700;
       color: #232433;
@@ -98,7 +98,7 @@
     }
 
     /* 추천 배지 */
-    .recommend-badge {
+    .recommend_badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -107,26 +107,26 @@
       padding: 6px 14px;
       margin: 12px 20px;
     }
-    .recommend-badge__dot {
+    .recommend_badge_dot {
       width: 6px;
       height: 6px;
       background: #5B5FE4;
       border-radius: 50%;
     }
-    .recommend-badge__text {
+    .recommend_badge_text {
       font-size: 13px;
       font-weight: 500;
       color: #5B5FE4;
     }
 
     /* 포트 타입 카드 */
-    .port-type-list {
+    .port_type_list {
       padding: 0 20px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-    .port-type-card {
+    .port_type_card {
       background: #fff;
       border: 1px solid #E6E9EF;
       border-radius: 12px;
@@ -137,10 +137,10 @@
       cursor: pointer;
       transition: border-color 0.15s;
     }
-    .port-type-card:hover {
+    .port_type_card:hover {
       border-color: #5B5FE4;
     }
-    .port-type-card__icon {
+    .port_type_card_icon {
       width: 48px;
       height: 48px;
       border-radius: 12px;
@@ -151,29 +151,29 @@
       font-size: 24px;
       flex-shrink: 0;
     }
-    .port-type-card__info {
+    .port_type_card_info {
       flex: 1;
       min-width: 0;
     }
-    .port-type-card__title {
+    .port_type_card_title {
       font-size: 16px;
       font-weight: 700;
       color: #232433;
       margin-bottom: 4px;
     }
-    .port-type-card__desc {
+    .port_type_card_desc {
       font-size: 13px;
       font-weight: 400;
       color: #71747C;
       line-height: 1.4;
     }
-    .port-type-card__arrow {
+    .port_type_card_arrow {
       color: #B4B6BC;
       flex-shrink: 0;
     }
 
     /* 더보기 버튼 */
-    .btn-more {
+    .btn_more {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -192,71 +192,71 @@
 <body>
 
   <!-- B형 헤더 -->
-  <header class="page-header">
-    <button class="page-header__back" onclick="history.back()" aria-label="뒤로">
+  <header class="page_header">
+    <button class="page_header_back" onclick="history.back()" aria-label="뒤로">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-    <h1 class="page-header__title">포트래빗</h1>
-    <div class="page-header__actions">
-      <button class="page-header__btn" aria-label="검색">
+    <h1 class="page_header_title">포트래빗</h1>
+    <div class="page_header_actions">
+      <button class="page_header_btn" aria-label="검색">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
           <path d="M16.5 16.5L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
-      <button class="page-header__story-btn">포트래빗 스토리</button>
+      <button class="page_header_story_btn">포트래빗 스토리</button>
     </div>
   </header>
 
   <!-- 토끼 캐릭터 + 타이틀 -->
-  <div class="rabbit-hero">
-    <div class="rabbit-avatar">🐰</div>
-    <h2 class="rabbit-hero__title">포트래빗이 포트폴리오를<br>만들어 드려요!</h2>
+  <div class="rabbit_hero">
+    <div class="rabbit_avatar">🐰</div>
+    <h2 class="rabbit_hero_title">포트래빗이 포트폴리오를<br>만들어 드려요!</h2>
   </div>
 
   <!-- 추천 배지 -->
   <div style="padding: 0 20px;">
-    <div class="recommend-badge">
-      <span class="recommend-badge__dot"></span>
-      <span class="recommend-badge__text">지금 가장 많은 사람들이 선택한 포트메요</span>
+    <div class="recommend_badge">
+      <span class="recommend_badge_dot"></span>
+      <span class="recommend_badge_text">지금 가장 많은 사람들이 선택한 포트메요</span>
     </div>
   </div>
 
   <!-- 포트 타입 카드 3개 -->
-  <div class="port-type-list">
-    <div class="port-type-card">
-      <div class="port-type-card__icon">📅</div>
-      <div class="port-type-card__info">
-        <div class="port-type-card__title">월배당 포트</div>
-        <div class="port-type-card__desc">매월 배당금을 받을 수 있는<br>월배당 ETF 포트폴리오</div>
+  <div class="port_type_list">
+    <div class="port_type_card">
+      <div class="port_type_card_icon">📅</div>
+      <div class="port_type_card_info">
+        <div class="port_type_card_title">월배당 포트</div>
+        <div class="port_type_card_desc">매월 배당금을 받을 수 있는<br>월배당 ETF 포트폴리오</div>
       </div>
-      <div class="port-type-card__arrow">
+      <div class="port_type_card_arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
           <path d="M9 6L15 12L9 18" stroke="#B4B6BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
     </div>
-    <div class="port-type-card">
-      <div class="port-type-card__icon">📈</div>
-      <div class="port-type-card__info">
-        <div class="port-type-card__title">연금/ISA 포트</div>
-        <div class="port-type-card__desc">연금계좌, ISA에 최적화된<br>절세형 ETF 포트폴리오</div>
+    <div class="port_type_card">
+      <div class="port_type_card_icon">📈</div>
+      <div class="port_type_card_info">
+        <div class="port_type_card_title">연금/ISA 포트</div>
+        <div class="port_type_card_desc">연금계좌, ISA에 최적화된<br>절세형 ETF 포트폴리오</div>
       </div>
-      <div class="port-type-card__arrow">
+      <div class="port_type_card_arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
           <path d="M9 6L15 12L9 18" stroke="#B4B6BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
     </div>
-    <div class="port-type-card">
-      <div class="port-type-card__icon">💰</div>
-      <div class="port-type-card__info">
-        <div class="port-type-card__title">증여 솔루션</div>
-        <div class="port-type-card__desc">자녀 증여에 최적화된<br>장기 ETF 포트폴리오</div>
+    <div class="port_type_card">
+      <div class="port_type_card_icon">💰</div>
+      <div class="port_type_card_info">
+        <div class="port_type_card_title">증여 솔루션</div>
+        <div class="port_type_card_desc">자녀 증여에 최적화된<br>장기 ETF 포트폴리오</div>
       </div>
-      <div class="port-type-card__arrow">
+      <div class="port_type_card_arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
           <path d="M9 6L15 12L9 18" stroke="#B4B6BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -265,40 +265,40 @@
   </div>
 
   <!-- 더보기 버튼 -->
-  <button class="btn-more">더보기 ∨</button>
+  <button class="btn_more">더보기 ∨</button>
 
   <!-- 하단 네비게이션 -->
-  <nav class="bottom-nav" id="bottomNav">
-    <div class="bottom-nav__inner">
-      <button class="bottom-nav__item" data-nav="home">
-        <span class="bottom-nav__icon">
+  <nav class="bottom_nav" id="bottomNav">
+    <div class="bottom_nav_inner">
+      <button class="bottom_nav_item" data-nav="home">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L4 9v11a1 1 0 001 1h4v-6h6v6h4a1 1 0 001-1V9l-8-6z"/></svg>
         </span>
-        <span class="bottom-nav__label">홈</span>
+        <span class="bottom_nav_label">홈</span>
       </button>
-      <button class="bottom-nav__item" data-nav="etf-search">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="etf_search">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L20 20" stroke-linecap="round"/></svg>
         </span>
-        <span class="bottom-nav__label">ETF검색</span>
+        <span class="bottom_nav_label">ETF검색</span>
       </button>
-      <button class="bottom-nav__item" data-nav="etf-compare">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="etf_compare">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="14" width="4" height="7" rx="0.5"/><rect x="10" y="5" width="4" height="16" rx="0.5"/><rect x="17" y="9" width="4" height="12" rx="0.5"/></svg>
         </span>
-        <span class="bottom-nav__label">ETF비교</span>
+        <span class="bottom_nav_label">ETF비교</span>
       </button>
-      <button class="bottom-nav__item bottom-nav__item--active" data-nav="portrabbit">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item bottom_nav_item_active" data-nav="portrabbit">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 6 5 6 8c0 2 1 3.5 2 4.5V15h8v-2.5c1-1 2-2.5 2-4.5 0-3-2-6-6-6z"/><path d="M9 15v4a1 1 0 001 1h4a1 1 0 001-1v-4"/><path d="M6 8C4 8 3 9 3 10s1 2 3 2"/><path d="M18 8c2 0 3 1 3 2s-1 2-3 2"/></svg>
         </span>
-        <span class="bottom-nav__label">포트래빗</span>
+        <span class="bottom_nav_label">포트래빗</span>
       </button>
-      <button class="bottom-nav__item" data-nav="menu">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="menu">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </span>
-        <span class="bottom-nav__label">메뉴</span>
+        <span class="bottom_nav_label">메뉴</span>
       </button>
     </div>
   </nav>
@@ -307,8 +307,8 @@
   <script src="../js/common.js"></script>
   <script>
     $('#bottomNav').on('click', '.bottom-nav__item', function() {
-      $('#bottomNav .bottom-nav__item').removeClass('bottom-nav__item--active');
-      $(this).addClass('bottom-nav__item--active');
+      $('#bottomNav .bottom-nav__item').removeClass('bottom_nav_item_active');
+      $(this).addClass('bottom_nav_item_active');
     });
   </script>
 </body>

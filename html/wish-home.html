@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>WISH. 홈</title>
   <link rel="stylesheet" href="../css/common.css">
@@ -11,51 +11,51 @@
     * { box-sizing: border-box; }
     body { background: #f5f7fa; margin: 0; font-family: 'Pretendard', sans-serif; min-height: 100vh; }
 
-    .page-header {
+    .page_header {
       position: fixed; top: 0; left: 0; width: 100%; height: 56px;
       background: #f5f7fa; display: flex; align-items: center;
       justify-content: space-between; padding: 0 16px; z-index: 100;
     }
-    .logo-img { height: 30px; display: block; }
-    .header-actions { display: flex; gap: 4px; align-items: center; }
-    .icon-btn { background: none; border: none; cursor: pointer; padding: 8px; }
+    .logo_img { height: 30px; display: block; }
+    .header_actions { display: flex; gap: 4px; align-items: center; }
+    .icon_btn { background: none; border: none; cursor: pointer; padding: 8px; }
 
     main { padding: 56px 0 80px; }
 
     /* 선물 카드 스크롤 */
-    .futures-scroll {
+    .futures_scroll {
       display: flex; gap: 8px; overflow-x: auto; padding: 16px 16px 12px;
       scrollbar-width: none;
     }
-    .futures-scroll::-webkit-scrollbar { display: none; }
-    .futures-card {
+    .futures_scroll::-webkit-scrollbar { display: none; }
+    .futures_card {
       flex: 0 0 auto; background: #fff; border-radius: 16px; padding: 14px 16px;
       min-width: 140px; box-shadow: 0 4px 12px rgba(88,92,95,0.08);
     }
-    .futures-card__name { font-size: 12px; color: #697387; margin-bottom: 4px; }
-    .futures-card__price { font-size: 15px; font-weight: 700; color: #141924; margin-bottom: 2px; }
-    .text-rise { color: #f04e4e; font-size: 11px; }
-    .text-fall { color: #227af1; font-size: 11px; }
+    .futures_card_name { font-size: 12px; color: #697387; margin-bottom: 4px; }
+    .futures_card_price { font-size: 15px; font-weight: 700; color: #141924; margin-bottom: 2px; }
+    .text_rise { color: #f04e4e; font-size: 11px; }
+    .text_fall { color: #227af1; font-size: 11px; }
 
     /* 검색 */
-    .search-section { padding: 0 16px 16px; }
-    .search-bar {
+    .search_section { padding: 0 16px 16px; }
+    .search_bar {
       border-radius: 12px; padding: 1.5px;
       background: conic-gradient(from 90deg at 50% 50%, #7c6ffb, #1345d1, #09b5f5, #7c6ffb);
     }
-    .search-inner {
+    .search_inner {
       background: #fff; border-radius: 10.5px; padding: 10px 14px;
       display: flex; align-items: center; gap: 8px;
     }
-    .search-inner input {
+    .search_inner input {
       flex: 1; border: none; outline: none; font-size: 14px; color: #697387;
       background: transparent; font-family: 'Pretendard', sans-serif;
     }
 
     /* 카드 섹션 */
-    .card-section { margin: 0 12px 12px; background: #fff; border-radius: 20px; overflow: hidden; }
-    .card-section__header { padding: 20px 20px 0; }
-    .card-section__title { font-size: 17px; font-weight: 700; color: #141924; margin: 0 0 12px; }
+    .card_section { margin: 0 12px 12px; background: #fff; border-radius: 20px; overflow: hidden; }
+    .card_section_header { padding: 20px 20px 0; }
+    .card_section_title { font-size: 17px; font-weight: 700; color: #141924; margin: 0 0 12px; }
 
     .tabs { display: flex; gap: 6px; margin-bottom: 12px; }
     .tab {
@@ -65,104 +65,104 @@
     .tab.active { background: #fff; color: #1345d1; border: 1.5px solid #1345d1; }
 
     /* 마이리스트 아이템 */
-    .stock-list { padding: 0 0 8px; }
-    .stock-item {
+    .stock_list { padding: 0 0 8px; }
+    .stock_item {
       display: flex; align-items: center; gap: 12px; padding: 12px 20px;
     }
-    .stock-thumb {
+    .stock_thumb {
       width: 40px; height: 40px; border-radius: 20px;
       display: flex; align-items: center; justify-content: center;
       flex: 0 0 40px; font-size: 10px; font-weight: 700; color: #fff;
     }
-    .stock-info { flex: 1; min-width: 0; }
-    .stock-name { font-size: 14px; font-weight: 600; color: #141924; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .stock-code { font-size: 12px; color: #697387; }
-    .stock-price-wrap { text-align: right; }
-    .stock-price { font-size: 14px; font-weight: 700; color: #141924; }
-    .stock-change { font-size: 12px; }
-    .divider-line { height: 1px; background: #f2f3f8; margin: 0 20px; }
+    .stock_info { flex: 1; min-width: 0; }
+    .stock_name { font-size: 14px; font-weight: 600; color: #141924; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stock_code { font-size: 12px; color: #697387; }
+    .stock_price_wrap { text-align: right; }
+    .stock_price { font-size: 14px; font-weight: 700; color: #141924; }
+    .stock_change { font-size: 12px; }
+    .divider_line { height: 1px; background: #f2f3f8; margin: 0 20px; }
 
     /* 관심상품 추가 행 */
-    .add-row {
+    .add_row {
       display: flex; align-items: center; gap: 12px; padding: 14px 20px;
       cursor: pointer;
     }
-    .add-icon {
+    .add_icon {
       width: 40px; height: 40px; border-radius: 20px; background: #f2f3f8;
       display: flex; align-items: center; justify-content: center; flex: 0 0 40px;
     }
-    .add-text { font-size: 14px; font-weight: 500; color: #697387; }
+    .add_text { font-size: 14px; font-weight: 500; color: #697387; }
 
     /* 하단 탭바 */
-    .bottom-nav {
+    .bottom_nav {
       position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
       background: #fff; border-radius: 50px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
       display: flex; padding: 8px 16px; z-index: 200;
     }
-    .nav-item {
+    .nav_item {
       display: flex; flex-direction: column; align-items: center; gap: 3px;
       padding: 6px 14px; cursor: pointer; min-width: 56px;
     }
-    .nav-item__icon { width: 22px; height: 22px; color: #b4bbcb; }
-    .nav-item__icon.active { color: #1345d1; }
-    .nav-item__label { font-size: 10px; color: #b4bbcb; font-weight: 500; }
-    .nav-item__label.active { color: #1345d1; }
+    .nav_item_icon { width: 22px; height: 22px; color: #b4bbcb; }
+    .nav_item_icon.active { color: #1345d1; }
+    .nav_item_label { font-size: 10px; color: #b4bbcb; font-weight: 500; }
+    .nav_item_label.active { color: #1345d1; }
   </style>
 </head>
 <body>
-  <header class="page-header">
-    <img src="../img/common/logo-wish.png" alt="WISH." class="logo-img">
-    <div class="header-actions">
-      <button class="icon-btn">
-        <span class="icon icon-bell"></span>
+  <header class="page_header">
+    <img src="../img/common/logo-wish.png" alt="WISH." class="logo_img">
+    <div class="header_actions">
+      <button class="icon_btn">
+        <span class="icon icon_bell"></span>
       </button>
-      <button class="icon-btn">
-        <span class="icon icon-heart"></span>
+      <button class="icon_btn">
+        <span class="icon icon_heart"></span>
       </button>
-      <button class="icon-btn">
-        <span class="icon icon-search"></span>
+      <button class="icon_btn">
+        <span class="icon icon_search"></span>
       </button>
     </div>
   </header>
 
   <main>
-    <div class="futures-scroll">
-      <div class="futures-card">
-        <div class="futures-card__name">S&P500</div>
-        <div class="futures-card__price">5,836.22</div>
-        <div class="text-rise">▲ 1.02%</div>
+    <div class="futures_scroll">
+      <div class="futures_card">
+        <div class="futures_card_name">S&P500</div>
+        <div class="futures_card_price">5,836.22</div>
+        <div class="text_rise">▲ 1.02%</div>
       </div>
-      <div class="futures-card">
-        <div class="futures-card__name">나스닥</div>
-        <div class="futures-card__price">20,412.50</div>
-        <div class="text-rise">▲ 0.87%</div>
+      <div class="futures_card">
+        <div class="futures_card_name">나스닥</div>
+        <div class="futures_card_price">20,412.50</div>
+        <div class="text_rise">▲ 0.87%</div>
       </div>
-      <div class="futures-card">
-        <div class="futures-card__name">다우</div>
-        <div class="futures-card__price">42,165.08</div>
-        <div class="text-fall">▼ 0.23%</div>
+      <div class="futures_card">
+        <div class="futures_card_name">다우</div>
+        <div class="futures_card_price">42,165.08</div>
+        <div class="text_fall">▼ 0.23%</div>
       </div>
-      <div class="futures-card">
-        <div class="futures-card__name">금</div>
-        <div class="futures-card__price">2,631.40</div>
-        <div class="text-rise">▲ 0.54%</div>
+      <div class="futures_card">
+        <div class="futures_card_name">금</div>
+        <div class="futures_card_price">2,631.40</div>
+        <div class="text_rise">▲ 0.54%</div>
       </div>
     </div>
 
-    <div class="search-section">
-      <div class="search-bar">
-        <div class="search-inner">
-          <span class="icon icon-search" style="width:18px;height:18px;opacity:0.6;"></span>
+    <div class="search_section">
+      <div class="search_bar">
+        <div class="search_inner">
+          <span class="icon icon_search" style="width:18px;height:18px;opacity:0.6;"></span>
           <input type="text" placeholder="ETF 검색" readonly>
         </div>
       </div>
     </div>
 
     <!-- 마이 리스트 -->
-    <div class="card-section">
-      <div class="card-section__header">
-        <div class="card-section__title">마이 리스트</div>
+    <div class="card_section">
+      <div class="card_section_header">
+        <div class="card_section_title">마이 리스트</div>
         <div class="tabs">
           <button class="tab active">관심</button>
           <button class="tab">국내</button>
@@ -170,56 +170,56 @@
           <button class="tab">채권</button>
         </div>
       </div>
-      <div class="stock-list">
-        <div class="stock-item">
-          <div class="stock-thumb" style="background:#227af1;">AI</div>
-          <div class="stock-info">
-            <div class="stock-name">ACE AI반도체TOP3+</div>
-            <div class="stock-code">KR7460570006</div>
+      <div class="stock_list">
+        <div class="stock_item">
+          <div class="stock_thumb" style="background:#227af1;">AI</div>
+          <div class="stock_info">
+            <div class="stock_name">ACE AI반도체TOP3+</div>
+            <div class="stock_code">KR7460570006</div>
           </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price">11,250원</div>
-            <div class="stock-change text-rise">▲ 2.45%</div>
-          </div>
-        </div>
-        <div class="divider-line"></div>
-        <div class="stock-item">
-          <div class="stock-thumb" style="background:#a25af4;">2차</div>
-          <div class="stock-info">
-            <div class="stock-name">ACE 2차전지&친환경차액티브</div>
-            <div class="stock-code">KR7381570001</div>
-          </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price">8,340원</div>
-            <div class="stock-change text-fall">▼ 1.18%</div>
+          <div class="stock_price_wrap">
+            <div class="stock_price">11,250원</div>
+            <div class="stock_change text_rise">▲ 2.45%</div>
           </div>
         </div>
-        <div class="divider-line"></div>
-        <div class="stock-item">
-          <div class="stock-thumb" style="background:#0ac957;">그린</div>
-          <div class="stock-info">
-            <div class="stock-name">ACE 미국친환경그린테마</div>
-            <div class="stock-code">KR7381180001</div>
+        <div class="divider_line"></div>
+        <div class="stock_item">
+          <div class="stock_thumb" style="background:#a25af4;">2차</div>
+          <div class="stock_info">
+            <div class="stock_name">ACE 2차전지&친환경차액티브</div>
+            <div class="stock_code">KR7381570001</div>
           </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price">6,820원</div>
-            <div class="stock-change text-rise">▲ 0.74%</div>
+          <div class="stock_price_wrap">
+            <div class="stock_price">8,340원</div>
+            <div class="stock_change text_fall">▼ 1.18%</div>
           </div>
         </div>
-        <div class="divider-line"></div>
-        <div class="add-row">
-          <div class="add-icon">
-            <span class="icon icon-plus"></span>
+        <div class="divider_line"></div>
+        <div class="stock_item">
+          <div class="stock_thumb" style="background:#0ac957;">그린</div>
+          <div class="stock_info">
+            <div class="stock_name">ACE 미국친환경그린테마</div>
+            <div class="stock_code">KR7381180001</div>
           </div>
-          <span class="add-text">관심상품 추가하기</span>
+          <div class="stock_price_wrap">
+            <div class="stock_price">6,820원</div>
+            <div class="stock_change text_rise">▲ 0.74%</div>
+          </div>
+        </div>
+        <div class="divider_line"></div>
+        <div class="add_row">
+          <div class="add_icon">
+            <span class="icon icon_plus"></span>
+          </div>
+          <span class="add_text">관심상품 추가하기</span>
         </div>
       </div>
     </div>
 
     <!-- 포트폴리오 섹션 -->
-    <div class="card-section">
-      <div class="card-section__header">
-        <div class="card-section__title">포트폴리오</div>
+    <div class="card_section">
+      <div class="card_section_header">
+        <div class="card_section_title">포트폴리오</div>
         <div class="tabs">
           <button class="tab active">전체</button>
           <button class="tab">월배당</button>
@@ -228,40 +228,40 @@
           <button class="tab">투자형</button>
         </div>
       </div>
-      <div class="stock-item" style="padding-bottom: 20px;">
-        <div class="stock-thumb" style="background:#1345d1; border-radius:8px;">월배</div>
-        <div class="stock-info">
-          <div class="stock-name">월배당 홀릭 포트</div>
-          <div class="stock-code">수익률 +15.21%</div>
+      <div class="stock_item" style="padding-bottom: 20px;">
+        <div class="stock_thumb" style="background:#1345d1; border-radius:8px;">월배</div>
+        <div class="stock_info">
+          <div class="stock_name">월배당 홀릭 포트</div>
+          <div class="stock_code">수익률 +15.21%</div>
         </div>
-        <div class="stock-price-wrap">
-          <div class="stock-price" style="color:#1345d1;">760만원</div>
-          <div class="stock-change" style="color:#697387;">연간 배당</div>
+        <div class="stock_price_wrap">
+          <div class="stock_price" style="color:#1345d1;">760만원</div>
+          <div class="stock_change" style="color:#697387;">연간 배당</div>
         </div>
       </div>
     </div>
   </main>
 
-  <nav class="bottom-nav">
-    <div class="nav-item">
-      <span class="icon icon-nav-etf nav-item__icon"></span>
-      <span class="nav-item__label">ETF상품</span>
+  <nav class="bottom_nav">
+    <div class="nav_item">
+      <span class="icon icon_nav_etf nav_item_icon"></span>
+      <span class="nav_item_label">ETF상품</span>
     </div>
-    <div class="nav-item">
-      <span class="icon icon-nav-invest nav-item__icon"></span>
-      <span class="nav-item__label">투자정보</span>
+    <div class="nav_item">
+      <span class="icon icon_nav_invest nav_item_icon"></span>
+      <span class="nav_item_label">투자정보</span>
     </div>
-    <div class="nav-item">
-      <span class="icon icon-nav-home active nav-item__icon"></span>
-      <span class="nav-item__label active">홈</span>
+    <div class="nav_item">
+      <span class="icon icon_nav_home active nav_item_icon"></span>
+      <span class="nav_item_label active">홈</span>
     </div>
-    <div class="nav-item">
-      <span class="icon icon-nav-portfolio nav-item__icon"></span>
-      <span class="nav-item__label">포트폴리오</span>
+    <div class="nav_item">
+      <span class="icon icon_nav_portfolio nav_item_icon"></span>
+      <span class="nav_item_label">포트폴리오</span>
     </div>
-    <div class="nav-item">
-      <span class="icon icon-nav-menu nav-item__icon"></span>
-      <span class="nav-item__label">메뉴</span>
+    <div class="nav_item">
+      <span class="icon icon_nav_menu nav_item_icon"></span>
+      <span class="nav_item_label">메뉴</span>
     </div>
   </nav>
 

@@ -1,3 +1,4 @@
+@charset "utf-8";
 /* ===========================
    모바일 메인 페이지 전용 스타일
    =========================== */
@@ -23,32 +24,32 @@ body {
 /* ===========================
    색상 유틸
    =========================== */
-.color-rise { color: #F14E4E; }
-.color-fall { color: #336AFF; }
-.color-purple { color: #5B5FE4; }
+.color_rise { color: #F14E4E; }
+.color_fall { color: #336AFF; }
+.color_purple { color: #5B5FE4; }
 
 /* ===========================
    섹션 공통
    =========================== */
-.mo-section {
+.mo_section {
   padding: 24px 20px;
 }
 
-.section-title {
+.section_title {
   font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
   color: #232433;
 }
 
-.section-header {
+.section_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
 }
 
-.btn-view-all {
+.btn_view_all {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -61,7 +62,7 @@ body {
   padding: 8px 0;
 }
 
-.btn-view-all .arrow {
+.btn_view_all .arrow {
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -78,13 +79,13 @@ body {
 /* ===========================
    1. 서머리 영역
    =========================== */
-.summary-area {
+.summary_area {
   background: linear-gradient(90deg, rgba(242,245,253,0.9) 0%, rgba(242,245,253,0.9) 100%);
   padding: 24px 20px;
 }
 
 /* 선물 카드 리스트 */
-.futures-scroll {
+.futures_scroll {
   display: flex;
   gap: 8px;
   overflow-x: auto;
@@ -92,9 +93,9 @@ body {
   scrollbar-width: none;
   margin-bottom: 8px;
 }
-.futures-scroll::-webkit-scrollbar { display: none; }
+.futures_scroll::-webkit-scrollbar { display: none; }
 
-.futures-card {
+.futures_card {
   min-width: 111px;
   background: #fff;
   border-radius: 6px;
@@ -102,7 +103,7 @@ body {
   flex-shrink: 0;
 }
 
-.futures-card__name {
+.futures_card_name {
   font-size: 12px;
   font-weight: 500;
   color: #71747C;
@@ -112,7 +113,7 @@ body {
   text-overflow: ellipsis;
 }
 
-.futures-card__price {
+.futures_card_price {
   font-size: 16px;
   font-weight: 600;
   color: #232433;
@@ -120,7 +121,7 @@ body {
   margin-top: 2px;
 }
 
-.futures-card__change {
+.futures_card_change {
   font-size: 10px;
   font-weight: 500;
   line-height: 1.4;
@@ -129,20 +130,20 @@ body {
   gap: 2px;
 }
 
-.futures-card__chart {
+.futures_card_chart {
   height: 32px;
   margin-top: 4px;
 }
 
 /* 날짜 정보 */
-.date-info {
+.date_info {
   display: flex;
   align-items: flex-start;
   gap: 8px;
   margin-bottom: 24px;
 }
 
-.date-info__text {
+.date_info_text {
   flex: 1;
   font-size: 12px;
   font-weight: 500;
@@ -150,7 +151,7 @@ body {
   line-height: 1.4;
 }
 
-.btn-edit {
+.btn_edit {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -166,10 +167,10 @@ body {
   height: 32px;
 }
 
-.btn-edit svg { width: 20px; height: 20px; }
+.btn_edit svg { width: 20px; height: 20px; }
 
 /* 검색박스 */
-.search-box {
+.search_box {
   display: flex;
   align-items: center;
   background: #fff;
@@ -180,14 +181,14 @@ body {
   box-shadow: 0 0 6px rgba(27,22,136,0.1);
 }
 
-.search-box__inner {
+.search_box_inner {
   display: flex;
   align-items: center;
   gap: 16px;
   flex: 1;
 }
 
-.search-box__placeholder {
+.search_box_placeholder {
   flex: 1;
   font-size: 16px;
   font-weight: 600;
@@ -195,20 +196,20 @@ body {
   line-height: 1.5;
 }
 
-.search-box__icon svg { width: 24px; height: 24px; }
+.search_box_icon svg { width: 24px; height: 24px; }
 
 /* ===========================
    2. My List 영역
    =========================== */
-.my-list-section {
+.my_list_section {
   padding: 0 20px 0;
 }
 
-.my-list-section .section-header {
+.my_list_section .section_header {
   padding-top: 24px;
 }
 
-.btn-setting {
+.btn_setting {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -223,7 +224,7 @@ body {
   height: 32px;
 }
 
-.btn-setting svg { width: 20px; height: 20px; }
+.btn_setting svg { width: 20px; height: 20px; }
 
 /* 아코디언 */
 .accordion {
@@ -235,12 +236,12 @@ body {
   margin-bottom: 12px;
 }
 
-.accordion--collapsed {
+.accordion_collapsed {
   box-shadow: none;
   border-color: #E7E8EF;
 }
 
-.accordion__header {
+.accordion_header {
   display: flex;
   align-items: center;
   padding: 0 16px;
@@ -252,12 +253,12 @@ body {
   text-align: left;
 }
 
-.accordion--collapsed .accordion__header {
+.accordion_collapsed .accordion_header {
   background: #F3F4F7;
   border-radius: 6px;
 }
 
-.accordion__title {
+.accordion_title {
   flex: 1;
   font-size: 16px;
   font-weight: 600;
@@ -265,7 +266,7 @@ body {
   line-height: 1.4;
 }
 
-.accordion__arrow {
+.accordion_arrow {
   width: 20px;
   height: 20px;
   display: flex;
@@ -274,24 +275,24 @@ body {
   transition: transform 0.3s;
 }
 
-.accordion--collapsed .accordion__arrow {
+.accordion_collapsed .accordion_arrow {
   transform: rotate(180deg);
 }
 
-.accordion__body {
+.accordion_body {
   padding: 0 1px 12px;
 }
 
-.accordion--collapsed .accordion__body {
+.accordion_collapsed .accordion_body {
   display: none;
 }
 
 /* ETF 리스트 테이블 */
-.etf-list-table {
+.etf_list_table {
   width: 100%;
 }
 
-.etf-list-row {
+.etf_list_row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -301,15 +302,15 @@ body {
   border-bottom: 1px solid #F3F4F7;
 }
 
-.etf-list-row:last-child { border-bottom: none; }
+.etf_list_row:last-child { border-bottom: none; }
 
-.etf-list-row__info {
+.etf_list_row_info {
   flex: 1;
   min-width: 0;
   padding: 12px 0;
 }
 
-.etf-list-row__name {
+.etf_list_row_name {
   font-size: 14px;
   font-weight: 600;
   color: #494B55;
@@ -319,34 +320,34 @@ body {
   text-overflow: ellipsis;
 }
 
-.etf-list-row__code {
+.etf_list_row_code {
   font-size: 12px;
   font-weight: 400;
   color: #93959C;
   line-height: 1.4;
 }
 
-.etf-list-row__chart {
+.etf_list_row_chart {
   width: 48px;
   height: 48px;
   flex-shrink: 0;
 }
 
-.etf-list-row__price-area {
+.etf_list_row_price_area {
   width: 96px;
   flex-shrink: 0;
   text-align: right;
   padding: 8px 0;
 }
 
-.etf-list-row__price {
+.etf_list_row_price {
   font-size: 14px;
   font-weight: 600;
   color: #232433;
   line-height: 1.4;
 }
 
-.etf-list-row__change {
+.etf_list_row_change {
   font-size: 12px;
   font-weight: 500;
   line-height: 1.4;
@@ -356,7 +357,7 @@ body {
   gap: 2px;
 }
 
-.etf-list-row__heart {
+.etf_list_row_heart {
   width: 52px;
   flex-shrink: 0;
   display: flex;
@@ -364,7 +365,7 @@ body {
   justify-content: center;
 }
 
-.heart-btn {
+.heart_btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -373,7 +374,7 @@ body {
   padding: 8px;
 }
 
-.etf-list-footer {
+.etf_list_footer {
   text-align: center;
   padding: 8px 16px;
   background: rgba(255,255,255,0.5);
@@ -382,7 +383,7 @@ body {
   color: #93959C;
 }
 
-.btn-list-view-all {
+.btn_list_view_all {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -400,7 +401,7 @@ body {
 /* ===========================
    3. ETF 상품 검색 필터
    =========================== */
-.btn-filter-add {
+.btn_filter_add {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -415,10 +416,10 @@ body {
   height: 32px;
 }
 
-.btn-filter-add svg { width: 20px; height: 20px; }
+.btn_filter_add svg { width: 20px; height: 20px; }
 
 /* 칩 리스트 (가로 스크롤) */
-.chip-scroll {
+.chip_scroll {
   display: flex;
   gap: 8px;
   overflow-x: auto;
@@ -427,7 +428,7 @@ body {
   padding-bottom: 4px;
   margin-bottom: 8px;
 }
-.chip-scroll::-webkit-scrollbar { display: none; }
+.chip_scroll::-webkit-scrollbar { display: none; }
 
 .chip {
   display: flex;
@@ -445,12 +446,12 @@ body {
   letter-spacing: -0.13px;
 }
 
-.chip--active {
+.chip_active {
   background: #fff;
   border: 1px solid #5B5FE4;
 }
 
-.chip__close {
+.chip_close {
   width: 20px;
   height: 20px;
   background: #B4B6BC;
@@ -463,14 +464,14 @@ body {
   flex-shrink: 0;
 }
 
-.chip__close svg { width: 8px; height: 8px; }
+.chip_close svg { width: 8px; height: 8px; }
 
 /* 필터 테이블 */
-.filter-table {
+.filter_table {
   padding: 0 4px;
 }
 
-.filter-row {
+.filter_row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -479,15 +480,15 @@ body {
   background: #fff;
 }
 
-.filter-row:last-child { border-bottom: none; }
+.filter_row:last-child { border-bottom: none; }
 
-.filter-row__info {
+.filter_row_info {
   flex: 1;
   min-width: 0;
   padding: 12px 0;
 }
 
-.filter-row__name {
+.filter_row_name {
   font-size: 14px;
   font-weight: 500;
   color: #494B55;
@@ -496,34 +497,34 @@ body {
   text-overflow: ellipsis;
 }
 
-.filter-row__code {
+.filter_row_code {
   font-size: 12px;
   font-weight: 400;
   color: #93959C;
   line-height: 1.4;
 }
 
-.filter-row__chart {
+.filter_row_chart {
   width: 48px;
   height: 48px;
   flex-shrink: 0;
 }
 
-.filter-row__price-area {
+.filter_row_price_area {
   width: 100px;
   flex-shrink: 0;
   text-align: right;
   padding: 8px 0;
 }
 
-.filter-row__price {
+.filter_row_price {
   font-size: 14px;
   font-weight: 600;
   color: #232433;
   line-height: 1.4;
 }
 
-.filter-row__change {
+.filter_row_change {
   font-size: 12px;
   font-weight: 500;
   line-height: 1.4;
@@ -533,7 +534,7 @@ body {
   gap: 2px;
 }
 
-.filter-footer {
+.filter_footer {
   text-align: center;
   padding: 8px 16px;
   background: #F9FAFC;
@@ -541,7 +542,7 @@ body {
   color: #93959C;
 }
 
-.btn-view-all-box {
+.btn_view_all_box {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -554,14 +555,14 @@ body {
 /* ===========================
    4. 조회한 상품은?
    =========================== */
-.viewed-section .section-header {
+.viewed_section .section_header {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 12px;
 }
 
-.dropdown-select {
+.dropdown_select {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -576,7 +577,7 @@ body {
   cursor: pointer;
 }
 
-.dropdown-select .arrow-down {
+.dropdown_select .arrow_down {
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
@@ -585,7 +586,7 @@ body {
 }
 
 /* 순위 테이블 */
-.rank-row {
+.rank_row {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -594,9 +595,9 @@ body {
   border-bottom: 1px solid #E6EAF1;
 }
 
-.rank-row:last-child { border-bottom: none; }
+.rank_row:last-child { border-bottom: none; }
 
-.rank-badge {
+.rank_badge {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -605,37 +606,37 @@ body {
   width: 24px;
 }
 
-.rank-badge__crown {
+.rank_badge_crown {
   width: 20px;
   height: 16px;
 }
 
-.rank-badge__num {
+.rank_badge_num {
   font-size: 12px;
   font-weight: 800;
   text-align: center;
   line-height: 1;
 }
 
-.rank-badge--gold .rank-badge__num { color: #9C6325; }
-.rank-badge--gold .rank-badge__crown { color: #FFD700; }
-.rank-badge--silver .rank-badge__num { color: #597089; }
-.rank-badge--bronze .rank-badge__num { color: #AE4B16; }
-.rank-badge--normal .rank-badge__num { color: #494B55; }
+.rank_badge_gold .rank_badge_num { color: #9C6325; }
+.rank_badge_gold .rank_badge_crown { color: #FFD700; }
+.rank_badge_silver .rank_badge_num { color: #597089; }
+.rank_badge_bronze .rank_badge_num { color: #AE4B16; }
+.rank_badge_normal .rank_badge_num { color: #494B55; }
 
-.rank-row__info {
+.rank_row_info {
   flex: 1;
   min-width: 0;
 }
 
-.rank-row__name {
+.rank_row_name {
   font-size: 14px;
   font-weight: 500;
   color: #494B55;
   line-height: 1.3;
 }
 
-.rank-row__code {
+.rank_row_code {
   font-size: 12px;
   font-weight: 400;
   color: #93959C;
@@ -643,20 +644,20 @@ body {
   margin-top: 2px;
 }
 
-.rank-row__price-area {
+.rank_row_price_area {
   width: 90px;
   flex-shrink: 0;
   text-align: right;
 }
 
-.rank-row__price {
+.rank_row_price {
   font-size: 14px;
   font-weight: 600;
   color: #232433;
   line-height: 1.4;
 }
 
-.rank-row__change {
+.rank_row_change {
   font-size: 12px;
   font-weight: 500;
   line-height: 1.4;
@@ -669,12 +670,12 @@ body {
 /* ===========================
    5. 포트 성과 현황
    =========================== */
-.port-section {
+.port_section {
   background: #F5F6F9;
   padding: 24px 20px;
 }
 
-.port-chips {
+.port_chips {
   display: flex;
   gap: 8px;
   overflow-x: auto;
@@ -682,9 +683,9 @@ body {
   scrollbar-width: none;
   margin-bottom: 16px;
 }
-.port-chips::-webkit-scrollbar { display: none; }
+.port_chips::-webkit-scrollbar { display: none; }
 
-.port-chip {
+.port_chip {
   height: 32px;
   padding: 0 12px;
   border-radius: 100px;
@@ -700,49 +701,49 @@ body {
   cursor: pointer;
 }
 
-.port-chip--active {
+.port_chip_active {
   background: #5B5FE4;
   color: #fff;
 }
 
-.port-card {
+.port_card {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.port-card__deco {
+.port_card_deco {
   height: 24px;
   background: linear-gradient(90deg, #5B5FE4 0%, #8B8EF5 82.46%, #E8E8FD 100%);
 }
 
-.port-card__body {
+.port_card_body {
   background: #fff;
   padding: 12px 20px 32px;
   border-radius: 0 0 6px 6px;
 }
 
-.port-card__title {
+.port_card_title {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 20px;
 }
 
-.port-card__title-text {
+.port_card_title_text {
   flex: 1;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.4;
 }
 
-.port-card__title-text em {
+.port_card_title_text em {
   color: #5B5FE4;
   font-style: normal;
   font-weight: 600;
 }
 
-.port-card__arrow {
+.port_card_arrow {
   flex-shrink: 0;
   width: 24px;
   height: 24px;
@@ -751,26 +752,26 @@ body {
   justify-content: center;
 }
 
-.port-detail {
+.port_detail {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.port-detail__row {
+.port_detail_row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.port-detail__label {
+.port_detail_label {
   font-size: 13px;
   font-weight: 400;
   color: #71747C;
   line-height: 1.2;
 }
 
-.port-detail__value {
+.port_detail_value {
   font-size: 13px;
   font-weight: 500;
   color: #494B55;
@@ -778,7 +779,7 @@ body {
   line-height: 1.2;
 }
 
-.port-detail__value--highlight {
+.port_detail_value_highlight {
   font-size: 22px;
   font-weight: 600;
   color: #F14E4E;
@@ -788,17 +789,17 @@ body {
 /* ===========================
    6. ETF 랭킹 1위
    =========================== */
-.ranking-section {
+.ranking_section {
   padding: 24px 20px 0;
 }
 
-.ranking-chips {
+.ranking_chips {
   display: flex;
   gap: 8px;
   margin-bottom: 12px;
 }
 
-.ranking-row {
+.ranking_row {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -807,9 +808,9 @@ body {
   background: #fff;
 }
 
-.ranking-row:last-child { border-bottom: none; }
+.ranking_row:last-child { border-bottom: none; }
 
-.ranking-row__badge {
+.ranking_row_badge {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -817,12 +818,12 @@ body {
   gap: 4px;
 }
 
-.ranking-row__info {
+.ranking_row_info {
   flex: 1;
   min-width: 0;
 }
 
-.ranking-tag {
+.ranking_tag {
   display: inline-flex;
   align-items: center;
   padding: 3px 6px 2px;
@@ -835,16 +836,16 @@ body {
   margin-bottom: 4px;
 }
 
-.ranking-row__name {
+.ranking_row_name {
   font-size: 14px;
   font-weight: 500;
   color: #494B55;
   line-height: 1.4;
 }
 
-.ranking-row__name .brand { color: #006AF9; }
+.ranking_row_name .brand { color: #006AF9; }
 
-.ranking-row__sub {
+.ranking_row_sub {
   font-size: 12px;
   line-height: 1.4;
   margin-top: 4px;
@@ -852,17 +853,17 @@ body {
   gap: 4px;
 }
 
-.ranking-row__sub span:first-child {
+.ranking_row_sub span:first-child {
   font-weight: 400;
   color: #494B55;
 }
 
-.ranking-row__sub span:last-child {
+.ranking_row_sub span:last-child {
   font-weight: 600;
   color: #232433;
 }
 
-.ranking-row__score {
+.ranking_row_score {
   flex-shrink: 0;
   width: 74px;
   text-align: right;
@@ -872,16 +873,16 @@ body {
   line-height: 1.4;
 }
 
-.ranking-row__score .num { color: #F0295A; }
+.ranking_row_score .num { color: #F0295A; }
 
 /* ===========================
    7. 수익률로 간편 찾기
    =========================== */
-.yield-section {
+.yield_section {
   padding: 24px 20px;
 }
 
-.yield-desc {
+.yield_desc {
   font-size: 14px;
   font-weight: 400;
   color: #71747C;
@@ -889,7 +890,7 @@ body {
   line-height: 1.4;
 }
 
-.yield-row {
+.yield_row {
   display: flex;
   align-items: center;
   padding: 0 4px;
@@ -897,9 +898,9 @@ body {
   border-bottom: 1px solid #F0F2F6;
 }
 
-.yield-row:last-child { border-bottom: none; }
+.yield_row:last-child { border-bottom: none; }
 
-.yield-row__thumb {
+.yield_row_thumb {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -913,13 +914,13 @@ body {
   font-weight: 600;
 }
 
-.yield-row__info {
+.yield_row_info {
   flex: 1;
   padding: 0 12px;
   min-width: 0;
 }
 
-.yield-row__name {
+.yield_row_name {
   font-size: 15px;
   font-weight: 500;
   color: #232433;
@@ -929,7 +930,7 @@ body {
   text-overflow: ellipsis;
 }
 
-.yield-row__meta {
+.yield_row_meta {
   display: flex;
   gap: 16px;
   font-size: 12px;
@@ -937,22 +938,22 @@ body {
   margin-top: 4px;
 }
 
-.yield-row__meta-item {
+.yield_row_meta_item {
   display: flex;
   gap: 8px;
 }
 
-.yield-row__meta-label {
+.yield_row_meta_label {
   font-weight: 400;
   color: #93959C;
 }
 
-.yield-row__meta-value {
+.yield_row_meta_value {
   font-weight: 500;
   color: #494B55;
 }
 
-.yield-row__arrow {
+.yield_row_arrow {
   flex-shrink: 0;
   width: 24px;
   height: 24px;
@@ -964,7 +965,7 @@ body {
 /* ===========================
    8. HOT ETF 배너
    =========================== */
-.hot-banner {
+.hot_banner {
   position: relative;
   width: 100%;
   height: 114px;
@@ -972,28 +973,28 @@ body {
   overflow: hidden;
 }
 
-.hot-banner__txt {
+.hot_banner_txt {
   position: absolute;
   top: 14px;
   left: 32px;
   z-index: 2;
 }
 
-.hot-banner__label {
+.hot_banner_label {
   font-size: 14px;
   font-weight: 700;
   color: rgba(255,255,255,0.7);
   margin-bottom: 4px;
 }
 
-.hot-banner__title {
+.hot_banner_title {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
   line-height: 1.4;
 }
 
-.hot-banner__sub {
+.hot_banner_sub {
   font-size: 13px;
   font-weight: 400;
   color: rgba(255,255,255,0.8);
@@ -1003,36 +1004,36 @@ body {
 /* ===========================
    9. 유용한 투자 Tip
    =========================== */
-.tip-section {
+.tip_section {
   padding: 24px 20px;
 }
 
-.tip-row {
+.tip_row {
   display: flex;
   gap: 16px;
   padding: 0;
   height: 72px;
 }
 
-.tip-row + .tip-row {
+.tip_row + .tip_row {
   border-top: 1px solid #E6EAF1;
   margin-top: 20px;
   padding-top: 20px;
 }
 
-.tip-row__info {
+.tip_row_info {
   flex: 1;
   min-width: 0;
 }
 
-.tip-row__category {
+.tip_row_category {
   font-size: 13px;
   font-weight: 500;
   color: #93959C;
   line-height: 1.5;
 }
 
-.tip-row__title {
+.tip_row_title {
   font-size: 14px;
   font-weight: 500;
   color: #232433;
@@ -1044,7 +1045,7 @@ body {
   overflow: hidden;
 }
 
-.tip-row__thumb {
+.tip_row_thumb {
   width: 108px;
   height: 72px;
   border-radius: 8px;
@@ -1060,7 +1061,7 @@ body {
 /* ===========================
    SVG 아이콘 유틸
    =========================== */
-.icon-arrow-up {
+.icon_arrow_up {
   display: inline-block;
   width: 0;
   height: 0;
@@ -1070,7 +1071,7 @@ body {
   margin-right: 2px;
 }
 
-.icon-arrow-down {
+.icon_arrow_down {
   display: inline-block;
   width: 0;
   height: 0;
@@ -1081,6 +1082,6 @@ body {
 }
 
 /* 왕관 SVG */
-.crown-gold { color: #FFD700; }
-.crown-silver { color: #C0C0C0; }
-.crown-bronze { color: #CD7F32; }
+.crown_gold { color: #FFD700; }
+.crown_silver { color: #C0C0C0; }
+.crown_bronze { color: #CD7F32; }

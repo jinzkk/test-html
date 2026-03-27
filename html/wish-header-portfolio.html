@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>WISH. 헤더 컴포넌트 - 포트폴리오 제안</title>
   <link rel="stylesheet" href="../css/common.css">
@@ -10,24 +10,24 @@
     body { background: #f2f3f8; margin: 0; font-family: 'Pretendard', sans-serif; }
 
     /* 헤더 컴포넌트 */
-    .page-header {
+    .page_header {
       width: 100%; height: 56px; background: #fff;
       display: flex; align-items: center; padding: 0 20px; gap: 8px;
       box-sizing: border-box; border-bottom: 1px solid #f2f3f8;
     }
-    .btn-back { background: none; border: none; cursor: pointer; padding: 0; }
-    .header-title {
+    .btn_back { background: none; border: none; cursor: pointer; padding: 0; }
+    .header_title {
       flex: 1; font-size: 18px; font-weight: 700; color: #141924; line-height: 28px;
     }
 
     /* 컴포넌트 설명 */
-    .showcase-info {
+    .showcase_info {
       margin: 20px 16px;
       background: #fff; border-radius: 12px; padding: 20px;
     }
-    .showcase-info h2 { font-size: 16px; font-weight: 700; color: #141924; margin: 0 0 8px; }
-    .showcase-info p { font-size: 14px; color: #697387; line-height: 20px; margin: 4px 0; }
-    .showcase-tag {
+    .showcase_info h2 { font-size: 16px; font-weight: 700; color: #141924; margin: 0 0 8px; }
+    .showcase_info p { font-size: 14px; color: #697387; line-height: 20px; margin: 4px 0; }
+    .showcase_tag {
       display: inline-block; background: #e8edfc; color: #1345d1;
       font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-top: 8px;
     }
@@ -35,22 +35,22 @@
 </head>
 <body>
   <!-- 헤더 컴포넌트 (포트폴리오 제안형) -->
-  <header class="page-header">
-    <button class="btn-back" onclick="history.back()">
+  <header class="page_header">
+    <button class="btn_back" onclick="history.back()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M15 18L9 12L15 6" stroke="#141924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-    <span class="header-title">포트폴리오 제안</span>
+    <span class="header_title">포트폴리오 제안</span>
   </header>
 
   <!-- 컴포넌트 설명 -->
-  <div class="showcase-info">
+  <div class="showcase_info">
     <h2>헤더 컴포넌트 — 포트폴리오 제안형</h2>
     <p>Figma Node ID: <strong>29:848</strong></p>
     <p>뒤로가기 버튼 + 제목 텍스트 "포트폴리오 제안" 조합의 헤더입니다.</p>
     <p>높이: 56px, 배경: #ffffff, 제목: 18px Bold, #141924</p>
-    <span class="showcase-tag">Header / 포트폴리오 제안</span>
+    <span class="showcase_tag">Header / 포트폴리오 제안</span>
   </div>
 
   <script src="../js/lib/jquery-3.7.1.min.js"></script>

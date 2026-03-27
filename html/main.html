@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FunETF 메인</title>
   <link rel="stylesheet" href="../../css/common.css">
@@ -22,14 +22,14 @@
     }
 
     /* 콘텐츠 최대 너비 컨테이너 */
-    .main-container {
+    .main_container {
       max-width: 1488px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     /* 섹션 공통 여백 */
-    .main-section {
+    .main_section {
       margin-bottom: 24px;
     }
 
@@ -40,26 +40,26 @@
       padding: 24px;
     }
 
-    .card--sm {
+    .card_sm {
       padding: 16px;
     }
 
     /* 섹션 헤더 */
-    .section-header {
+    .section_header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 16px;
     }
 
-    .section-title {
+    .section_title {
       font-size: 18px;
       font-weight: 700;
       color: #141924;
       margin: 0;
     }
 
-    .view-all-btn {
+    .view_all_btn {
       font-size: 13px;
       color: #99A1B1;
       background: none;
@@ -72,19 +72,19 @@
     }
 
     /* 색상 유틸 */
-    .color-rise { color: #0055FF; }
-    .color-fall { color: #FF4444; }
-    .color-neutral { color: #141924; }
+    .color_rise { color: #0055FF; }
+    .color_fall { color: #FF4444; }
+    .color_neutral { color: #141924; }
 
     /* ===========================
        1. 서머리 영역
        =========================== */
-    .summary-section {
+    .summary_section {
       background: #FFFFFF;
       padding: 24px 0 0;
     }
 
-    .summary-top {
+    .summary_top {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -92,18 +92,18 @@
       margin-bottom: 20px;
     }
 
-    .summary-greeting {
+    .summary_greeting {
       font-size: 16px;
       color: #141924;
     }
 
-    .summary-greeting strong {
+    .summary_greeting strong {
       font-size: 18px;
       font-weight: 700;
     }
 
     /* 로그인 CTA 배너 */
-    .login-banner {
+    .login_banner {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -113,17 +113,17 @@
       flex-shrink: 0;
     }
 
-    .login-banner__text {
+    .login_banner_text {
       font-size: 14px;
       color: #354153;
     }
 
-    .login-banner__text strong {
+    .login_banner_text strong {
       color: #0055FF;
       font-weight: 700;
     }
 
-    .login-banner__btn {
+    .login_banner_btn {
       background: #0055FF;
       color: #fff;
       border: none;
@@ -136,7 +136,7 @@
     }
 
     /* 실시간 선물 지수 카드 리스트 */
-    .futures-list {
+    .futures_list {
       display: flex;
       gap: 12px;
       overflow-x: auto;
@@ -144,11 +144,11 @@
       scrollbar-width: none;
     }
 
-    .futures-list::-webkit-scrollbar {
+    .futures_list::-webkit-scrollbar {
       display: none;
     }
 
-    .futures-card {
+    .futures_card {
       background: #F2F3F8;
       border-radius: 12px;
       padding: 14px 16px;
@@ -159,30 +159,30 @@
       gap: 6px;
     }
 
-    .futures-card__name {
+    .futures_card_name {
       font-size: 12px;
       color: #99A1B1;
       font-weight: 500;
     }
 
-    .futures-card__price {
+    .futures_card_price {
       font-size: 16px;
       font-weight: 700;
       color: #141924;
     }
 
-    .futures-card__change {
+    .futures_card_change {
       font-size: 12px;
       font-weight: 600;
     }
 
-    .futures-card__chart {
+    .futures_card_chart {
       height: 40px;
       width: 100%;
     }
 
     /* 날짜 기준 정보 */
-    .summary-meta {
+    .summary_meta {
       font-size: 11px;
       color: #99A1B1;
       margin-top: 8px;
@@ -190,7 +190,7 @@
     }
 
     /* 검색 바 */
-    .search-bar {
+    .search_bar {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -201,12 +201,12 @@
       cursor: pointer;
     }
 
-    .search-bar__icon {
+    .search_bar_icon {
       color: #99A1B1;
       flex-shrink: 0;
     }
 
-    .search-bar__placeholder {
+    .search_bar_placeholder {
       font-size: 15px;
       color: #B4BBCB;
       flex: 1;
@@ -215,7 +215,7 @@
     /* ===========================
        2. 지수/ETF 리스트 탭 테이블
        =========================== */
-    .etf-list-section .tab-wrap {
+    .etf_list_section .tab_wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -223,18 +223,18 @@
       margin-bottom: 0;
     }
 
-    .etf-list-section .tabs {
+    .etf_list_section .tabs {
       display: flex;
       gap: 0;
       overflow-x: auto;
       scrollbar-width: none;
     }
 
-    .etf-list-section .tabs::-webkit-scrollbar {
+    .etf_list_section .tabs::-webkit-scrollbar {
       display: none;
     }
 
-    .etf-list-section .tab-item {
+    .etf_list_section .tab_item {
       position: relative;
       padding: 12px 16px;
       border: none;
@@ -247,12 +247,12 @@
       transition: color 0.15s;
     }
 
-    .etf-list-section .tab-item--active {
+    .etf_list_section .tab_item_active {
       color: #141924;
       font-weight: 700;
     }
 
-    .etf-list-section .tab-item--active::after {
+    .etf_list_section .tab_item_active::after {
       content: '';
       position: absolute;
       bottom: -1px;
@@ -263,7 +263,7 @@
       border-radius: 1px;
     }
 
-    .etf-list-section .tab-edit {
+    .etf_list_section .tab_edit {
       font-size: 12px;
       color: #99A1B1;
       background: none;
@@ -274,17 +274,17 @@
     }
 
     /* ETF 테이블 */
-    .etf-table {
+    .etf_table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
     }
 
-    .etf-table thead tr {
+    .etf_table thead tr {
       border-bottom: 1px solid #E5E8EF;
     }
 
-    .etf-table th {
+    .etf_table th {
       padding: 10px 12px;
       text-align: right;
       font-size: 12px;
@@ -293,37 +293,37 @@
       white-space: nowrap;
     }
 
-    .etf-table th:first-child,
-    .etf-table th:nth-child(2) {
+    .etf_table th:first-child,
+    .etf_table th:nth-child(2) {
       text-align: left;
     }
 
-    .etf-table td {
+    .etf_table td {
       padding: 12px;
       border-bottom: 1px solid #F2F3F8;
       vertical-align: middle;
       text-align: right;
     }
 
-    .etf-table td:first-child,
-    .etf-table td:nth-child(2) {
+    .etf_table td:first-child,
+    .etf_table td:nth-child(2) {
       text-align: left;
     }
 
-    .etf-table tbody tr:last-child td {
+    .etf_table tbody tr:last-child td {
       border-bottom: none;
     }
 
-    .etf-table tbody tr:hover {
+    .etf_table tbody tr:hover {
       background: #F8F9FF;
     }
 
-    .etf-code {
+    .etf_code {
       font-size: 12px;
       color: #99A1B1;
     }
 
-    .etf-name {
+    .etf_name {
       font-size: 13px;
       font-weight: 500;
       color: #141924;
@@ -333,16 +333,16 @@
       white-space: nowrap;
     }
 
-    .sparkline-cell {
+    .sparkline_cell {
       width: 80px;
     }
 
-    .sparkline-cell div {
+    .sparkline_cell div {
       height: 32px;
       width: 80px;
     }
 
-    .heart-btn {
+    .heart_btn {
       background: none;
       border: none;
       cursor: pointer;
@@ -351,12 +351,12 @@
       padding: 2px 6px;
     }
 
-    .heart-btn.active {
+    .heart_btn.active {
       color: #FF4444;
     }
 
     /* 전체보기 버튼 영역 */
-    .view-all-wrap {
+    .view_all_wrap {
       text-align: center;
       padding: 16px 0 4px;
     }
@@ -364,21 +364,21 @@
     /* ===========================
        3. 2단 레이아웃 (상품은? + ETF 검색 필터)
        =========================== */
-    .two-col-layout {
+    .two_col_layout {
       display: grid;
       grid-template-columns: 30% 70%;
       gap: 16px;
       align-items: start;
     }
 
-    .two-col-layout--reverse {
+    .two_col_layout_reverse {
       grid-template-columns: 70% 30%;
     }
 
     /* 조회한 상품 순위 */
-    .ranking-section {}
+    .ranking_section {}
 
-    .ranking-user-title {
+    .ranking_user_title {
       font-size: 15px;
       font-weight: 700;
       color: #141924;
@@ -389,7 +389,7 @@
       flex-wrap: wrap;
     }
 
-    .ranking-user-title select {
+    .ranking_user_title select {
       font-size: 14px;
       font-weight: 700;
       color: #0055FF;
@@ -400,18 +400,18 @@
       cursor: pointer;
     }
 
-    .ranking-chart {
+    .ranking_chart {
       height: 120px;
       margin-bottom: 12px;
     }
 
-    .ranking-list {
+    .ranking_list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .ranking-item {
+    .ranking_item {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -420,11 +420,11 @@
       font-size: 13px;
     }
 
-    .ranking-item:last-child {
+    .ranking_item:last-child {
       border-bottom: none;
     }
 
-    .ranking-num {
+    .ranking_num {
       font-size: 14px;
       font-weight: 700;
       color: #0055FF;
@@ -432,21 +432,21 @@
       flex-shrink: 0;
     }
 
-    .ranking-num--top3 {
+    .ranking_num_top3 {
       color: #141924;
     }
 
-    .ranking-info {
+    .ranking_info {
       flex: 1;
       overflow: hidden;
     }
 
-    .ranking-code {
+    .ranking_code {
       font-size: 11px;
       color: #99A1B1;
     }
 
-    .ranking-name {
+    .ranking_name {
       font-size: 13px;
       color: #141924;
       font-weight: 500;
@@ -456,16 +456,16 @@
     }
 
     /* ETF 검색 필터 */
-    .filter-section {}
+    .filter_section {}
 
-    .filter-tags {
+    .filter_tags {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       margin-bottom: 16px;
     }
 
-    .filter-tag {
+    .filter_tag {
       padding: 6px 14px;
       border-radius: 20px;
       border: 1px solid #E5E8EF;
@@ -477,7 +477,7 @@
       white-space: nowrap;
     }
 
-    .filter-tag--active {
+    .filter_tag_active {
       background: #0055FF;
       border-color: #0055FF;
       color: #fff;
@@ -485,13 +485,13 @@
     }
 
     /* 5컬럼 ETF 테이블 */
-    .etf-filter-table {
+    .etf_filter_table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
     }
 
-    .etf-filter-table th {
+    .etf_filter_table th {
       padding: 8px 10px;
       text-align: right;
       font-size: 12px;
@@ -501,55 +501,55 @@
       white-space: nowrap;
     }
 
-    .etf-filter-table th:first-child,
-    .etf-filter-table th:nth-child(2) {
+    .etf_filter_table th:first-child,
+    .etf_filter_table th:nth-child(2) {
       text-align: left;
     }
 
-    .etf-filter-table td {
+    .etf_filter_table td {
       padding: 10px;
       border-bottom: 1px solid #F2F3F8;
       text-align: right;
       vertical-align: middle;
     }
 
-    .etf-filter-table td:first-child,
-    .etf-filter-table td:nth-child(2) {
+    .etf_filter_table td:first-child,
+    .etf_filter_table td:nth-child(2) {
       text-align: left;
     }
 
-    .etf-filter-table tbody tr:last-child td {
+    .etf_filter_table tbody tr:last-child td {
       border-bottom: none;
     }
 
-    .etf-filter-table tbody tr:hover {
+    .etf_filter_table tbody tr:hover {
       background: #F8F9FF;
     }
 
     /* ===========================
        4. 포트 성과 + 이달의 ETF 랭킹
        =========================== */
-    .port-card {}
+    .port_card {}
 
-    .port-name {
+    .port_name {
       font-size: 13px;
       color: #141924;
       font-weight: 500;
       margin-bottom: 12px;
     }
 
-    .port-chart {
+    .port_chart {
       height: 120px;
       margin-bottom: 12px;
     }
 
-    .port-stats {
+    .port_stats {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
 
-    .port-stat-item {
+    .port_stat_item {
       flex: 1;
       background: #F2F3F8;
       border-radius: 8px;
@@ -557,43 +557,43 @@
       text-align: center;
     }
 
-    .port-stat-label {
+    .port_stat_label {
       font-size: 11px;
       color: #99A1B1;
       margin-bottom: 4px;
     }
 
-    .port-stat-value {
+    .port_stat_value {
       font-size: 16px;
       font-weight: 700;
       color: #141924;
     }
 
     /* 이달의 ETF 랭킹 */
-    .monthly-rank-card {}
+    .monthly_rank_card {}
 
-    .monthly-chart {
+    .monthly_chart {
       height: 140px;
       margin: 12px 0;
     }
 
-    .monthly-stats {
+    .monthly_stats {
       display: flex;
       gap: 16px;
       margin-bottom: 12px;
     }
 
-    .monthly-stat {
+    .monthly_stat {
       text-align: center;
     }
 
-    .monthly-stat__value {
+    .monthly_stat_value {
       font-size: 18px;
       font-weight: 700;
       color: #0055FF;
     }
 
-    .monthly-stat__label {
+    .monthly_stat_label {
       font-size: 11px;
       color: #99A1B1;
     }
@@ -601,13 +601,13 @@
     /* ===========================
        5. 이달의 ETF 1위 + 수익률 간편 찾기
        =========================== */
-    .rank1-list {
+    .rank1_list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .rank1-item {
+    .rank1_item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
@@ -615,11 +615,11 @@
       border-bottom: 1px solid #F2F3F8;
     }
 
-    .rank1-item:last-child {
+    .rank1_item:last-child {
       border-bottom: none;
     }
 
-    .rank1-badge {
+    .rank1_badge {
       background: #0055FF;
       color: #fff;
       font-size: 11px;
@@ -629,30 +629,30 @@
       flex-shrink: 0;
     }
 
-    .rank1-info {
+    .rank1_info {
       flex: 1;
     }
 
-    .rank1-name {
+    .rank1_name {
       font-size: 14px;
       font-weight: 600;
       color: #141924;
       margin-bottom: 4px;
     }
 
-    .rank1-meta {
+    .rank1_meta {
       font-size: 12px;
       color: #99A1B1;
     }
 
-    .rank1-score {
+    .rank1_score {
       font-size: 13px;
       font-weight: 700;
       color: #0055FF;
     }
 
     /* 수익률 간편 찾기 카드 */
-    .yield-cards {
+    .yield_cards {
       display: flex;
       gap: 12px;
       margin-bottom: 12px;
@@ -660,11 +660,11 @@
       scrollbar-width: none;
     }
 
-    .yield-cards::-webkit-scrollbar {
+    .yield_cards::-webkit-scrollbar {
       display: none;
     }
 
-    .yield-card {
+    .yield_card {
       flex: 1;
       min-width: 120px;
       background: #F8F9FF;
@@ -675,38 +675,38 @@
       transition: all 0.15s;
     }
 
-    .yield-card:hover,
-    .yield-card--active {
+    .yield_card:hover,
+    .yield_card_active {
       border-color: #0055FF;
       background: #EBF5FF;
     }
 
-    .yield-card__name {
+    .yield_card_name {
       font-size: 12px;
       font-weight: 600;
       color: #141924;
       margin-bottom: 6px;
     }
 
-    .yield-card__rate {
+    .yield_card_rate {
       font-size: 20px;
       font-weight: 700;
       color: #0055FF;
     }
 
-    .yield-card__label {
+    .yield_card_label {
       font-size: 11px;
       color: #99A1B1;
     }
 
-    .yield-chart {
+    .yield_chart {
       height: 100px;
     }
 
     /* ===========================
        6. AI 투자 배너
        =========================== */
-    .ai-banner {
+    .ai_banner {
       background: linear-gradient(135deg, #1A1D2E 0%, #0D1030 100%);
       border-radius: 16px;
       padding: 28px 32px;
@@ -718,7 +718,7 @@
       position: relative;
     }
 
-    .ai-banner::before {
+    .ai_banner::before {
       content: '';
       position: absolute;
       right: -20px;
@@ -729,12 +729,12 @@
       pointer-events: none;
     }
 
-    .ai-banner__content {
+    .ai_banner_content {
       position: relative;
       z-index: 1;
     }
 
-    .ai-banner__tag {
+    .ai_banner_tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -747,7 +747,7 @@
       margin-bottom: 10px;
     }
 
-    .ai-banner__title {
+    .ai_banner_title {
       font-size: 20px;
       font-weight: 700;
       color: #FFFFFF;
@@ -755,29 +755,29 @@
       line-height: 1.4;
     }
 
-    .ai-banner__sub {
+    .ai_banner_sub {
       font-size: 14px;
       color: rgba(255,255,255,0.6);
     }
 
-    .ai-banner__sub strong {
+    .ai_banner_sub strong {
       color: #7EB8FF;
     }
 
-    .ai-banner__visual {
+    .ai_banner_visual {
       flex-shrink: 0;
       position: relative;
       z-index: 1;
     }
 
     /* AI 코인 일러스트 (CSS 구현) */
-    .ai-coin-wrap {
+    .ai_coin_wrap {
       position: relative;
       width: 100px;
       height: 100px;
     }
 
-    .ai-coin {
+    .ai_coin {
       width: 80px;
       height: 80px;
       background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
@@ -793,7 +793,7 @@
       bottom: 0;
     }
 
-    .ai-badge {
+    .ai_badge {
       position: absolute;
       top: 0;
       left: 0;
@@ -810,7 +810,7 @@
       50% { transform: translateY(-8px); }
     }
 
-    .ai-banner__btn {
+    .ai_banner_btn {
       background: #0055FF;
       color: #fff;
       border: none;
@@ -826,7 +826,7 @@
     /* ===========================
        7. 유용한 투자 Tip
        =========================== */
-    .tip-cards {
+    .tip_cards {
       display: flex;
       gap: 16px;
       overflow-x: auto;
@@ -834,11 +834,11 @@
       scrollbar-width: none;
     }
 
-    .tip-cards::-webkit-scrollbar {
+    .tip_cards::-webkit-scrollbar {
       display: none;
     }
 
-    .tip-card {
+    .tip_card {
       flex-shrink: 0;
       width: 200px;
       background: #fff;
@@ -848,11 +848,11 @@
       transition: box-shadow 0.15s;
     }
 
-    .tip-card:hover {
+    .tip_card:hover {
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
 
-    .tip-card__thumb {
+    .tip_card_thumb {
       width: 100%;
       height: 110px;
       object-fit: cover;
@@ -863,18 +863,18 @@
       font-size: 36px;
     }
 
-    .tip-card__body {
+    .tip_card_body {
       padding: 12px;
     }
 
-    .tip-card__tag {
+    .tip_card_tag {
       font-size: 11px;
       font-weight: 700;
       color: #0055FF;
       margin-bottom: 6px;
     }
 
-    .tip-card__title {
+    .tip_card_title {
       font-size: 13px;
       font-weight: 600;
       color: #141924;
@@ -888,7 +888,7 @@
     /* ===========================
        8. 하단 고정 네비게이션 (모바일)
        =========================== */
-    .bottom-nav {
+    .bottom_nav {
       display: none;
       position: fixed;
       bottom: 0;
@@ -900,12 +900,12 @@
       padding-bottom: env(safe-area-inset-bottom);
     }
 
-    .bottom-nav__inner {
+    .bottom_nav_inner {
       display: flex;
       height: 56px;
     }
 
-    .bottom-nav__item {
+    .bottom_nav_item {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -922,11 +922,11 @@
       padding: 0;
     }
 
-    .bottom-nav__item--active {
+    .bottom_nav_item_active {
       color: #0055FF;
     }
 
-    .bottom-nav__icon {
+    .bottom_nav_icon {
       width: 22px;
       height: 22px;
       display: flex;
@@ -934,7 +934,7 @@
       justify-content: center;
     }
 
-    .bottom-nav__icon svg {
+    .bottom_nav_icon svg {
       width: 22px;
       height: 22px;
     }
@@ -945,30 +945,30 @@
 
     /* 데스크탑 (1280px+) */
     @media (min-width: 1280px) {
-      .main-container {
+      .main_container {
         padding: 0 40px;
       }
 
-      .summary-section .main-container {
+      .summary_section .main_container {
         padding: 24px 40px 0;
       }
     }
 
     /* 태블릿 (768px~1279px) */
     @media (max-width: 1279px) {
-      .two-col-layout,
-      .two-col-layout--reverse {
+      .two_col_layout,
+      .two_col_layout_reverse {
         grid-template-columns: 1fr;
       }
 
-      .tip-card {
+      .tip_card {
         width: 180px;
       }
     }
 
     /* 모바일 (767px 이하) */
     @media (max-width: 767px) {
-      .main-container {
+      .main_container {
         padding: 0 16px;
       }
 
@@ -976,7 +976,7 @@
         padding-bottom: 60px;
       }
 
-      .bottom-nav {
+      .bottom_nav {
         display: block;
       }
 
@@ -985,73 +985,73 @@
         border-radius: 12px;
       }
 
-      .summary-top {
+      .summary_top {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .login-banner {
+      .login_banner {
         width: 100%;
         justify-content: space-between;
       }
 
-      .futures-card {
+      .futures_card {
         min-width: 160px;
       }
 
-      .ai-banner {
+      .ai_banner {
         flex-direction: column;
         text-align: center;
         padding: 20px;
       }
 
-      .ai-banner__visual {
+      .ai_banner_visual {
         display: none;
       }
 
-      .section-title {
+      .section_title {
         font-size: 16px;
       }
 
-      .two-col-layout,
-      .two-col-layout--reverse {
+      .two_col_layout,
+      .two_col_layout_reverse {
         grid-template-columns: 1fr;
       }
 
-      .tip-card {
+      .tip_card {
         width: 160px;
       }
 
-      .etf-name {
+      .etf_name {
         max-width: 140px;
       }
 
-      .monthly-stats {
+      .monthly_stats {
         gap: 8px;
       }
 
-      .yield-cards {
+      .yield_cards {
         flex-wrap: nowrap;
       }
 
-      .yield-card {
+      .yield_card {
         min-width: 100px;
       }
     }
 
     /* 배경색 섹션 패딩 조정 */
-    .summary-section {
+    .summary_section {
       padding: 0;
       background: transparent;
     }
 
-    .summary-inner {
+    .summary_inner {
       background: #FFFFFF;
       padding: 24px 0 16px;
       margin-bottom: 16px;
     }
 
-    .futures-section-bg {
+    .futures_section_bg {
       background: #FFFFFF;
       padding: 0 0 16px;
     }
@@ -1062,69 +1062,69 @@
   <!-- ===========================
        1. 서머리 영역
        =========================== -->
-  <section class="main-section summary-section">
-    <div class="summary-inner">
-      <div class="main-container">
+  <section class="main_section summary_section">
+    <div class="summary_inner">
+      <div class="main_container">
         <!-- 인사말 + 로그인 배너 -->
-        <div class="summary-top">
-          <div class="summary-greeting">
+        <div class="summary_top">
+          <div class="summary_greeting">
             <strong>고객님, 안녕하세요!</strong><br>
             오늘도 즐거운 하루 보내세요.
           </div>
-          <div class="login-banner">
-            <div class="login-banner__text">
+          <div class="login_banner">
+            <div class="login_banner_text">
               <strong>FunETF 로그인</strong>하고<br>맞춤 정보를 받아보세요
             </div>
-            <button class="login-banner__btn">로그인</button>
+            <button class="login_banner_btn">로그인</button>
           </div>
         </div>
 
         <!-- 실시간 선물 지수 -->
-        <div class="futures-list" id="futuresList">
-          <div class="futures-card">
-            <div class="futures-card__name">S&amp;P Futures</div>
-            <div class="futures-card__price">5,253.50</div>
-            <div class="futures-card__change color-rise">+0.25 (+0.00%)</div>
-            <div class="futures-card__chart" id="sparkline0"></div>
+        <div class="futures_list" id="futuresList">
+          <div class="futures_card">
+            <div class="futures_card_name">S&amp;P Futures</div>
+            <div class="futures_card_price">5,253.50</div>
+            <div class="futures_card_change color_rise">+0.25 (+0.00%)</div>
+            <div class="futures_card_chart" id="sparkline0"></div>
           </div>
-          <div class="futures-card">
-            <div class="futures-card__name">Dow Futures</div>
-            <div class="futures-card__price">39,185.00</div>
-            <div class="futures-card__change color-fall">-34.00 (-0.09%)</div>
-            <div class="futures-card__chart" id="sparkline1"></div>
+          <div class="futures_card">
+            <div class="futures_card_name">Dow Futures</div>
+            <div class="futures_card_price">39,185.00</div>
+            <div class="futures_card_change color_fall">-34.00 (-0.09%)</div>
+            <div class="futures_card_chart" id="sparkline1"></div>
           </div>
-          <div class="futures-card">
-            <div class="futures-card__name">Nasdaq Futures</div>
-            <div class="futures-card__price">18,306.25</div>
-            <div class="futures-card__change color-rise">+11.25 (+0.06%)</div>
-            <div class="futures-card__chart" id="sparkline2"></div>
+          <div class="futures_card">
+            <div class="futures_card_name">Nasdaq Futures</div>
+            <div class="futures_card_price">18,306.25</div>
+            <div class="futures_card_change color_rise">+11.25 (+0.06%)</div>
+            <div class="futures_card_chart" id="sparkline2"></div>
           </div>
-          <div class="futures-card">
-            <div class="futures-card__name">Russel 2000 Futures</div>
-            <div class="futures-card__price">2,088.90</div>
-            <div class="futures-card__change color-fall">-3.50 (-0.17%)</div>
-            <div class="futures-card__chart" id="sparkline3"></div>
+          <div class="futures_card">
+            <div class="futures_card_name">Russel 2000 Futures</div>
+            <div class="futures_card_price">2,088.90</div>
+            <div class="futures_card_change color_fall">-3.50 (-0.17%)</div>
+            <div class="futures_card_chart" id="sparkline3"></div>
           </div>
-          <div class="futures-card">
-            <div class="futures-card__name">Crude Oil</div>
-            <div class="futures-card__price">86.85</div>
-            <div class="futures-card__change color-rise">+0.42</div>
-            <div class="futures-card__chart" id="sparkline4"></div>
+          <div class="futures_card">
+            <div class="futures_card_name">Crude Oil</div>
+            <div class="futures_card_price">86.85</div>
+            <div class="futures_card_change color_rise">+0.42</div>
+            <div class="futures_card_chart" id="sparkline4"></div>
           </div>
         </div>
 
         <!-- 날짜 기준 정보 -->
-        <div class="summary-meta">24.07.19 15:09:09 기준(장중)</div>
+        <div class="summary_meta">24.07.19 15:09:09 기준(장중)</div>
 
         <!-- 통합검색 바 -->
-        <div class="search-bar">
-          <span class="search-bar__icon">
+        <div class="search_bar">
+          <span class="search_bar_icon">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <circle cx="9" cy="9" r="6" stroke="#99A1B1" stroke-width="1.5"/>
               <path d="M13.5 13.5L17 17" stroke="#99A1B1" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </span>
-          <span class="search-bar__placeholder">상품명과 코드로 검색해 보세요.</span>
+          <span class="search_bar_placeholder">상품명과 코드로 검색해 보세요.</span>
         </div>
       </div>
     </div>
@@ -1133,22 +1133,22 @@
   <!-- ===========================
        2. 지수/ETF 리스트 탭 테이블
        =========================== -->
-  <section class="main-section">
-    <div class="main-container">
-      <div class="card etf-list-section">
+  <section class="main_section">
+    <div class="main_container">
+      <div class="card etf_list_section">
         <!-- 탭 -->
-        <div class="tab-wrap">
+        <div class="tab_wrap">
           <div class="tabs" id="etfListTabs">
-            <button class="tab-item tab-item--active" data-tab="recent-etf">최근 본 ETF</button>
-            <button class="tab-item" data-tab="recent-index">최근 본 지수</button>
-            <button class="tab-item" data-tab="watchlist">나만의 관심상품(3043)</button>
+            <button class="tab_item tab_item_active" data-tab="recent_etf">최근 본 ETF</button>
+            <button class="tab_item" data-tab="recent_index">최근 본 지수</button>
+            <button class="tab_item" data-tab="watchlist">나만의 관심상품(3043)</button>
           </div>
-          <button class="tab-edit">편집</button>
+          <button class="tab_edit">편집</button>
         </div>
 
         <!-- 테이블 -->
-        <div class="table-responsive">
-          <table class="etf-table">
+        <div class="table_responsive">
+          <table class="etf_table">
             <thead>
               <tr>
                 <th>종목코드</th>
@@ -1162,57 +1162,57 @@
             </thead>
             <tbody id="etfListBody">
               <tr>
-                <td><span class="etf-code">385510</span></td>
-                <td><span class="etf-name">KODEX K-신재생에너지액티브</span></td>
-                <td class="color-rise">9,270</td>
-                <td class="color-rise">+50</td>
-                <td class="color-rise">+0.54%</td>
-                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark0"></div></td>
-                <td><button class="heart-btn active">♥</button></td>
+                <td><span class="etf_code">385510</span></td>
+                <td><span class="etf_name">KODEX K-신재생에너지액티브</span></td>
+                <td class="color_rise">9,270</td>
+                <td class="color_rise">+50</td>
+                <td class="color_rise">+0.54%</td>
+                <td class="sparkline_cell"><div class="etf_sparkline" id="etfSpark0"></div></td>
+                <td><button class="heart_btn active">♥</button></td>
               </tr>
               <tr>
-                <td><span class="etf-code">400570</span></td>
-                <td><span class="etf-name">KODEX 유럽탄소배출권선물ICE(H)</span></td>
-                <td class="color-fall">8,120</td>
-                <td class="color-fall">-85</td>
-                <td class="color-fall">-1.04%</td>
-                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark1"></div></td>
-                <td><button class="heart-btn">♡</button></td>
+                <td><span class="etf_code">400570</span></td>
+                <td><span class="etf_name">KODEX 유럽탄소배출권선물ICE(H)</span></td>
+                <td class="color_fall">8,120</td>
+                <td class="color_fall">-85</td>
+                <td class="color_fall">-1.04%</td>
+                <td class="sparkline_cell"><div class="etf_sparkline" id="etfSpark1"></div></td>
+                <td><button class="heart_btn">♡</button></td>
               </tr>
               <tr>
-                <td><span class="etf-code">451670</span></td>
-                <td><span class="etf-name">삼성클래식차이나본토연금증권자투자신탁H</span></td>
-                <td class="color-neutral">11,540</td>
-                <td class="color-neutral">0</td>
-                <td class="color-neutral">0.00%</td>
-                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark2"></div></td>
-                <td><button class="heart-btn">♡</button></td>
+                <td><span class="etf_code">451670</span></td>
+                <td><span class="etf_name">삼성클래식차이나본토연금증권자투자신탁H</span></td>
+                <td class="color_neutral">11,540</td>
+                <td class="color_neutral">0</td>
+                <td class="color_neutral">0.00%</td>
+                <td class="sparkline_cell"><div class="etf_sparkline" id="etfSpark2"></div></td>
+                <td><button class="heart_btn">♡</button></td>
               </tr>
               <tr>
-                <td><span class="etf-code">451670</span></td>
-                <td><span class="etf-name">삼성유럽인덱스증권자투자신탁H[주식]</span></td>
-                <td class="color-rise">10,280</td>
-                <td class="color-rise">+120</td>
-                <td class="color-rise">+1.18%</td>
-                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark3"></div></td>
-                <td><button class="heart-btn active">♥</button></td>
+                <td><span class="etf_code">451670</span></td>
+                <td><span class="etf_name">삼성유럽인덱스증권자투자신탁H[주식]</span></td>
+                <td class="color_rise">10,280</td>
+                <td class="color_rise">+120</td>
+                <td class="color_rise">+1.18%</td>
+                <td class="sparkline_cell"><div class="etf_sparkline" id="etfSpark3"></div></td>
+                <td><button class="heart_btn active">♥</button></td>
               </tr>
               <tr>
-                <td><span class="etf-code">463690</span></td>
-                <td><span class="etf-name">KODEX 미국S&amp;P500통신서비스</span></td>
-                <td class="color-fall">14,350</td>
-                <td class="color-fall">-215</td>
-                <td class="color-fall">-1.48%</td>
-                <td class="sparkline-cell"><div class="etf-sparkline" id="etfSpark4"></div></td>
-                <td><button class="heart-btn">♡</button></td>
+                <td><span class="etf_code">463690</span></td>
+                <td><span class="etf_name">KODEX 미국S&amp;P500통신서비스</span></td>
+                <td class="color_fall">14,350</td>
+                <td class="color_fall">-215</td>
+                <td class="color_fall">-1.48%</td>
+                <td class="sparkline_cell"><div class="etf_sparkline" id="etfSpark4"></div></td>
+                <td><button class="heart_btn">♡</button></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <!-- 전체보기 -->
-        <div class="view-all-wrap">
-          <button class="btn btn--function btn--size-40" style="width:100%; border-radius:8px;">전체보기</button>
+        <div class="view_all_wrap">
+          <button class="btn btn_function btn_size_40" style="width:100%; border-radius:8px;">전체보기</button>
         </div>
       </div>
     </div>
@@ -1221,14 +1221,14 @@
   <!-- ===========================
        3. 상품은? + ETF 상품 검색 필터 (2단)
        =========================== -->
-  <section class="main-section">
-    <div class="main-container">
-      <div class="two-col-layout">
+  <section class="main_section">
+    <div class="main_container">
+      <div class="two_col_layout">
 
         <!-- 좌측: 조회한 상품 순위 -->
-        <div class="card ranking-section">
-          <div class="section-header">
-            <div class="ranking-user-title">
+        <div class="card ranking_section">
+          <div class="section_header">
+            <div class="ranking_user_title">
               홍*동님의
               <select>
                 <option>조회한 상품</option>
@@ -1238,69 +1238,69 @@
             </div>
           </div>
           <!-- 라인 차트 -->
-          <div class="ranking-chart" id="rankingChart"></div>
+          <div class="ranking_chart" id="rankingChart"></div>
           <!-- 랭킹 리스트 -->
-          <ol class="ranking-list">
-            <li class="ranking-item">
-              <span class="ranking-num ranking-num--top3">1</span>
-              <div class="ranking-info">
-                <div class="ranking-code">385510</div>
-                <div class="ranking-name">KODEX K-신재생에너지액티브</div>
+          <ol class="ranking_list">
+            <li class="ranking_item">
+              <span class="ranking_num ranking_num_top3">1</span>
+              <div class="ranking_info">
+                <div class="ranking_code">385510</div>
+                <div class="ranking_name">KODEX K-신재생에너지액티브</div>
               </div>
-              <span class="color-rise" style="font-size:12px;font-weight:600;">+0.54%</span>
+              <span class="color_rise" style="font-size:12px;font-weight:600;">+0.54%</span>
             </li>
-            <li class="ranking-item">
-              <span class="ranking-num ranking-num--top3">2</span>
-              <div class="ranking-info">
-                <div class="ranking-code">400570</div>
-                <div class="ranking-name">KODEX 유럽탄소배출권선물ICE(H)</div>
+            <li class="ranking_item">
+              <span class="ranking_num ranking_num_top3">2</span>
+              <div class="ranking_info">
+                <div class="ranking_code">400570</div>
+                <div class="ranking_name">KODEX 유럽탄소배출권선물ICE(H)</div>
               </div>
-              <span class="color-fall" style="font-size:12px;font-weight:600;">-1.04%</span>
+              <span class="color_fall" style="font-size:12px;font-weight:600;">-1.04%</span>
             </li>
-            <li class="ranking-item">
-              <span class="ranking-num ranking-num--top3">3</span>
-              <div class="ranking-info">
-                <div class="ranking-code">451670</div>
-                <div class="ranking-name">삼성클래식차이나본토연금...</div>
+            <li class="ranking_item">
+              <span class="ranking_num ranking_num_top3">3</span>
+              <div class="ranking_info">
+                <div class="ranking_code">451670</div>
+                <div class="ranking_name">삼성클래식차이나본토연금...</div>
               </div>
-              <span class="color-neutral" style="font-size:12px;font-weight:600;">0.00%</span>
+              <span class="color_neutral" style="font-size:12px;font-weight:600;">0.00%</span>
             </li>
-            <li class="ranking-item">
-              <span class="ranking-num">4</span>
-              <div class="ranking-info">
-                <div class="ranking-code">451670</div>
-                <div class="ranking-name">삼성유럽인덱스증권자투자신탁H</div>
+            <li class="ranking_item">
+              <span class="ranking_num">4</span>
+              <div class="ranking_info">
+                <div class="ranking_code">451670</div>
+                <div class="ranking_name">삼성유럽인덱스증권자투자신탁H</div>
               </div>
-              <span class="color-rise" style="font-size:12px;font-weight:600;">+1.18%</span>
+              <span class="color_rise" style="font-size:12px;font-weight:600;">+1.18%</span>
             </li>
-            <li class="ranking-item">
-              <span class="ranking-num">5</span>
-              <div class="ranking-info">
-                <div class="ranking-code">463690</div>
-                <div class="ranking-name">KODEX 미국S&amp;P500통신서비스</div>
+            <li class="ranking_item">
+              <span class="ranking_num">5</span>
+              <div class="ranking_info">
+                <div class="ranking_code">463690</div>
+                <div class="ranking_name">KODEX 미국S&amp;P500통신서비스</div>
               </div>
-              <span class="color-fall" style="font-size:12px;font-weight:600;">-1.48%</span>
+              <span class="color_fall" style="font-size:12px;font-weight:600;">-1.48%</span>
             </li>
           </ol>
         </div>
 
         <!-- 우측: ETF 상품 검색 필터 -->
-        <div class="card filter-section">
-          <div class="section-header">
-            <h2 class="section-title">ETF 상품 검색</h2>
-            <button class="view-all-btn">전체보기 ›</button>
+        <div class="card filter_section">
+          <div class="section_header">
+            <h2 class="section_title">ETF 상품 검색</h2>
+            <button class="view_all_btn">전체보기 ›</button>
           </div>
           <!-- 필터 태그 -->
-          <div class="filter-tags" id="filterTags">
-            <button class="filter-tag filter-tag--active" data-filter="overseas">해외주식</button>
-            <button class="filter-tag" data-filter="bond">채권</button>
-            <button class="filter-tag" data-filter="domestic">국내주식</button>
-            <button class="filter-tag" data-filter="commodity">원자재</button>
-            <button class="filter-tag" data-filter="leverage">레버리지</button>
+          <div class="filter_tags" id="filterTags">
+            <button class="filter_tag filter_tag_active" data-filter="overseas">해외주식</button>
+            <button class="filter_tag" data-filter="bond">채권</button>
+            <button class="filter_tag" data-filter="domestic">국내주식</button>
+            <button class="filter_tag" data-filter="commodity">원자재</button>
+            <button class="filter_tag" data-filter="leverage">레버리지</button>
           </div>
           <!-- ETF 필터 테이블 -->
-          <div class="table-responsive">
-            <table class="etf-filter-table">
+          <div class="table_responsive">
+            <table class="etf_filter_table">
               <thead>
                 <tr>
                   <th>코드</th>
@@ -1314,55 +1314,55 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><span class="etf-code">379800</span></td>
-                  <td><span class="etf-name">KODEX 미국S&amp;P500TR</span></td>
-                  <td class="color-rise">16,520</td>
-                  <td class="color-rise">+180</td>
-                  <td class="color-rise">+1.10%</td>
-                  <td class="color-rise">+8.42%</td>
-                  <td><button class="heart-btn">♡</button></td>
+                  <td><span class="etf_code">379800</span></td>
+                  <td><span class="etf_name">KODEX 미국S&amp;P500TR</span></td>
+                  <td class="color_rise">16,520</td>
+                  <td class="color_rise">+180</td>
+                  <td class="color_rise">+1.10%</td>
+                  <td class="color_rise">+8.42%</td>
+                  <td><button class="heart_btn">♡</button></td>
                 </tr>
                 <tr>
-                  <td><span class="etf-code">390390</span></td>
-                  <td><span class="etf-name">KODEX 미국반도체</span></td>
-                  <td class="color-rise">22,430</td>
-                  <td class="color-rise">+340</td>
-                  <td class="color-rise">+1.54%</td>
-                  <td class="color-rise">+12.30%</td>
-                  <td><button class="heart-btn active">♥</button></td>
+                  <td><span class="etf_code">390390</span></td>
+                  <td><span class="etf_name">KODEX 미국반도체</span></td>
+                  <td class="color_rise">22,430</td>
+                  <td class="color_rise">+340</td>
+                  <td class="color_rise">+1.54%</td>
+                  <td class="color_rise">+12.30%</td>
+                  <td><button class="heart_btn active">♥</button></td>
                 </tr>
                 <tr>
-                  <td><span class="etf-code">101280</span></td>
-                  <td><span class="etf-name">KODEX 일본TOPIX100</span></td>
-                  <td class="color-fall">12,850</td>
-                  <td class="color-fall">-95</td>
-                  <td class="color-fall">-0.73%</td>
-                  <td class="color-rise">+5.18%</td>
-                  <td><button class="heart-btn">♡</button></td>
+                  <td><span class="etf_code">101280</span></td>
+                  <td><span class="etf_name">KODEX 일본TOPIX100</span></td>
+                  <td class="color_fall">12,850</td>
+                  <td class="color_fall">-95</td>
+                  <td class="color_fall">-0.73%</td>
+                  <td class="color_rise">+5.18%</td>
+                  <td><button class="heart_btn">♡</button></td>
                 </tr>
                 <tr>
-                  <td><span class="etf-code">226490</span></td>
-                  <td><span class="etf-name">KODEX 코스피</span></td>
-                  <td class="color-neutral">35,200</td>
-                  <td class="color-neutral">0</td>
-                  <td class="color-neutral">0.00%</td>
-                  <td class="color-rise">+2.45%</td>
-                  <td><button class="heart-btn">♡</button></td>
+                  <td><span class="etf_code">226490</span></td>
+                  <td><span class="etf_name">KODEX 코스피</span></td>
+                  <td class="color_neutral">35,200</td>
+                  <td class="color_neutral">0</td>
+                  <td class="color_neutral">0.00%</td>
+                  <td class="color_rise">+2.45%</td>
+                  <td><button class="heart_btn">♡</button></td>
                 </tr>
                 <tr>
-                  <td><span class="etf-code">229200</span></td>
-                  <td><span class="etf-name">KODEX 코스닥150</span></td>
-                  <td class="color-fall">9,760</td>
-                  <td class="color-fall">-120</td>
-                  <td class="color-fall">-1.21%</td>
-                  <td class="color-fall">-3.20%</td>
-                  <td><button class="heart-btn">♡</button></td>
+                  <td><span class="etf_code">229200</span></td>
+                  <td><span class="etf_name">KODEX 코스닥150</span></td>
+                  <td class="color_fall">9,760</td>
+                  <td class="color_fall">-120</td>
+                  <td class="color_fall">-1.21%</td>
+                  <td class="color_fall">-3.20%</td>
+                  <td><button class="heart_btn">♡</button></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="view-all-wrap">
-            <button class="btn btn--function btn--size-40" style="width:100%; border-radius:8px;">전체보기</button>
+          <div class="view_all_wrap">
+            <button class="btn btn_function btn_size_40" style="width:100%; border-radius:8px;">전체보기</button>
           </div>
         </div>
 
@@ -1373,76 +1373,76 @@
   <!-- ===========================
        4. 포트 성과 현황 + 이달의 ETF 랭킹 (2단)
        =========================== -->
-  <section class="main-section">
-    <div class="main-container">
-      <div class="two-col-layout">
+  <section class="main_section">
+    <div class="main_container">
+      <div class="two_col_layout">
 
         <!-- 좌측: 포트 성과 현황 -->
-        <div class="card port-card">
-          <div class="section-header">
-            <h2 class="section-title">포트 성과 현황</h2>
+        <div class="card port_card">
+          <div class="section_header">
+            <h2 class="section_title">포트 성과 현황</h2>
           </div>
           <!-- 포트 탭 -->
-          <div class="tab-small" style="margin-bottom:12px;">
-            <button class="tab-small__item tab-small__item--active">내 포트폴리오</button>
-            <button class="tab-small__item">추천 포트</button>
+          <div class="tab_small" style="margin-bottom:12px;">
+            <button class="tab_small_item tab_small_item_active">내 포트폴리오</button>
+            <button class="tab_small_item">추천 포트</button>
           </div>
-          <div class="port-name">홍*동님의 내맘대로 설계입니다.</div>
+          <div class="port_name">홍*동님의 내맘대로 설계입니다.</div>
           <!-- 비교 차트 -->
-          <div class="port-chart" id="portChart"></div>
+          <div class="port_chart" id="portChart"></div>
           <!-- 통계 카드 -->
-          <div class="port-stats">
-            <div class="port-stat-item">
-              <div class="port-stat-label">수익률</div>
-              <div class="port-stat-value color-rise">+4.88%</div>
+          <div class="port_stats">
+            <div class="port_stat_item">
+              <div class="port_stat_label">수익률</div>
+              <div class="port_stat_value color_rise">+4.88%</div>
             </div>
-            <div class="port-stat-item">
-              <div class="port-stat-label">변동성</div>
-              <div class="port-stat-value">0.30</div>
+            <div class="port_stat_item">
+              <div class="port_stat_label">변동성</div>
+              <div class="port_stat_value">0.30</div>
             </div>
-            <div class="port-stat-item">
-              <div class="port-stat-label">샤프지수</div>
-              <div class="port-stat-value">4</div>
+            <div class="port_stat_item">
+              <div class="port_stat_label">샤프지수</div>
+              <div class="port_stat_value">4</div>
             </div>
           </div>
         </div>
 
         <!-- 우측: 이달의 ETF 랭킹 -->
-        <div class="card monthly-rank-card">
-          <div class="section-header">
-            <h2 class="section-title">이달의 ETF 랭킹</h2>
-            <button class="view-all-btn">전체보기 ›</button>
+        <div class="card monthly_rank_card">
+          <div class="section_header">
+            <h2 class="section_title">이달의 ETF 랭킹</h2>
+            <button class="view_all_btn">전체보기 ›</button>
           </div>
           <!-- 탭 -->
-          <div class="tab-medium" id="monthlyRankTabs" style="margin-bottom:12px; flex-wrap:wrap; gap:6px;">
-            <button class="tab-medium__item tab-medium__item--active" data-tab-group="monthly">해외주식테마</button>
-            <button class="tab-medium__item" data-tab-group="monthly">국내주식테마</button>
-            <button class="tab-medium__item" data-tab-group="monthly">채권</button>
+          <div class="tab_medium" id="monthlyRankTabs" style="margin-bottom:12px; flex-wrap:wrap; gap:6px;">
+            <button class="tab_medium_item tab_medium_item_active" data-tab-group="monthly">해외주식테마</button>
+            <button class="tab_medium_item" data-tab-group="monthly">국내주식테마</button>
+            <button class="tab_medium_item" data-tab-group="monthly">채권</button>
           </div>
           <!-- 비교 차트 -->
-          <div class="monthly-chart" id="monthlyChart"></div>
+          <div class="monthly_chart" id="monthlyChart"></div>
           <!-- 통계값 -->
-          <div class="monthly-stats">
-            <div class="monthly-stat">
-              <div class="monthly-stat__value">0.30</div>
-              <div class="monthly-stat__label">변동성</div>
+          <div class="monthly_stats">
+            <div class="monthly_stat">
+              <div class="monthly_stat_value">0.30</div>
+              <div class="monthly_stat_label">변동성</div>
             </div>
-            <div class="monthly-stat">
-              <div class="monthly-stat__value color-rise">4.88</div>
-              <div class="monthly-stat__label">수익률</div>
+            <div class="monthly_stat">
+              <div class="monthly_stat_value color_rise">4.88</div>
+              <div class="monthly_stat_label">수익률</div>
             </div>
-            <div class="monthly-stat">
-              <div class="monthly-stat__value">4</div>
-              <div class="monthly-stat__label">샤프지수</div>
+            <div class="monthly_stat">
+              <div class="monthly_stat_value">4</div>
+              <div class="monthly_stat_label">샤프지수</div>
             </div>
           </div>
           <!-- 랭킹 태그 -->
           <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;">
-            <span class="tag tag--solid-blue">AI테크</span>
-            <span class="tag tag--solid-blue">반도체</span>
-            <span class="tag tag--solid-black">미국주식</span>
-            <span class="tag tag--solid-black">나스닥</span>
-            <span class="tag tag--solid-blue">월배당</span>
+            <span class="tag tag_solid_blue">AI테크</span>
+            <span class="tag tag_solid_blue">반도체</span>
+            <span class="tag tag_solid_black">미국주식</span>
+            <span class="tag tag_solid_black">나스닥</span>
+            <span class="tag tag_solid_blue">월배당</span>
           </div>
         </div>
 
@@ -1453,82 +1453,82 @@
   <!-- ===========================
        5. 이달의 ETF 1위 + 수익률로 간편 찾기 (2단)
        =========================== -->
-  <section class="main-section">
-    <div class="main-container">
-      <div class="two-col-layout">
+  <section class="main_section">
+    <div class="main_container">
+      <div class="two_col_layout">
 
         <!-- 좌측: 이달의 ETF 랭킹 1위 -->
         <div class="card">
-          <div class="section-header">
-            <h2 class="section-title">이달의 ETF 랭킹 1위</h2>
+          <div class="section_header">
+            <h2 class="section_title">이달의 ETF 랭킹 1위</h2>
           </div>
           <!-- 탭 -->
-          <div class="tab-small" id="rank1Tabs" style="margin-bottom:16px;">
-            <button class="tab-small__item tab-small__item--active" data-tab-group="rank1">해외주식테마</button>
-            <button class="tab-small__item" data-tab-group="rank1">국내주식테마</button>
-            <button class="tab-small__item" data-tab-group="rank1">채권</button>
+          <div class="tab_small" id="rank1Tabs" style="margin-bottom:16px;">
+            <button class="tab_small_item tab_small_item_active" data-tab-group="rank1">해외주식테마</button>
+            <button class="tab_small_item" data-tab-group="rank1">국내주식테마</button>
+            <button class="tab_small_item" data-tab-group="rank1">채권</button>
           </div>
           <!-- 랭킹 리스트 -->
-          <ul class="rank1-list">
-            <li class="rank1-item">
-              <span class="rank1-badge">1위</span>
-              <div class="rank1-info">
-                <div class="rank1-name">KODEX 미국반도체MV</div>
-                <div class="rank1-meta">최근1년간 <strong style="color:#0055FF;">11번</strong> 1위</div>
+          <ul class="rank1_list">
+            <li class="rank1_item">
+              <span class="rank1_badge">1위</span>
+              <div class="rank1_info">
+                <div class="rank1_name">KODEX 미국반도체MV</div>
+                <div class="rank1_meta">최근1년간 <strong style="color:#0055FF;">11번</strong> 1위</div>
               </div>
-              <div class="rank1-score">총점<br><strong>30점</strong></div>
+              <div class="rank1_score">총점<br><strong>30점</strong></div>
             </li>
-            <li class="rank1-item">
-              <span class="rank1-badge" style="background:#354153;">1위</span>
-              <div class="rank1-info">
-                <div class="rank1-name">TIGER 차이나전기차SOLACTIVE</div>
-                <div class="rank1-meta">최근1년간 <strong style="color:#0055FF;">12번</strong> 1위</div>
+            <li class="rank1_item">
+              <span class="rank1_badge" style="background:#354153;">1위</span>
+              <div class="rank1_info">
+                <div class="rank1_name">TIGER 차이나전기차SOLACTIVE</div>
+                <div class="rank1_meta">최근1년간 <strong style="color:#0055FF;">12번</strong> 1위</div>
               </div>
-              <div class="rank1-score">총점<br><strong>30점</strong></div>
+              <div class="rank1_score">총점<br><strong>30점</strong></div>
             </li>
-            <li class="rank1-item">
-              <span class="rank1-badge" style="background:#697387;">1위</span>
-              <div class="rank1-info">
-                <div class="rank1-name">KODEX 차이나항셍테크</div>
-                <div class="rank1-meta">최근1년간 <strong style="color:#0055FF;">10번</strong> 1위</div>
+            <li class="rank1_item">
+              <span class="rank1_badge" style="background:#697387;">1위</span>
+              <div class="rank1_info">
+                <div class="rank1_name">KODEX 차이나항셍테크</div>
+                <div class="rank1_meta">최근1년간 <strong style="color:#0055FF;">10번</strong> 1위</div>
               </div>
-              <div class="rank1-score">총점<br><strong>28점</strong></div>
+              <div class="rank1_score">총점<br><strong>28점</strong></div>
             </li>
           </ul>
         </div>
 
         <!-- 우측: 수익률로 간편 찾기 -->
         <div class="card">
-          <div class="section-header">
-            <h2 class="section-title">수익률로 간편 찾기</h2>
+          <div class="section_header">
+            <h2 class="section_title">수익률로 간편 찾기</h2>
           </div>
           <!-- 탭 -->
-          <div class="tab-small" id="yieldTabs" style="margin-bottom:16px;">
-            <button class="tab-small__item tab-small__item--active" data-tab-group="yield">국내주식테마/섹터</button>
-            <button class="tab-small__item" data-tab-group="yield">채권</button>
-            <button class="tab-small__item" data-tab-group="yield">지수</button>
+          <div class="tab_small" id="yieldTabs" style="margin-bottom:16px;">
+            <button class="tab_small_item tab_small_item_active" data-tab-group="yield">국내주식테마/섹터</button>
+            <button class="tab_small_item" data-tab-group="yield">채권</button>
+            <button class="tab_small_item" data-tab-group="yield">지수</button>
           </div>
           <p style="font-size:12px; color:#99A1B1; margin-bottom:12px;">지난 3년간 수익률 달성 상품</p>
           <!-- 수익률 카드 -->
-          <div class="yield-cards">
-            <div class="yield-card yield-card--active">
-              <div class="yield-card__name">KODEX 글로벌로봇(합성)</div>
-              <div class="yield-card__rate">3%</div>
-              <div class="yield-card__label">달성</div>
+          <div class="yield_cards">
+            <div class="yield_card yield_card_active">
+              <div class="yield_card_name">KODEX 글로벌로봇(합성)</div>
+              <div class="yield_card_rate">3%</div>
+              <div class="yield_card_label">달성</div>
             </div>
-            <div class="yield-card">
-              <div class="yield-card__name">KODEX 배당성장채권혼합</div>
-              <div class="yield-card__rate">5%</div>
-              <div class="yield-card__label">달성</div>
+            <div class="yield_card">
+              <div class="yield_card_name">KODEX 배당성장채권혼합</div>
+              <div class="yield_card_rate">5%</div>
+              <div class="yield_card_label">달성</div>
             </div>
-            <div class="yield-card">
-              <div class="yield-card__name">KODEX 철강</div>
-              <div class="yield-card__rate">7%</div>
-              <div class="yield-card__label">달성</div>
+            <div class="yield_card">
+              <div class="yield_card_name">KODEX 철강</div>
+              <div class="yield_card_rate">7%</div>
+              <div class="yield_card_label">달성</div>
             </div>
           </div>
           <!-- 수익률 차트 -->
-          <div class="yield-chart" id="yieldChart"></div>
+          <div class="yield_chart" id="yieldChart"></div>
         </div>
 
       </div>
@@ -1538,23 +1538,23 @@
   <!-- ===========================
        6. AI 투자 배너
        =========================== -->
-  <section class="main-section">
-    <div class="main-container">
-      <div class="ai-banner">
-        <div class="ai-banner__content">
-          <div class="ai-banner__tag">
+  <section class="main_section">
+    <div class="main_container">
+      <div class="ai_banner">
+        <div class="ai_banner_content">
+          <div class="ai_banner_tag">
             🔥 HOT ETF
           </div>
-          <div class="ai-banner__title">AI관련주 투자하며<br>월배당을 동시에!</div>
-          <div class="ai-banner__sub">
+          <div class="ai_banner_title">AI관련주 투자하며<br>월배당을 동시에!</div>
+          <div class="ai_banner_sub">
             <strong>KODEX 미국AI테크TOP10 + 15%프리미엄</strong>
           </div>
-          <button class="ai-banner__btn">자세히 보기 →</button>
+          <button class="ai_banner_btn">자세히 보기 →</button>
         </div>
-        <div class="ai-banner__visual">
-          <div class="ai-coin-wrap">
-            <div class="ai-badge">AI</div>
-            <div class="ai-coin">🪙</div>
+        <div class="ai_banner_visual">
+          <div class="ai_coin_wrap">
+            <div class="ai_badge">AI</div>
+            <div class="ai_coin">🪙</div>
           </div>
         </div>
       </div>
@@ -1564,52 +1564,52 @@
   <!-- ===========================
        7. 유용한 투자 Tip
        =========================== -->
-  <section class="main-section">
-    <div class="main-container">
+  <section class="main_section">
+    <div class="main_container">
       <div class="card">
-        <div class="section-header">
-          <h2 class="section-title">유용한 투자 Tip</h2>
-          <button class="view-all-btn">전체보기 ›</button>
+        <div class="section_header">
+          <h2 class="section_title">유용한 투자 Tip</h2>
+          <button class="view_all_btn">전체보기 ›</button>
         </div>
-        <div class="tip-cards">
+        <div class="tip_cards">
           <!-- 카드 1 -->
-          <div class="tip-card">
-            <div class="tip-card__thumb">📈</div>
-            <div class="tip-card__body">
-              <div class="tip-card__tag"># HOT ETF</div>
-              <div class="tip-card__title">[KODEX] 한국형 TSLY 월분배 끝판왕!</div>
+          <div class="tip_card">
+            <div class="tip_card_thumb">📈</div>
+            <div class="tip_card_body">
+              <div class="tip_card_tag"># HOT ETF</div>
+              <div class="tip_card_title">[KODEX] 한국형 TSLY 월분배 끝판왕!</div>
             </div>
           </div>
           <!-- 카드 2 -->
-          <div class="tip-card">
-            <div class="tip-card__thumb">🌍</div>
-            <div class="tip-card__body">
-              <div class="tip-card__tag"># 시장 전망</div>
-              <div class="tip-card__title">KODEX 미국S&amp;P500배당귀족커버드콜</div>
+          <div class="tip_card">
+            <div class="tip_card_thumb">🌍</div>
+            <div class="tip_card_body">
+              <div class="tip_card_tag"># 시장 전망</div>
+              <div class="tip_card_title">KODEX 미국S&amp;P500배당귀족커버드콜</div>
             </div>
           </div>
           <!-- 카드 3 -->
-          <div class="tip-card">
-            <div class="tip-card__thumb">💡</div>
-            <div class="tip-card__body">
-              <div class="tip-card__tag"># 삼성자산 인사이트</div>
-              <div class="tip-card__title">[KODEX] 연금 투자 바이블 출시</div>
+          <div class="tip_card">
+            <div class="tip_card_thumb">💡</div>
+            <div class="tip_card_body">
+              <div class="tip_card_tag"># 삼성자산 인사이트</div>
+              <div class="tip_card_title">[KODEX] 연금 투자 바이블 출시</div>
             </div>
           </div>
           <!-- 카드 4 -->
-          <div class="tip-card">
-            <div class="tip-card__thumb">🔍</div>
-            <div class="tip-card__body">
-              <div class="tip-card__tag"># 프리미엄 콘텐츠</div>
-              <div class="tip-card__title">유망한 지역과 산업에 대한 전망</div>
+          <div class="tip_card">
+            <div class="tip_card_thumb">🔍</div>
+            <div class="tip_card_body">
+              <div class="tip_card_tag"># 프리미엄 콘텐츠</div>
+              <div class="tip_card_title">유망한 지역과 산업에 대한 전망</div>
             </div>
           </div>
           <!-- 카드 5 -->
-          <div class="tip-card">
-            <div class="tip-card__thumb">🚀</div>
-            <div class="tip-card__body">
-              <div class="tip-card__tag"># 프리미엄 콘텐츠</div>
-              <div class="tip-card__title">유망한 지역과 산업에 대한 전망</div>
+          <div class="tip_card">
+            <div class="tip_card_thumb">🚀</div>
+            <div class="tip_card_body">
+              <div class="tip_card_tag"># 프리미엄 콘텐츠</div>
+              <div class="tip_card_title">유망한 지역과 산업에 대한 전망</div>
             </div>
           </div>
         </div>
@@ -1623,18 +1623,18 @@
   <!-- ===========================
        8. 하단 고정 네비게이션 (모바일)
        =========================== -->
-  <nav class="bottom-nav" id="bottomNav">
-    <div class="bottom-nav__inner">
-      <button class="bottom-nav__item bottom-nav__item--active" data-nav="home">
-        <span class="bottom-nav__icon">
+  <nav class="bottom_nav" id="bottomNav">
+    <div class="bottom_nav_inner">
+      <button class="bottom_nav_item bottom_nav_item_active" data-nav="home">
+        <span class="bottom_nav_icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
           </svg>
         </span>
         홈
       </button>
-      <button class="bottom-nav__item" data-nav="etf">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="etf">
+        <span class="bottom_nav_icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7" rx="1"/>
             <rect x="14" y="3" width="7" height="7" rx="1"/>
@@ -1644,8 +1644,8 @@
         </span>
         ETF
       </button>
-      <button class="bottom-nav__item" data-nav="search">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="search">
+        <span class="bottom_nav_icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="7"/>
             <path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
@@ -1653,8 +1653,8 @@
         </span>
         검색
       </button>
-      <button class="bottom-nav__item" data-nav="port">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="port">
+        <span class="bottom_nav_icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 3v18h18"/>
             <path d="M7 16l4-4 4 4 4-6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1662,8 +1662,8 @@
         </span>
         포트
       </button>
-      <button class="bottom-nav__item" data-nav="more">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="more">
+        <span class="bottom_nav_icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="5" cy="12" r="1.5" fill="currentColor"/>
             <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
@@ -1984,44 +1984,44 @@
 
       /* ETF 리스트 탭 */
       $('#etfListTabs').on('click', '.tab-item', function() {
-        $(this).siblings('.tab-item').removeClass('tab-item--active');
-        $(this).addClass('tab-item--active');
+        $(this).siblings('.tab-item').removeClass('tab_item_active');
+        $(this).addClass('tab_item_active');
       });
 
       /* tab-small 공통 토글 */
       $(document).on('click', '.tab-small__item', function() {
-        var group = $(this).data('tab-group');
+        var group = $(this).data('tab_group');
         if (group) {
-          $('[data-tab-group="' + group + '"]').removeClass('tab-small__item--active');
+          $('[data-tab-group="' + group + '"]').removeClass('tab_small_item_active');
         } else {
-          $(this).closest('.tab-small').find('.tab-small__item').removeClass('tab-small__item--active');
+          $(this).closest('.tab-small').find('.tab-small__item').removeClass('tab_small_item_active');
         }
-        $(this).addClass('tab-small__item--active');
+        $(this).addClass('tab_small_item_active');
       });
 
       /* tab-medium 공통 토글 */
       $(document).on('click', '.tab-medium__item', function() {
-        var group = $(this).data('tab-group');
+        var group = $(this).data('tab_group');
         if (group) {
-          $('[data-tab-group="' + group + '"]').removeClass('tab-medium__item--active');
+          $('[data-tab-group="' + group + '"]').removeClass('tab_medium_item_active');
         } else {
-          $(this).closest('.tab-medium').find('.tab-medium__item').removeClass('tab-medium__item--active');
+          $(this).closest('.tab-medium').find('.tab-medium__item').removeClass('tab_medium_item_active');
         }
-        $(this).addClass('tab-medium__item--active');
+        $(this).addClass('tab_medium_item_active');
       });
 
       /* 필터 태그 토글 */
       $('#filterTags').on('click', '.filter-tag', function() {
-        $('#filterTags .filter-tag').removeClass('filter-tag--active');
-        $(this).addClass('filter-tag--active');
+        $('#filterTags .filter-tag').removeClass('filter_tag_active');
+        $(this).addClass('filter_tag_active');
       });
 
       /* ===========================
          하단 네비게이션
          =========================== */
       $('#bottomNav').on('click', '.bottom-nav__item', function() {
-        $('#bottomNav .bottom-nav__item').removeClass('bottom-nav__item--active');
-        $(this).addClass('bottom-nav__item--active');
+        $('#bottomNav .bottom-nav__item').removeClass('bottom_nav_item_active');
+        $(this).addClass('bottom_nav_item_active');
       });
 
       /* ===========================

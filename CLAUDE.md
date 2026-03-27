@@ -1,5 +1,9 @@
 # HTML5 프로젝트 설정
 
+## 코딩 컨벤션
+- **상세 규칙**: [`CODING_CONVENTION.md`](./CODING_CONVENTION.md) 참조 (네이밍, HTML, CSS 전체 규칙)
+- HTML/CSS 작성 시 반드시 준수
+
 ## 개발 환경
 - **프로젝트 타입**: HTML5 정적 웹사이트
 - **언어**: HTML5, CSS3, JavaScript (jQuery)
@@ -46,10 +50,10 @@ test-html/
 - **변수명/함수명**: 영어 (코드 표준 준수)
 
 ## 코딩 스타일
-- **들여쓰기**: 2칸 (HTML, CSS, JavaScript)
+- **들여쓰기**: 2칸 공백 (HTML, CSS, JavaScript)
 - **네이밍**:
   - 변수/함수: `camelCase`
-  - CSS 클래스: `kebab-case`
+  - CSS 클래스: `underscore` (예: `link_view`, `btn_apply`)
   - ID: `camelCase`
 
 ## 기술 스택

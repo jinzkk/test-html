@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>WISH. 생년월일 입력</title>
   <link rel="stylesheet" href="../css/common.css">
@@ -11,20 +11,20 @@
 
     body { background: #fff; margin: 0; font-family: 'Pretendard', sans-serif; }
 
-    .page-header {
+    .page_header {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 56px; background: #fff;
       display: flex; align-items: center; padding: 0 20px; z-index: 100;
     }
-    .btn-back { background: none; border: none; cursor: pointer; padding: 0; }
+    .btn_back { background: none; border: none; cursor: pointer; padding: 0; }
 
     main { padding: 56px 20px 20px; }
-    .page-title { font-size: 24px; font-weight: 700; line-height: 32px; color: #141924; margin: 16px 0 32px; }
+    .page_title { font-size: 24px; font-weight: 700; line-height: 32px; color: #141924; margin: 16px 0 32px; }
 
-    .input-group { display: flex; flex-direction: column; gap: 24px; }
-    .input-wrap { display: flex; flex-direction: column; gap: 8px; }
-    .input-label { font-size: 12px; font-weight: 500; color: #141924; line-height: 18px; }
-    .input-field--filled {
+    .input_group { display: flex; flex-direction: column; gap: 24px; }
+    .input_wrap { display: flex; flex-direction: column; gap: 8px; }
+    .input_label { font-size: 12px; font-weight: 500; color: #141924; line-height: 18px; }
+    .input_field_filled {
       width: 100%; padding: 12px 16px; border: 1px solid #b4bbcb; border-radius: 4px;
       font-size: 16px; font-weight: 500; color: #141924; line-height: 24px;
       box-sizing: border-box; background: #fff;
@@ -35,57 +35,57 @@
       display: none; position: fixed; inset: 0;
       background: rgba(0,0,0,0.5); z-index: 300;
     }
-    .overlay.is-open { display: block; }
+    .overlay.is_open { display: block; }
 
     /* 롤러 패널 */
-    .roller-panel {
+    .roller_panel {
       position: fixed; bottom: 0; left: 0; width: 100%;
       background: #fff; border-radius: 27px 27px 0 0; z-index: 400;
       padding: 24px 16px 32px; box-sizing: border-box;
       transform: translateY(100%); transition: transform 0.3s ease;
     }
-    .roller-panel.is-open { transform: translateY(0); }
+    .roller_panel.is_open { transform: translateY(0); }
 
     /* 롤러 */
-    .roller-container {
+    .roller_container {
       display: flex; position: relative; margin-bottom: 16px; height: 176px;
       overflow: hidden;
     }
-    .roller-highlight {
+    .roller_highlight {
       position: absolute; left: 0; right: 0; height: 48px;
       background: #f2f3f8; border-radius: 8px;
       top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1;
     }
     /* 위아래 페이드 */
-    .roller-container::before,
-    .roller-container::after {
+    .roller_container::before,
+    .roller_container::after {
       content: ''; position: absolute; left: 0; right: 0; height: 35%; z-index: 3; pointer-events: none;
     }
-    .roller-container::before {
+    .roller_container::before {
       top: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.95), transparent);
     }
-    .roller-container::after {
+    .roller_container::after {
       bottom: 0; background: linear-gradient(to top, rgba(255,255,255,0.95), transparent);
     }
 
-    .roller-col {
+    .roller_col {
       flex: 1; overflow: hidden; position: relative;
       display: flex; flex-direction: column; align-items: center;
     }
-    .roller-col-inner {
+    .roller_col_inner {
       display: flex; flex-direction: column; align-items: center;
       transition: transform 0.15s ease;
     }
-    .roller-item {
+    .roller_item {
       height: 32px; display: flex; align-items: center; justify-content: center;
       font-size: 18px; color: #8a949e; line-height: 24px; width: 100%;
       text-align: center;
     }
-    .roller-item.is-sel {
+    .roller_item.is_sel {
       height: 48px; font-size: 24px; font-weight: 500; color: #1e2124;
     }
 
-    .btn-next {
+    .btn_next {
       width: 100%; height: 52px; background: #1345d1; border: none; border-radius: 8px;
       font-size: 18px; font-weight: 500; color: #fff; cursor: pointer;
       font-family: 'Pretendard', sans-serif;
@@ -93,8 +93,8 @@
   </style>
 </head>
 <body>
-  <header class="page-header">
-    <button class="btn-back" onclick="history.back()">
+  <header class="page_header">
+    <button class="btn_back" onclick="history.back()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M15 18L9 12L15 6" stroke="#141924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -102,11 +102,11 @@
   </header>
 
   <main>
-    <h1 class="page-title">생년월일을 알려주세요</h1>
-    <div class="input-group">
+    <h1 class="page_title">생년월일을 알려주세요</h1>
+    <div class="input_group">
       <!-- 현재 입력: 생년월일 -->
-      <div class="input-wrap">
-        <div class="input-label">생년월일</div>
+      <div class="input_wrap">
+        <div class="input_label">생년월일</div>
         <button id="bdBtn" onclick="openRoller()"
           style="width:100%; padding:12px 16px; border:1px solid #e5e8ef; border-radius:4px;
                  font-size:16px; font-family:Pretendard,sans-serif; color:#b4bbcb;
@@ -115,9 +115,9 @@
         </button>
       </div>
       <!-- 이전 입력: 이름 -->
-      <div class="input-wrap">
-        <div class="input-label">이름</div>
-        <div class="input-field--filled">김한투</div>
+      <div class="input_wrap">
+        <div class="input_label">이름</div>
+        <div class="input_field_filled">김한투</div>
       </div>
     </div>
   </main>
@@ -125,14 +125,14 @@
   <div class="overlay" id="overlay" onclick="closeRoller()"></div>
 
   <!-- 롤러 패널 -->
-  <div class="roller-panel" id="rollerPanel">
-    <div class="roller-container">
-      <div class="roller-highlight"></div>
-      <div class="roller-col" id="colYear"><div class="roller-col-inner" id="innerYear"></div></div>
-      <div class="roller-col" id="colMonth"><div class="roller-col-inner" id="innerMonth"></div></div>
-      <div class="roller-col" id="colDay"><div class="roller-col-inner" id="innerDay"></div></div>
+  <div class="roller_panel" id="rollerPanel">
+    <div class="roller_container">
+      <div class="roller_highlight"></div>
+      <div class="roller_col" id="colYear"><div class="roller_col_inner" id="innerYear"></div></div>
+      <div class="roller_col" id="colMonth"><div class="roller_col_inner" id="innerMonth"></div></div>
+      <div class="roller_col" id="colDay"><div class="roller_col_inner" id="innerDay"></div></div>
     </div>
-    <button class="btn-next" onclick="confirmDate()">다음</button>
+    <button class="btn_next" onclick="confirmDate()">다음</button>
   </div>
 
   <script src="../js/lib/jquery-3.7.1.min.js"></script>
@@ -157,12 +157,12 @@
       var $inner = $('#' + innerId);
       $inner.empty();
       list.forEach(function(v) {
-        var cls = (v === selected) ? 'roller-item is-sel' : 'roller-item';
+        var cls = (v === selected) ? 'roller-item is-sel' : 'roller_item';
         $inner.append('<div class="' + cls + '">' + v + '</div>');
       });
       // 상하 패딩 (선택 항목이 가운데 오도록)
       var topPad = (COL_H / 2) - (SEL_H / 2);
-      $inner.css('padding-top', topPad + 'px').css('padding-bottom', topPad + 'px');
+      $inner.css('padding_top', topPad + 'px').css('padding_bottom', topPad + 'px');
       // 위치 조정
       var selIdx = list.indexOf(selected);
       var offset = -(selIdx * ITEM_H);
@@ -237,20 +237,20 @@
     }
 
     function openRoller() {
-      $('#overlay').addClass('is-open');
-      $('#rollerPanel').addClass('is-open');
+      $('#overlay').addClass('is_open');
+      $('#rollerPanel').addClass('is_open');
       initRoller();
     }
 
     function closeRoller() {
-      $('#overlay').removeClass('is-open');
-      $('#rollerPanel').removeClass('is-open');
+      $('#overlay').removeClass('is_open');
+      $('#rollerPanel').removeClass('is_open');
     }
 
     function confirmDate() {
       var text = selY + '년 ' + selM + '월 ' + selD + '일';
       $('#bdDisplay').text(text);
-      $('#bdBtn').css({ 'border-color': '#b4bbcb', 'color': '#141924' });
+      $('#bdBtn').css({ 'border_color': '#b4bbcb', 'color': '#141924' });
       closeRoller();
     }
   </script>

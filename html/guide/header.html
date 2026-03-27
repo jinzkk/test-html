@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Header 컴포넌트 가이드</title>
   <link rel="stylesheet" href="../../css/common.css">
@@ -11,14 +11,14 @@
        =========================== */
 
     /* 헤더 래퍼 */
-    .header-comp {
+    .header_comp {
       width: 390px;
       background: #fff;
       padding-top: 10px;
     }
 
     /* 네비게이션 바 */
-    .header-navi {
+    .header_navi {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -29,7 +29,7 @@
     }
 
     /* 좌측 뒤로가기 버튼 */
-    .header-btn-back {
+    .header_btn_back {
       flex-shrink: 0;
       width: 24px;
       height: 24px;
@@ -42,7 +42,7 @@
       justify-content: center;
     }
 
-    .header-btn-back img {
+    .header_btn_back img {
       /* 피그마 원본: SVG 자연 크기 13.5×7.5px, 90도 회전으로 좌측 방향 표시 */
       width: 13.5px;
       height: 7.5px;
@@ -51,7 +51,7 @@
     }
 
     /* 타이틀 */
-    .header-title {
+    .header_title {
       flex: 1 0 0;
       font-size: 18px;
       font-weight: 700;
@@ -62,7 +62,7 @@
     }
 
     /* 우측 아이콘 그룹 */
-    .header-icons {
+    .header_icons {
       display: flex;
       align-items: center;
       gap: 20px;
@@ -70,7 +70,7 @@
     }
 
     /* 개별 아이콘 버튼 */
-    .header-icon-btn {
+    .header_icon_btn {
       width: 24px;
       height: 24px;
       background: none;
@@ -83,14 +83,14 @@
       flex-shrink: 0;
     }
 
-    .header-icon-btn img {
+    .header_icon_btn img {
       width: 100%;
       height: 100%;
       display: block;
     }
 
     /* 현재가 영역 (center 절대위치) */
-    .header-price {
+    .header_price {
       position: absolute;
       left: 50%;
       top: 50%;
@@ -105,13 +105,13 @@
       z-index: 1;
     }
 
-    .header-price-label {
+    .header_price_label {
       display: flex;
       align-items: center;
       gap: 2px;
     }
 
-    .header-price-label span {
+    .header_price_label span {
       font-size: 10px;
       font-weight: 400;
       line-height: 14px;
@@ -119,7 +119,7 @@
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    .header-price-label img {
+    .header_price_label img {
       /* 피그마 원본: 6.75×3.75px, -90도 회전으로 우측 방향 표시 */
       width: 6.75px;
       height: 3.75px;
@@ -127,7 +127,7 @@
       display: block;
     }
 
-    .header-price-value {
+    .header_price_value {
       font-size: 12px;
       font-weight: 500;
       line-height: 16px;
@@ -138,18 +138,18 @@
     /* ===========================
        가이드 페이지 레이아웃
        =========================== */
-    .guide-variant {
+    .guide_variant {
       margin-bottom: 40px;
     }
 
-    .guide-variant-title {
+    .guide_variant_title {
       font-size: 14px;
       color: #697387;
       margin: 0 0 8px 0;
       font-weight: 400;
     }
 
-    .guide-variant-preview {
+    .guide_variant_preview {
       border: 1px solid #e5e8ef;
       border-radius: 8px;
       overflow: hidden;
@@ -164,35 +164,35 @@
 
   <main>
     <!-- Variant 1: 기본형 (좌측 아이콘 + 타이틀 + 우측 아이콘 전체) -->
-    <section class="guide-section">
-      <h2 class="guide-section-title">Type=Sub</h2>
+    <section class="guide_section">
+      <h2 class="guide_section_title">Type=Sub</h2>
 
-      <div class="guide-variant">
-        <p class="guide-variant-title">기본형 — 뒤로가기 + 타이틀 + 우측 아이콘</p>
-        <div class="guide-variant-preview">
-          <div class="header-comp">
-            <div class="header-navi">
+      <div class="guide_variant">
+        <p class="guide_variant_title">기본형 — 뒤로가기 + 타이틀 + 우측 아이콘</p>
+        <div class="guide_variant_preview">
+          <div class="header_comp">
+            <div class="header_navi">
               <!-- 좌측: 뒤로가기 -->
-              <button class="header-btn-back" aria-label="뒤로가기">
+              <button class="header_btn_back" aria-label="뒤로가기">
                 <img src="../../img/common/icon-chevron-left.svg" alt="뒤로가기" />
               </button>
               <!-- 타이틀 -->
-              <p class="header-title">월배당 포트</p>
+              <p class="header_title">월배당 포트</p>
               <!-- 우측: 아이콘 그룹 -->
-              <div class="header-icons">
-                <button class="header-icon-btn" aria-label="공유">
+              <div class="header_icons">
+                <button class="header_icon_btn" aria-label="공유">
                   <img src="../../img/common/icon-share.svg" alt="공유" />
                 </button>
-                <button class="header-icon-btn" aria-label="알림">
+                <button class="header_icon_btn" aria-label="알림">
                   <img src="../../img/common/icon-bell.svg" alt="알림" />
                 </button>
-                <button class="header-icon-btn" aria-label="찜하기">
+                <button class="header_icon_btn" aria-label="찜하기">
                   <img src="../../img/common/icon-heart.svg" alt="찜하기" />
                 </button>
-                <button class="header-icon-btn" aria-label="검색">
+                <button class="header_icon_btn" aria-label="검색">
                   <img src="../../img/common/icon-search.svg" alt="검색" />
                 </button>
-                <button class="header-icon-btn" aria-label="스캔">
+                <button class="header_icon_btn" aria-label="스캔">
                   <img src="../../img/common/icon-scan.svg" alt="스캔" />
                 </button>
               </div>
@@ -202,40 +202,40 @@
       </div>
 
       <!-- Variant 2: 현재가 표시형 -->
-      <div class="guide-variant">
-        <p class="guide-variant-title">현재가 표시형 — 뒤로가기 + 현재가 + 우측 아이콘</p>
-        <div class="guide-variant-preview">
-          <div class="header-comp">
-            <div class="header-navi">
+      <div class="guide_variant">
+        <p class="guide_variant_title">현재가 표시형 — 뒤로가기 + 현재가 + 우측 아이콘</p>
+        <div class="guide_variant_preview">
+          <div class="header_comp">
+            <div class="header_navi">
               <!-- 좌측: 뒤로가기 -->
-              <button class="header-btn-back" aria-label="뒤로가기">
+              <button class="header_btn_back" aria-label="뒤로가기">
                 <img src="../../img/common/icon-chevron-left.svg" alt="뒤로가기" />
               </button>
               <!-- 중앙: 현재가 (절대위치) -->
-              <div class="header-price">
-                <div class="header-price-label">
+              <div class="header_price">
+                <div class="header_price_label">
                   <span>현재가</span>
                   <img src="../../img/common/icon-chevron-right-sm.svg" alt="" />
                 </div>
-                <p class="header-price-value">10,430원 +0.9%</p>
+                <p class="header_price_value">10,430원 +0.9%</p>
               </div>
               <!-- flex 공간 확보 (현재가는 절대위치이므로 레이아웃에 영향 없음) -->
               <div style="flex: 1;"></div>
               <!-- 우측: 아이콘 그룹 -->
-              <div class="header-icons">
-                <button class="header-icon-btn" aria-label="공유">
+              <div class="header_icons">
+                <button class="header_icon_btn" aria-label="공유">
                   <img src="../../img/common/icon-share.svg" alt="공유" />
                 </button>
-                <button class="header-icon-btn" aria-label="알림">
+                <button class="header_icon_btn" aria-label="알림">
                   <img src="../../img/common/icon-bell.svg" alt="알림" />
                 </button>
-                <button class="header-icon-btn" aria-label="찜하기">
+                <button class="header_icon_btn" aria-label="찜하기">
                   <img src="../../img/common/icon-heart.svg" alt="찜하기" />
                 </button>
-                <button class="header-icon-btn" aria-label="검색">
+                <button class="header_icon_btn" aria-label="검색">
                   <img src="../../img/common/icon-search.svg" alt="검색" />
                 </button>
-                <button class="header-icon-btn" aria-label="스캔">
+                <button class="header_icon_btn" aria-label="스캔">
                   <img src="../../img/common/icon-scan.svg" alt="스캔" />
                 </button>
               </div>
@@ -245,28 +245,28 @@
       </div>
 
       <!-- Variant 3: 좌측 아이콘 없음 -->
-      <div class="guide-variant">
-        <p class="guide-variant-title">좌측 아이콘 없음 — 타이틀 + 우측 아이콘</p>
-        <div class="guide-variant-preview">
-          <div class="header-comp">
-            <div class="header-navi">
+      <div class="guide_variant">
+        <p class="guide_variant_title">좌측 아이콘 없음 — 타이틀 + 우측 아이콘</p>
+        <div class="guide_variant_preview">
+          <div class="header_comp">
+            <div class="header_navi">
               <!-- 타이틀 -->
-              <p class="header-title">월배당 포트</p>
+              <p class="header_title">월배당 포트</p>
               <!-- 우측: 아이콘 그룹 -->
-              <div class="header-icons">
-                <button class="header-icon-btn" aria-label="공유">
+              <div class="header_icons">
+                <button class="header_icon_btn" aria-label="공유">
                   <img src="../../img/common/icon-share.svg" alt="공유" />
                 </button>
-                <button class="header-icon-btn" aria-label="알림">
+                <button class="header_icon_btn" aria-label="알림">
                   <img src="../../img/common/icon-bell.svg" alt="알림" />
                 </button>
-                <button class="header-icon-btn" aria-label="찜하기">
+                <button class="header_icon_btn" aria-label="찜하기">
                   <img src="../../img/common/icon-heart.svg" alt="찜하기" />
                 </button>
-                <button class="header-icon-btn" aria-label="검색">
+                <button class="header_icon_btn" aria-label="검색">
                   <img src="../../img/common/icon-search.svg" alt="검색" />
                 </button>
-                <button class="header-icon-btn" aria-label="스캔">
+                <button class="header_icon_btn" aria-label="스캔">
                   <img src="../../img/common/icon-scan.svg" alt="스캔" />
                 </button>
               </div>
@@ -276,30 +276,30 @@
       </div>
 
       <!-- Variant 4: 타이틀 없음 -->
-      <div class="guide-variant">
-        <p class="guide-variant-title">타이틀 없음 — 뒤로가기 + 우측 아이콘</p>
-        <div class="guide-variant-preview">
-          <div class="header-comp">
-            <div class="header-navi">
+      <div class="guide_variant">
+        <p class="guide_variant_title">타이틀 없음 — 뒤로가기 + 우측 아이콘</p>
+        <div class="guide_variant_preview">
+          <div class="header_comp">
+            <div class="header_navi">
               <!-- 좌측: 뒤로가기 -->
-              <button class="header-btn-back" aria-label="뒤로가기">
+              <button class="header_btn_back" aria-label="뒤로가기">
                 <img src="../../img/common/icon-chevron-left.svg" alt="뒤로가기" />
               </button>
               <!-- 우측: 아이콘 그룹 -->
-              <div class="header-icons" style="margin-left: auto;">
-                <button class="header-icon-btn" aria-label="공유">
+              <div class="header_icons" style="margin-left: auto;">
+                <button class="header_icon_btn" aria-label="공유">
                   <img src="../../img/common/icon-share.svg" alt="공유" />
                 </button>
-                <button class="header-icon-btn" aria-label="알림">
+                <button class="header_icon_btn" aria-label="알림">
                   <img src="../../img/common/icon-bell.svg" alt="알림" />
                 </button>
-                <button class="header-icon-btn" aria-label="찜하기">
+                <button class="header_icon_btn" aria-label="찜하기">
                   <img src="../../img/common/icon-heart.svg" alt="찜하기" />
                 </button>
-                <button class="header-icon-btn" aria-label="검색">
+                <button class="header_icon_btn" aria-label="검색">
                   <img src="../../img/common/icon-search.svg" alt="검색" />
                 </button>
-                <button class="header-icon-btn" aria-label="스캔">
+                <button class="header_icon_btn" aria-label="스캔">
                   <img src="../../img/common/icon-scan.svg" alt="스캔" />
                 </button>
               </div>

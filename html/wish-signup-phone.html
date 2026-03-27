@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>WISH. 휴대폰 번호 입력</title>
   <link rel="stylesheet" href="../css/common.css">
@@ -11,53 +11,53 @@
 
     body { background: #fff; margin: 0; font-family: 'Pretendard', sans-serif; }
 
-    .page-header {
+    .page_header {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 56px; background: #fff;
       display: flex; align-items: center; padding: 0 20px; z-index: 100;
     }
-    .btn-back { width: 24px; height: 24px; background: none; border: none; cursor: pointer; padding: 0; }
+    .btn_back { width: 24px; height: 24px; background: none; border: none; cursor: pointer; padding: 0; }
 
     main { padding: 56px 20px 340px; }
-    .page-title { font-size: 24px; font-weight: 700; line-height: 32px; color: #141924; margin: 16px 0 32px; }
+    .page_title { font-size: 24px; font-weight: 700; line-height: 32px; color: #141924; margin: 16px 0 32px; }
 
-    .input-group { display: flex; flex-direction: column; gap: 24px; }
-    .input-wrap { display: flex; flex-direction: column; gap: 8px; }
-    .input-label { font-size: 12px; font-weight: 500; color: #141924; line-height: 18px; }
-    .input-field {
+    .input_group { display: flex; flex-direction: column; gap: 24px; }
+    .input_wrap { display: flex; flex-direction: column; gap: 8px; }
+    .input_label { font-size: 12px; font-weight: 500; color: #141924; line-height: 18px; }
+    .input_field {
       width: 100%; padding: 12px 16px; border-radius: 4px;
       font-size: 16px; font-family: 'Pretendard', sans-serif;
       line-height: 24px; outline: none; box-sizing: border-box; background: #fff;
     }
-    .input-field--active {
+    .input_field_active {
       border: 1px solid #1345d1; color: #141924; font-weight: 500;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .input-field--filled { border: 1px solid #b4bbcb; color: #141924; font-weight: 500; }
+    .input_field_filled { border: 1px solid #b4bbcb; color: #141924; font-weight: 500; }
 
-    .clear-btn {
+    .clear_btn {
       background: none; border: none; cursor: pointer; padding: 0;
       display: flex; align-items: center;
     }
-    .clear-btn svg { width: 20px; height: 20px; }
+    .clear_btn svg { width: 20px; height: 20px; }
 
     /* 하단 키보드 영역 */
-    .keyboard-area {
+    .keyboard_area {
       position: fixed; bottom: 0; left: 0; width: 100%;
       background: #e6e9ed; z-index: 200;
       padding: 16px 8px 32px;
       border-radius: 27px 27px 0 0;
       box-sizing: border-box;
     }
-    .verify-btn {
+    .verify_btn {
       width: 100%; height: 52px; background: #1345d1; border: none; border-radius: 8px;
       font-size: 18px; font-weight: 500; color: #fff; cursor: pointer;
       margin-bottom: 8px; font-family: 'Pretendard', sans-serif;
     }
-    .verify-btn:disabled { background: #b4bbcb; }
+    .verify_btn:disabled { background: #b4bbcb; }
 
-    .keyboard-rows { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
-    .keyboard-row { display: flex; gap: 6px; }
+    .keyboard_rows { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
+    .keyboard_row { display: flex; gap: 6px; }
     .key {
       flex: 1; height: 50px; background: rgba(255,255,255,0.8); border: none;
       border-radius: 8.5px; font-size: 23px; color: #141924;
@@ -66,13 +66,13 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     }
     .key:active { background: #c7c7cc; }
-    .key--empty { background: transparent; box-shadow: none; cursor: default; }
-    .key--del { background: rgba(255,255,255,0.5); }
+    .key_empty { background: transparent; box-shadow: none; cursor: default; }
+    .key_del { background: rgba(255,255,255,0.5); }
   </style>
 </head>
 <body>
-  <header class="page-header">
-    <button class="btn-back" onclick="history.back()">
+  <header class="page_header">
+    <button class="btn_back" onclick="history.back()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M15 18L9 12L15 6" stroke="#141924" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -80,14 +80,14 @@
   </header>
 
   <main>
-    <h1 class="page-title">휴대폰 번호를 알려주세요</h1>
-    <div class="input-group">
+    <h1 class="page_title">휴대폰 번호를 알려주세요</h1>
+    <div class="input_group">
       <!-- 현재 입력: 휴대폰 번호 (포커스, 상단) -->
-      <div class="input-wrap">
-        <div class="input-label">휴대폰 번호</div>
-        <div class="input-field input-field--active">
+      <div class="input_wrap">
+        <div class="input_label">휴대폰 번호</div>
+        <div class="input_field input_field_active">
           <span id="phoneDisplay" style="flex:1; color:#b4bbcb; font-weight:400;">01012341234</span>
-          <button class="clear-btn" id="clearBtn" onclick="clearPhone()">
+          <button class="clear_btn" id="clearBtn" onclick="clearPhone()">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="12" cy="12" r="10" fill="#b4bbcb"/>
               <path d="M9 9L15 15M15 9L9 15" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
@@ -96,52 +96,52 @@
         </div>
       </div>
       <!-- 이전 입력된 필드들 -->
-      <div class="input-wrap">
-        <div class="input-label">통신사</div>
-        <div class="input-field input-field--filled">SKT</div>
+      <div class="input_wrap">
+        <div class="input_label">통신사</div>
+        <div class="input_field input_field_filled">SKT</div>
       </div>
-      <div class="input-wrap">
-        <div class="input-label">국적</div>
-        <div class="input-field input-field--filled">대한민국</div>
+      <div class="input_wrap">
+        <div class="input_label">국적</div>
+        <div class="input_field input_field_filled">대한민국</div>
       </div>
-      <div class="input-wrap">
-        <div class="input-label">성별</div>
-        <div class="input-field input-field--filled">남성</div>
+      <div class="input_wrap">
+        <div class="input_label">성별</div>
+        <div class="input_field input_field_filled">남성</div>
       </div>
-      <div class="input-wrap">
-        <div class="input-label">생년월일</div>
-        <div class="input-field input-field--filled">1999년 1월 23일</div>
+      <div class="input_wrap">
+        <div class="input_label">생년월일</div>
+        <div class="input_field input_field_filled">1999년 1월 23일</div>
       </div>
-      <div class="input-wrap">
-        <div class="input-label">이름</div>
-        <div class="input-field input-field--filled">김한투</div>
+      <div class="input_wrap">
+        <div class="input_label">이름</div>
+        <div class="input_field input_field_filled">김한투</div>
       </div>
     </div>
   </main>
 
   <!-- 하단 키보드 -->
-  <div class="keyboard-area">
-    <button class="verify-btn" id="verifyBtn">본인 인증하기</button>
-    <div class="keyboard-rows">
-      <div class="keyboard-row">
+  <div class="keyboard_area">
+    <button class="verify_btn" id="verifyBtn">본인 인증하기</button>
+    <div class="keyboard_rows">
+      <div class="keyboard_row">
         <button class="key" onclick="pressKey('1')">1</button>
         <button class="key" onclick="pressKey('2')">2</button>
         <button class="key" onclick="pressKey('3')">3</button>
       </div>
-      <div class="keyboard-row">
+      <div class="keyboard_row">
         <button class="key" onclick="pressKey('4')">4</button>
         <button class="key" onclick="pressKey('5')">5</button>
         <button class="key" onclick="pressKey('6')">6</button>
       </div>
-      <div class="keyboard-row">
+      <div class="keyboard_row">
         <button class="key" onclick="pressKey('7')">7</button>
         <button class="key" onclick="pressKey('8')">8</button>
         <button class="key" onclick="pressKey('9')">9</button>
       </div>
-      <div class="keyboard-row">
-        <button class="key key--empty"></button>
+      <div class="keyboard_row">
+        <button class="key key_empty"></button>
         <button class="key" onclick="pressKey('0')">0</button>
-        <button class="key key--del" onclick="pressDelete()">
+        <button class="key key_del" onclick="pressDelete()">
           <svg width="22" height="16" viewBox="0 0 24 18" fill="none">
             <path d="M9 1H22C22.5523 1 23 1.44772 23 2V16C23 16.5523 22.5523 17 22 17H9L1 9L9 1Z" stroke="#595959" stroke-width="1.5"/>
             <path d="M13 6L19 12M19 6L13 12" stroke="#595959" stroke-width="1.5" stroke-linecap="round"/>

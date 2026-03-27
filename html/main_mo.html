@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF_8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>FunETF 모바일 메인</title>
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
-  <!-- ECharts -->
-  <script src="../js/lib/echarts-5.6.1.min.js"></script>
 </head>
 <body>
 
   <!-- ===========================
        모바일 헤더
        =========================== -->
-  <header class="mo-header">
-    <div class="mo-header__logo">FUNETF</div>
-    <div class="mo-header__actions">
-      <button class="mo-header__btn" aria-label="알림">
+  <header class="mo_header">
+    <div class="mo_header_logo">FUNETF</div>
+    <div class="mo_header_actions">
+      <button class="mo_header_btn" aria-label="알림">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M18 8A6 6 0 106 8c0 7-3 9-3 9h18s-3-2-3-9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="mo-header__btn" aria-label="찜">
+      <button class="mo_header_btn" aria-label="찜">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="mo-header__btn" aria-label="검색">
+      <button class="mo_header_btn" aria-label="검색">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
           <path d="M16.5 16.5L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -40,53 +38,53 @@
   <!-- ===========================
        1. 서머리 영역
        =========================== -->
-  <section class="summary-area">
+  <section class="summary_area">
     <!-- 선물 카드 리스트 -->
-    <div class="futures-scroll">
-      <div class="futures-card">
-        <div class="futures-card__name">S&amp;P Futures</div>
-        <div class="futures-card__price">5,253.50</div>
-        <div class="futures-card__change color-rise">
-          <span class="icon-arrow-up"></span>0.25 (0.00%)
+    <div class="futures_scroll">
+      <div class="futures_card">
+        <div class="futures_card_name">S&amp;P Futures</div>
+        <div class="futures_card_price">5,253.50</div>
+        <div class="futures_card_change color_rise">
+          <span class="icon_arrow_up"></span>0.25 (0.00%)
         </div>
-        <div class="futures-card__chart" id="moSparkline0"></div>
+        <div class="futures_card_chart" id="moSparkline0"></div>
       </div>
-      <div class="futures-card">
-        <div class="futures-card__name">Dow Futures</div>
-        <div class="futures-card__price">39,185.00</div>
-        <div class="futures-card__change color-fall">
-          <span class="icon-arrow-down"></span>34.00 (-0.09%)
+      <div class="futures_card">
+        <div class="futures_card_name">Dow Futures</div>
+        <div class="futures_card_price">39,185.00</div>
+        <div class="futures_card_change color_fall">
+          <span class="icon_arrow_down"></span>34.00 (-0.09%)
         </div>
-        <div class="futures-card__chart" id="moSparkline1"></div>
+        <div class="futures_card_chart" id="moSparkline1"></div>
       </div>
-      <div class="futures-card">
-        <div class="futures-card__name">Russel 2000 F...</div>
-        <div class="futures-card__price">18,306.25</div>
-        <div class="futures-card__change color-rise">
-          <span class="icon-arrow-up"></span>11.25(0.06%)
+      <div class="futures_card">
+        <div class="futures_card_name">Russel 2000 F...</div>
+        <div class="futures_card_price">18,306.25</div>
+        <div class="futures_card_change color_rise">
+          <span class="icon_arrow_up"></span>11.25(0.06%)
         </div>
-        <div class="futures-card__chart" id="moSparkline2"></div>
+        <div class="futures_card_chart" id="moSparkline2"></div>
       </div>
-      <div class="futures-card">
-        <div class="futures-card__name">Nasdaq Futures</div>
-        <div class="futures-card__price">16,820.50</div>
-        <div class="futures-card__change color-rise">
-          <span class="icon-arrow-up"></span>25.00(0.15%)
+      <div class="futures_card">
+        <div class="futures_card_name">Nasdaq Futures</div>
+        <div class="futures_card_price">16,820.50</div>
+        <div class="futures_card_change color_rise">
+          <span class="icon_arrow_up"></span>25.00(0.15%)
         </div>
-        <div class="futures-card__chart" id="moSparkline3"></div>
+        <div class="futures_card_chart" id="moSparkline3"></div>
       </div>
     </div>
 
     <!-- 날짜 정보 -->
-    <div class="date-info">
-      <div class="date-info__text">
+    <div class="date_info">
+      <div class="date_info_text">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="vertical-align: middle; margin-right: 2px; opacity: 0.8;">
           <circle cx="6" cy="6" r="5.25" stroke="#93959C" stroke-width="1.5"/>
           <path d="M6 3V6.5L8 8" stroke="#93959C" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         24.07.19 15:09:09 기준(장중)<br>*그래프 : 한국지수(실시간),해외지수(1개월)
       </div>
-      <button class="btn-edit">
+      <button class="btn_edit">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M10 13a3 3 0 100-6 3 3 0 000 6z" stroke="#71747C" stroke-width="1.5"/>
           <path d="M16.47 12.12A1.29 1.29 0 0016.82 13.49l-.46.8a1.29 1.29 0 01-1.57.53l-.2-.08a1.29 1.29 0 00-1.39.28 1.29 1.29 0 00-.38.91v.18A1.29 1.29 0 0111.53 17h-.92a1.29 1.29 0 01-1.29-1.29v-.1a1.29 1.29 0 00-.85-1.18 1.29 1.29 0 00-1.39.28l-.07.07a1.29 1.29 0 01-1.82 0 1.29 1.29 0 01-.17-.17l-.46-.8a1.29 1.29 0 01.35-1.63l.06-.05a1.29 1.29 0 000-2.24l-.06-.05a1.29 1.29 0 01-.35-1.63l.46-.8a1.29 1.29 0 011.57-.53l.2.08a1.29 1.29 0 001.39-.28c.25-.25.38-.58.38-.91v-.18A1.29 1.29 0 018.61 3h.92c.71 0 1.29.58 1.29 1.29v.1c0 .34.13.67.38.91a1.29 1.29 0 001.39.28l.2-.08a1.29 1.29 0 011.57.53l.46.8a1.29 1.29 0 01-.35 1.63l-.06.05a1.29 1.29 0 000 2.24l.06.05z" stroke="#71747C" stroke-width="1.2"/>
@@ -96,10 +94,10 @@
     </div>
 
     <!-- 검색박스 -->
-    <div class="search-box">
-      <div class="search-box__inner">
-        <span class="search-box__placeholder">상품명과 코드로 검색해 보세요.</span>
-        <span class="search-box__icon">
+    <div class="search_box">
+      <div class="search_box_inner">
+        <span class="search_box_placeholder">상품명과 코드로 검색해 보세요.</span>
+        <span class="search_box_icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <circle cx="11" cy="11" r="7" stroke="#4B4FD4" stroke-width="2"/>
             <path d="M16.5 16.5L20 20" stroke="#4B4FD4" stroke-width="2" stroke-linecap="round"/>
@@ -112,10 +110,10 @@
   <!-- ===========================
        2. My List
        =========================== -->
-  <section class="my-list-section">
-    <div class="section-header">
-      <h2 class="section-title">My List</h2>
-      <button class="btn-setting">
+  <section class="my_list_section">
+    <div class="section_header">
+      <h2 class="section_title">My List</h2>
+      <button class="btn_setting">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M10 13a3 3 0 100-6 3 3 0 000 6z" stroke="#494B55" stroke-width="1.5"/>
           <path d="M16.47 12.12A1.29 1.29 0 0016.82 13.49l-.46.8a1.29 1.29 0 01-1.57.53l-.2-.08a1.29 1.29 0 00-1.39.28 1.29 1.29 0 00-.38.91v.18A1.29 1.29 0 0111.53 17h-.92a1.29 1.29 0 01-1.29-1.29v-.1a1.29 1.29 0 00-.85-1.18 1.29 1.29 0 00-1.39.28l-.07.07a1.29 1.29 0 01-1.82 0 1.29 1.29 0 01-.17-.17l-.46-.8a1.29 1.29 0 01.35-1.63l.06-.05a1.29 1.29 0 000-2.24l-.06-.05a1.29 1.29 0 01-.35-1.63l.46-.8a1.29 1.29 0 011.57-.53l.2.08a1.29 1.29 0 001.39-.28c.25-.25.38-.58.38-.91v-.18A1.29 1.29 0 018.61 3h.92c.71 0 1.29.58 1.29 1.29v.1c0 .34.13.67.38.91a1.29 1.29 0 001.39.28l.2-.08a1.29 1.29 0 011.57.53l.46.8a1.29 1.29 0 01-.35 1.63l-.06.05a1.29 1.29 0 000 2.24l.06.05z" stroke="#494B55" stroke-width="1.2"/>
@@ -126,126 +124,126 @@
 
     <!-- 최근 본 ETF (열림) -->
     <div class="accordion" id="accordion1">
-      <button class="accordion__header" onclick="toggleAccordion('accordion1')">
-        <span class="accordion__title">최근 본 ETF</span>
-        <span class="accordion__arrow">
+      <button class="accordion_header" onclick="toggleAccordion('accordion1')">
+        <span class="accordion_title">최근 본 ETF</span>
+        <span class="accordion_arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </button>
-      <div class="accordion__body">
-        <div class="etf-list-table">
-          <div class="etf-list-row">
-            <div class="etf-list-row__info">
-              <div class="etf-list-row__name">KODEX 미국S&amp;P500TR</div>
-              <div class="etf-list-row__code">24.05.24 · 379800</div>
+      <div class="accordion_body">
+        <div class="etf_list_table">
+          <div class="etf_list_row">
+            <div class="etf_list_row_info">
+              <div class="etf_list_row_name">KODEX 미국S&amp;P500TR</div>
+              <div class="etf_list_row_code">24.05.24 · 379800</div>
             </div>
-            <div class="etf-list-row__chart" id="myListChart0"></div>
-            <div class="etf-list-row__price-area">
-              <div class="etf-list-row__price">16,435원</div>
-              <div class="etf-list-row__change color-rise"><span class="icon-arrow-up"></span>45(0.27%)</div>
+            <div class="etf_list_row_chart" id="myListChart0"></div>
+            <div class="etf_list_row_price_area">
+              <div class="etf_list_row_price">16,435원</div>
+              <div class="etf_list_row_change color_rise"><span class="icon_arrow_up"></span>45(0.27%)</div>
             </div>
-            <div class="etf-list-row__heart"><button class="heart-btn">♡</button></div>
+            <div class="etf_list_row_heart"><button class="heart_btn">♡</button></div>
           </div>
-          <div class="etf-list-row">
-            <div class="etf-list-row__info">
-              <div class="etf-list-row__name">KODEX 미국나스닥100TR</div>
-              <div class="etf-list-row__code">24.05.24 · 379810</div>
+          <div class="etf_list_row">
+            <div class="etf_list_row_info">
+              <div class="etf_list_row_name">KODEX 미국나스닥100TR</div>
+              <div class="etf_list_row_code">24.05.24 · 379810</div>
             </div>
-            <div class="etf-list-row__chart" id="myListChart1"></div>
-            <div class="etf-list-row__price-area">
-              <div class="etf-list-row__price">17,075원</div>
-              <div class="etf-list-row__change color-rise"><span class="icon-arrow-up"></span>90(0.53%)</div>
+            <div class="etf_list_row_chart" id="myListChart1"></div>
+            <div class="etf_list_row_price_area">
+              <div class="etf_list_row_price">17,075원</div>
+              <div class="etf_list_row_change color_rise"><span class="icon_arrow_up"></span>90(0.53%)</div>
             </div>
-            <div class="etf-list-row__heart"><button class="heart-btn">♡</button></div>
+            <div class="etf_list_row_heart"><button class="heart_btn">♡</button></div>
           </div>
-          <div class="etf-list-row">
-            <div class="etf-list-row__info">
-              <div class="etf-list-row__name">KODEX 미국반도체MV</div>
-              <div class="etf-list-row__code">24.05.24 · 390390</div>
+          <div class="etf_list_row">
+            <div class="etf_list_row_info">
+              <div class="etf_list_row_name">KODEX 미국반도체MV</div>
+              <div class="etf_list_row_code">24.05.24 · 390390</div>
             </div>
-            <div class="etf-list-row__chart" id="myListChart2"></div>
-            <div class="etf-list-row__price-area">
-              <div class="etf-list-row__price">22,810원</div>
-              <div class="etf-list-row__change color-rise"><span class="icon-arrow-up"></span>400(1.78%)</div>
+            <div class="etf_list_row_chart" id="myListChart2"></div>
+            <div class="etf_list_row_price_area">
+              <div class="etf_list_row_price">22,810원</div>
+              <div class="etf_list_row_change color_rise"><span class="icon_arrow_up"></span>400(1.78%)</div>
             </div>
-            <div class="etf-list-row__heart"><button class="heart-btn">♡</button></div>
+            <div class="etf_list_row_heart"><button class="heart_btn">♡</button></div>
           </div>
-          <div class="etf-list-row">
-            <div class="etf-list-row__info">
-              <div class="etf-list-row__name">KODEX 2차전지산업</div>
-              <div class="etf-list-row__code">24.05.24 · 305720</div>
+          <div class="etf_list_row">
+            <div class="etf_list_row_info">
+              <div class="etf_list_row_name">KODEX 2차전지산업</div>
+              <div class="etf_list_row_code">24.05.24 · 305720</div>
             </div>
-            <div class="etf-list-row__chart" id="myListChart3"></div>
-            <div class="etf-list-row__price-area">
-              <div class="etf-list-row__price">18,465원</div>
-              <div class="etf-list-row__change color-fall"><span class="icon-arrow-down"></span>80(-0.43%)</div>
+            <div class="etf_list_row_chart" id="myListChart3"></div>
+            <div class="etf_list_row_price_area">
+              <div class="etf_list_row_price">18,465원</div>
+              <div class="etf_list_row_change color_fall"><span class="icon_arrow_down"></span>80(-0.43%)</div>
             </div>
-            <div class="etf-list-row__heart"><button class="heart-btn">♡</button></div>
+            <div class="etf_list_row_heart"><button class="heart_btn">♡</button></div>
           </div>
-          <div class="etf-list-row">
-            <div class="etf-list-row__info">
-              <div class="etf-list-row__name">KODEX CD금리액티브(합성)</div>
-              <div class="etf-list-row__code">24.05.24 · 459580</div>
+          <div class="etf_list_row">
+            <div class="etf_list_row_info">
+              <div class="etf_list_row_name">KODEX CD금리액티브(합성)</div>
+              <div class="etf_list_row_code">24.05.24 · 459580</div>
             </div>
-            <div class="etf-list-row__chart" id="myListChart4"></div>
-            <div class="etf-list-row__price-area">
-              <div class="etf-list-row__price">1,037,060원</div>
-              <div class="etf-list-row__change color-rise"><span class="icon-arrow-up"></span>70(0.01%)</div>
+            <div class="etf_list_row_chart" id="myListChart4"></div>
+            <div class="etf_list_row_price_area">
+              <div class="etf_list_row_price">1,037,060원</div>
+              <div class="etf_list_row_change color_rise"><span class="icon_arrow_up"></span>70(0.01%)</div>
             </div>
-            <div class="etf-list-row__heart"><button class="heart-btn">♡</button></div>
+            <div class="etf_list_row_heart"><button class="heart_btn">♡</button></div>
           </div>
         </div>
-        <div class="etf-list-footer">기준일 : 24.07.19 실시간(장마감) *그래프:1개월 수익률</div>
-        <button class="btn-list-view-all">전체보기 <span class="arrow"></span></button>
+        <div class="etf_list_footer">기준일 : 24.07.19 실시간(장마감) *그래프:1개월 수익률</div>
+        <button class="btn_list_view_all">전체보기 <span class="arrow"></span></button>
       </div>
     </div>
 
     <!-- 접힌 아코디언들 -->
-    <div class="accordion accordion--collapsed" id="accordion2">
-      <button class="accordion__header" onclick="toggleAccordion('accordion2')">
-        <span class="accordion__title">최근 본 펀드</span>
-        <span class="accordion__arrow">
+    <div class="accordion accordion_collapsed" id="accordion2">
+      <button class="accordion_header" onclick="toggleAccordion('accordion2')">
+        <span class="accordion_title">최근 본 펀드</span>
+        <span class="accordion_arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </button>
-      <div class="accordion__body"></div>
+      <div class="accordion_body"></div>
     </div>
-    <div class="accordion accordion--collapsed" id="accordion3">
-      <button class="accordion__header" onclick="toggleAccordion('accordion3')">
-        <span class="accordion__title">지수</span>
-        <span class="accordion__arrow">
+    <div class="accordion accordion_collapsed" id="accordion3">
+      <button class="accordion_header" onclick="toggleAccordion('accordion3')">
+        <span class="accordion_title">지수</span>
+        <span class="accordion_arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </button>
-      <div class="accordion__body"></div>
+      <div class="accordion_body"></div>
     </div>
-    <div class="accordion accordion--collapsed" id="accordion4">
-      <button class="accordion__header" onclick="toggleAccordion('accordion4')">
-        <span class="accordion__title">나만의 관심상품 2404</span>
-        <span class="accordion__arrow">
+    <div class="accordion accordion_collapsed" id="accordion4">
+      <button class="accordion_header" onclick="toggleAccordion('accordion4')">
+        <span class="accordion_title">나만의 관심상품 2404</span>
+        <span class="accordion_arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </button>
-      <div class="accordion__body"></div>
+      <div class="accordion_body"></div>
     </div>
-    <div class="accordion accordion--collapsed" id="accordion5">
-      <button class="accordion__header" onclick="toggleAccordion('accordion5')">
-        <span class="accordion__title">나만의 관심상품 2403</span>
-        <span class="accordion__arrow">
+    <div class="accordion accordion_collapsed" id="accordion5">
+      <button class="accordion_header" onclick="toggleAccordion('accordion5')">
+        <span class="accordion_title">나만의 관심상품 2403</span>
+        <span class="accordion_arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M5 12.5L10 7.5L15 12.5" stroke="#494B55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </button>
-      <div class="accordion__body"></div>
+      <div class="accordion_body"></div>
     </div>
   </section>
 
@@ -254,10 +252,10 @@
   <!-- ===========================
        3. ETF 상품 검색 필터
        =========================== -->
-  <section class="mo-section">
-    <div class="section-header">
-      <h2 class="section-title">ETF 상품 검색 필터</h2>
-      <button class="btn-filter-add">
+  <section class="mo_section">
+    <div class="section_header">
+      <h2 class="section_title">ETF 상품 검색 필터</h2>
+      <button class="btn_filter_add">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M10 4V16M4 10H16" stroke="#494B55" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
@@ -265,81 +263,81 @@
       </button>
     </div>
 
-    <div class="chip-scroll">
-      <div class="chip chip--active">
+    <div class="chip_scroll">
+      <div class="chip chip_active">
         <span>👤 투자자들이 제일 많이 투자한 상품</span>
-        <button class="chip__close"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1L7 7M7 1L1 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+        <button class="chip_close"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1L7 7M7 1L1 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></button>
       </div>
       <div class="chip">
         <span>📊 연간수익 10% 이상 나오는 상품</span>
-        <button class="chip__close"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1L7 7M7 1L1 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+        <button class="chip_close"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1L7 7M7 1L1 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></button>
       </div>
       <div class="chip">
         <span>🥧 연금계좌에서 분배율 5%이상 받는 상품</span>
-        <button class="chip__close"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1L7 7M7 1L1 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+        <button class="chip_close"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1L7 7M7 1L1 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></button>
       </div>
     </div>
 
-    <div class="filter-table">
-      <div class="filter-row">
-        <div class="filter-row__info">
-          <div class="filter-row__name">KODEX 미국S&amp;P500TR</div>
-          <div class="filter-row__code">451660</div>
+    <div class="filter_table">
+      <div class="filter_row">
+        <div class="filter_row_info">
+          <div class="filter_row_name">KODEX 미국S&amp;P500TR</div>
+          <div class="filter_row_code">451660</div>
         </div>
-        <div class="filter-row__chart" id="filterChart0"></div>
-        <div class="filter-row__price-area">
-          <div class="filter-row__price">15,695원</div>
-          <div class="filter-row__change color-rise"><span class="icon-arrow-up"></span>130(0.7%)</div>
-        </div>
-      </div>
-      <div class="filter-row">
-        <div class="filter-row__info">
-          <div class="filter-row__name">KODEX 미국반도체</div>
-          <div class="filter-row__code">431640</div>
-        </div>
-        <div class="filter-row__chart" id="filterChart1"></div>
-        <div class="filter-row__price-area">
-          <div class="filter-row__price">19,550원</div>
-          <div class="filter-row__change color-rise"><span class="icon-arrow-up"></span>11.2(1.95%)</div>
+        <div class="filter_row_chart" id="filterChart0"></div>
+        <div class="filter_row_price_area">
+          <div class="filter_row_price">15,695원</div>
+          <div class="filter_row_change color_rise"><span class="icon_arrow_up"></span>130(0.7%)</div>
         </div>
       </div>
-      <div class="filter-row">
-        <div class="filter-row__info">
-          <div class="filter-row__name">KODEX 일본TOPIX100</div>
-          <div class="filter-row__code">433670</div>
+      <div class="filter_row">
+        <div class="filter_row_info">
+          <div class="filter_row_name">KODEX 미국반도체</div>
+          <div class="filter_row_code">431640</div>
         </div>
-        <div class="filter-row__chart" id="filterChart2"></div>
-        <div class="filter-row__price-area">
-          <div class="filter-row__price">20,285원</div>
-          <div class="filter-row__change color-fall"><span class="icon-arrow-down"></span>130(-1.98%)</div>
-        </div>
-      </div>
-      <div class="filter-row">
-        <div class="filter-row__info">
-          <div class="filter-row__name">KODEX 코스피</div>
-          <div class="filter-row__code">431664</div>
-        </div>
-        <div class="filter-row__chart" id="filterChart3"></div>
-        <div class="filter-row__price-area">
-          <div class="filter-row__price">23,330</div>
-          <div class="filter-row__change color-fall"><span class="icon-arrow-down"></span>120(-1.58%)</div>
+        <div class="filter_row_chart" id="filterChart1"></div>
+        <div class="filter_row_price_area">
+          <div class="filter_row_price">19,550원</div>
+          <div class="filter_row_change color_rise"><span class="icon_arrow_up"></span>11.2(1.95%)</div>
         </div>
       </div>
-      <div class="filter-row">
-        <div class="filter-row__info">
-          <div class="filter-row__name">KODEX 코스닥150</div>
-          <div class="filter-row__code">431678</div>
+      <div class="filter_row">
+        <div class="filter_row_info">
+          <div class="filter_row_name">KODEX 일본TOPIX100</div>
+          <div class="filter_row_code">433670</div>
         </div>
-        <div class="filter-row__chart" id="filterChart4"></div>
-        <div class="filter-row__price-area">
-          <div class="filter-row__price">14,145</div>
-          <div class="filter-row__change color-rise"><span class="icon-arrow-up"></span>1.30(1.67%)</div>
+        <div class="filter_row_chart" id="filterChart2"></div>
+        <div class="filter_row_price_area">
+          <div class="filter_row_price">20,285원</div>
+          <div class="filter_row_change color_fall"><span class="icon_arrow_down"></span>130(-1.98%)</div>
+        </div>
+      </div>
+      <div class="filter_row">
+        <div class="filter_row_info">
+          <div class="filter_row_name">KODEX 코스피</div>
+          <div class="filter_row_code">431664</div>
+        </div>
+        <div class="filter_row_chart" id="filterChart3"></div>
+        <div class="filter_row_price_area">
+          <div class="filter_row_price">23,330</div>
+          <div class="filter_row_change color_fall"><span class="icon_arrow_down"></span>120(-1.58%)</div>
+        </div>
+      </div>
+      <div class="filter_row">
+        <div class="filter_row_info">
+          <div class="filter_row_name">KODEX 코스닥150</div>
+          <div class="filter_row_code">431678</div>
+        </div>
+        <div class="filter_row_chart" id="filterChart4"></div>
+        <div class="filter_row_price_area">
+          <div class="filter_row_price">14,145</div>
+          <div class="filter_row_change color_rise"><span class="icon_arrow_up"></span>1.30(1.67%)</div>
         </div>
       </div>
     </div>
-    <div class="filter-footer">기준일 : 24.07.19 실시간(장마감) *그래프:1개월 수익률</div>
-    <div class="btn-view-all-box">
-      <button class="btn-list-view-all">전체보기 <span class="arrow"></span></button>
+    <div class="filter_footer">기준일 : 24.07.19 실시간(장마감) *그래프:1개월 수익률</div>
+    <div class="btn_view_all_box">
+      <button class="btn_list_view_all">전체보기 <span class="arrow"></span></button>
     </div>
   </section>
 
@@ -348,80 +346,80 @@
   <!-- ===========================
        4. 조회한 상품은?
        =========================== -->
-  <section class="mo-section viewed-section">
-    <div class="section-header">
-      <div class="dropdown-select">
+  <section class="mo_section viewed_section">
+    <div class="section_header">
+      <div class="dropdown_select">
         <span>판매자가 많이 조회한</span>
-        <span class="arrow-down"></span>
+        <span class="arrow_down"></span>
       </div>
-      <span class="section-title">상품은?</span>
+      <span class="section_title">상품은?</span>
     </div>
 
-    <div class="rank-list">
-      <div class="rank-row">
-        <div class="rank-badge rank-badge--gold">
-          <svg class="rank-badge__crown" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/></svg>
-          <span class="rank-badge__num">1위</span>
+    <div class="rank_list">
+      <div class="rank_row">
+        <div class="rank_badge rank_badge_gold">
+          <svg class="rank_badge_crown" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/></svg>
+          <span class="rank_badge_num">1위</span>
         </div>
-        <div class="rank-row__info">
-          <div class="rank-row__name">KODEX K-신재생에너지액티브</div>
-          <div class="rank-row__code">385510</div>
+        <div class="rank_row_info">
+          <div class="rank_row_name">KODEX K-신재생에너지액티브</div>
+          <div class="rank_row_code">385510</div>
         </div>
-        <div class="rank-row__price-area">
-          <div class="rank-row__price">16,815원</div>
-          <div class="rank-row__change color-rise"><span class="icon-arrow-up"></span>11.2(1.95%)</div>
-        </div>
-      </div>
-      <div class="rank-row">
-        <div class="rank-badge rank-badge--silver">
-          <svg class="rank-badge__crown" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#C0C0C0" stroke="#A8A8A8" stroke-width="0.5"/></svg>
-          <span class="rank-badge__num">2위</span>
-        </div>
-        <div class="rank-row__info">
-          <div class="rank-row__name">KODEX 유럽탄소배출권선물ICE(H)</div>
-          <div class="rank-row__code">451670</div>
-        </div>
-        <div class="rank-row__price-area">
-          <div class="rank-row__price">10,085원</div>
-          <div class="rank-row__change color-rise"><span class="icon-arrow-up"></span>0.25(0.00%)</div>
+        <div class="rank_row_price_area">
+          <div class="rank_row_price">16,815원</div>
+          <div class="rank_row_change color_rise"><span class="icon_arrow_up"></span>11.2(1.95%)</div>
         </div>
       </div>
-      <div class="rank-row">
-        <div class="rank-badge rank-badge--bronze">
-          <svg class="rank-badge__crown" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#CD7F32" stroke="#A0522D" stroke-width="0.5"/></svg>
-          <span class="rank-badge__num">3위</span>
+      <div class="rank_row">
+        <div class="rank_badge rank_badge_silver">
+          <svg class="rank_badge_crown" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#C0C0C0" stroke="#A8A8A8" stroke-width="0.5"/></svg>
+          <span class="rank_badge_num">2위</span>
         </div>
-        <div class="rank-row__info">
-          <div class="rank-row__name">삼성글로벌반도체증권자투자신탁UH[주식]_A</div>
+        <div class="rank_row_info">
+          <div class="rank_row_name">KODEX 유럽탄소배출권선물ICE(H)</div>
+          <div class="rank_row_code">451670</div>
         </div>
-        <div class="rank-row__price-area">
-          <div class="rank-row__price">654.82원</div>
-          <div class="rank-row__change color-rise"><span class="icon-arrow-up"></span>0.42(0.00%)</div>
-        </div>
-      </div>
-      <div class="rank-row">
-        <div class="rank-badge rank-badge--normal">
-          <span class="rank-badge__num">4위</span>
-        </div>
-        <div class="rank-row__info">
-          <div class="rank-row__name">삼성글로벌ChatAI증권투자신탁H[주식]_A</div>
-        </div>
-        <div class="rank-row__price-area">
-          <div class="rank-row__price">1,854.13원</div>
-          <div class="rank-row__change color-rise"><span class="icon-arrow-up"></span>11.25(0.06%)</div>
+        <div class="rank_row_price_area">
+          <div class="rank_row_price">10,085원</div>
+          <div class="rank_row_change color_rise"><span class="icon_arrow_up"></span>0.25(0.00%)</div>
         </div>
       </div>
-      <div class="rank-row">
-        <div class="rank-badge rank-badge--normal">
-          <span class="rank-badge__num">5위</span>
+      <div class="rank_row">
+        <div class="rank_badge rank_badge_bronze">
+          <svg class="rank_badge_crown" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#CD7F32" stroke="#A0522D" stroke-width="0.5"/></svg>
+          <span class="rank_badge_num">3위</span>
         </div>
-        <div class="rank-row__info">
-          <div class="rank-row__name">KODEX 국고채30년액티브</div>
-          <div class="rank-row__code">463690</div>
+        <div class="rank_row_info">
+          <div class="rank_row_name">삼성글로벌반도체증권자투자신탁UH[주식]_A</div>
         </div>
-        <div class="rank-row__price-area">
-          <div class="rank-row__price">54,940원</div>
-          <div class="rank-row__change color-rise"><span class="icon-arrow-up"></span>3.50(0.17%)</div>
+        <div class="rank_row_price_area">
+          <div class="rank_row_price">654.82원</div>
+          <div class="rank_row_change color_rise"><span class="icon_arrow_up"></span>0.42(0.00%)</div>
+        </div>
+      </div>
+      <div class="rank_row">
+        <div class="rank_badge rank_badge_normal">
+          <span class="rank_badge_num">4위</span>
+        </div>
+        <div class="rank_row_info">
+          <div class="rank_row_name">삼성글로벌ChatAI증권투자신탁H[주식]_A</div>
+        </div>
+        <div class="rank_row_price_area">
+          <div class="rank_row_price">1,854.13원</div>
+          <div class="rank_row_change color_rise"><span class="icon_arrow_up"></span>11.25(0.06%)</div>
+        </div>
+      </div>
+      <div class="rank_row">
+        <div class="rank_badge rank_badge_normal">
+          <span class="rank_badge_num">5위</span>
+        </div>
+        <div class="rank_row_info">
+          <div class="rank_row_name">KODEX 국고채30년액티브</div>
+          <div class="rank_row_code">463690</div>
+        </div>
+        <div class="rank_row_price_area">
+          <div class="rank_row_price">54,940원</div>
+          <div class="rank_row_change color_rise"><span class="icon_arrow_up"></span>3.50(0.17%)</div>
         </div>
       </div>
     </div>
@@ -432,41 +430,41 @@
   <!-- ===========================
        5. 포트 성과 현황
        =========================== -->
-  <section class="port-section">
-    <div class="section-header">
-      <h2 class="section-title">포트 성과 현황</h2>
-      <button class="btn-view-all">전체보기 <span class="arrow"></span></button>
+  <section class="port_section">
+    <div class="section_header">
+      <h2 class="section_title">포트 성과 현황</h2>
+      <button class="btn_view_all">전체보기 <span class="arrow"></span></button>
     </div>
 
-    <div class="port-chips">
-      <button class="port-chip port-chip--active">[고객]내맘대로 설계 - 홍*동</button>
-      <button class="port-chip">[본인]자산배분 설계 - 삼*지*운</button>
-      <button class="port-chip">[고객]내맘대로 설계 - 이*진</button>
+    <div class="port_chips">
+      <button class="port_chip port_chip_active">[고객]내맘대로 설계 - 홍*동</button>
+      <button class="port_chip">[본인]자산배분 설계 - 삼*지*운</button>
+      <button class="port_chip">[고객]내맘대로 설계 - 이*진</button>
     </div>
 
-    <div class="port-card">
-      <div class="port-card__deco"></div>
-      <div class="port-card__body">
-        <div class="port-card__title">
-          <div class="port-card__title-text"><em>홍*동님</em>의 내맘대로 설계입니다.</div>
-          <div class="port-card__arrow">
+    <div class="port_card">
+      <div class="port_card_deco"></div>
+      <div class="port_card_body">
+        <div class="port_card_title">
+          <div class="port_card_title_text"><em>홍*동님</em>의 내맘대로 설계입니다.</div>
+          <div class="port_card_arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M9 6L15 12L9 18" stroke="#232433" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
         </div>
-        <div class="port-detail">
-          <div class="port-detail__row">
-            <span class="port-detail__label">누적 수익률(%)</span>
-            <span class="port-detail__value port-detail__value--highlight">11.64</span>
+        <div class="port_detail">
+          <div class="port_detail_row">
+            <span class="port_detail_label">누적 수익률(%)</span>
+            <span class="port_detail_value port_detail_value_highlight">11.64</span>
           </div>
-          <div class="port-detail__row">
-            <span class="port-detail__label">구성 종목 수</span>
-            <span class="port-detail__value">10</span>
+          <div class="port_detail_row">
+            <span class="port_detail_label">구성 종목 수</span>
+            <span class="port_detail_value">10</span>
           </div>
-          <div class="port-detail__row">
-            <span class="port-detail__label">최초 설계일</span>
-            <span class="port-detail__value">24.02.20</span>
+          <div class="port_detail_row">
+            <span class="port_detail_label">최초 설계일</span>
+            <span class="port_detail_value">24.02.20</span>
           </div>
         </div>
       </div>
@@ -476,54 +474,54 @@
   <!-- ===========================
        6. ETF 랭킹 1위
        =========================== -->
-  <section class="ranking-section">
-    <div class="section-header">
-      <h2 class="section-title">ETF 랭킹 1위</h2>
-      <button class="btn-view-all">전체보기 <span class="arrow"></span></button>
+  <section class="ranking_section">
+    <div class="section_header">
+      <h2 class="section_title">ETF 랭킹 1위</h2>
+      <button class="btn_view_all">전체보기 <span class="arrow"></span></button>
     </div>
 
-    <div class="ranking-chips">
-      <button class="port-chip port-chip--active">해외주식테마</button>
-      <button class="port-chip">국내주식테마</button>
-      <button class="port-chip">채권</button>
+    <div class="ranking_chips">
+      <button class="port_chip port_chip_active">해외주식테마</button>
+      <button class="port_chip">국내주식테마</button>
+      <button class="port_chip">채권</button>
     </div>
 
     <div>
-      <div class="ranking-row">
-        <div class="ranking-row__badge">
+      <div class="ranking_row">
+        <div class="ranking_row_badge">
           <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/></svg>
-          <span class="rank-badge__num" style="color:#9C6325;">1위</span>
+          <span class="rank_badge_num" style="color:#9C6325;">1위</span>
         </div>
-        <div class="ranking-row__info">
-          <span class="ranking-tag">글로벌 및 미국 반도체</span>
-          <div class="ranking-row__name"><span class="brand">KODEX</span> 미국반도체MV</div>
-          <div class="ranking-row__sub"><span>최근 1년간</span><span>11번 1위</span></div>
+        <div class="ranking_row_info">
+          <span class="ranking_tag">글로벌 및 미국 반도체</span>
+          <div class="ranking_row_name"><span class="brand">KODEX</span> 미국반도체MV</div>
+          <div class="ranking_row_sub"><span>최근 1년간</span><span>11번 1위</span></div>
         </div>
-        <div class="ranking-row__score">총점 <span class="num">30</span>점</div>
+        <div class="ranking_row_score">총점 <span class="num">30</span>점</div>
       </div>
-      <div class="ranking-row">
-        <div class="ranking-row__badge">
+      <div class="ranking_row">
+        <div class="ranking_row_badge">
           <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/></svg>
-          <span class="rank-badge__num" style="color:#9C6325;">1위</span>
+          <span class="rank_badge_num" style="color:#9C6325;">1위</span>
         </div>
-        <div class="ranking-row__info">
-          <span class="ranking-tag">AI&amp;로봇</span>
-          <div class="ranking-row__name"><span class="brand">KODEX</span> 글로벌로봇(합성)</div>
-          <div class="ranking-row__sub"><span>최근 1년간</span><span>12번 1위</span></div>
+        <div class="ranking_row_info">
+          <span class="ranking_tag">AI&amp;로봇</span>
+          <div class="ranking_row_name"><span class="brand">KODEX</span> 글로벌로봇(합성)</div>
+          <div class="ranking_row_sub"><span>최근 1년간</span><span>12번 1위</span></div>
         </div>
-        <div class="ranking-row__score">총점 <span class="num">30</span>점</div>
+        <div class="ranking_row_score">총점 <span class="num">30</span>점</div>
       </div>
-      <div class="ranking-row">
-        <div class="ranking-row__badge">
+      <div class="ranking_row">
+        <div class="ranking_row_badge">
           <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M2 14h16M3 12l-1-8 4.5 3L10 2l3.5 5L18 4l-1 8H3z" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/></svg>
-          <span class="rank-badge__num" style="color:#9C6325;">1위</span>
+          <span class="rank_badge_num" style="color:#9C6325;">1위</span>
         </div>
-        <div class="ranking-row__info">
-          <span class="ranking-tag">아시아 전기차 및 2차전지</span>
-          <div class="ranking-row__name"><span class="brand">KODEX</span> 차이나2차전지MSCI(합성)</div>
-          <div class="ranking-row__sub"><span>최근 1년간</span><span>10번 1위</span></div>
+        <div class="ranking_row_info">
+          <span class="ranking_tag">아시아 전기차 및 2차전지</span>
+          <div class="ranking_row_name"><span class="brand">KODEX</span> 차이나2차전지MSCI(합성)</div>
+          <div class="ranking_row_sub"><span>최근 1년간</span><span>10번 1위</span></div>
         </div>
-        <div class="ranking-row__score">총점 <span class="num">28</span>점</div>
+        <div class="ranking_row_score">총점 <span class="num">28</span>점</div>
       </div>
     </div>
   </section>
@@ -533,71 +531,71 @@
   <!-- ===========================
        7. 수익률로 간편 찾기
        =========================== -->
-  <section class="yield-section">
-    <div class="section-header">
-      <h2 class="section-title">수익률로 간편 찾기</h2>
-      <button class="btn-view-all">전체보기 <span class="arrow"></span></button>
+  <section class="yield_section">
+    <div class="section_header">
+      <h2 class="section_title">수익률로 간편 찾기</h2>
+      <button class="btn_view_all">전체보기 <span class="arrow"></span></button>
     </div>
-    <p class="yield-desc">지난 3년간 수익률을 달성한 상품은?</p>
+    <p class="yield_desc">지난 3년간 수익률을 달성한 상품은?</p>
 
-    <div class="yield-row">
-      <div class="yield-row__thumb">ETF</div>
-      <div class="yield-row__info">
-        <div class="yield-row__name">KODEX 미국AI테크TOP10</div>
-        <div class="yield-row__meta">
-          <div class="yield-row__meta-item">
-            <span class="yield-row__meta-label">현재가</span>
-            <span class="yield-row__meta-value">15,630</span>
+    <div class="yield_row">
+      <div class="yield_row_thumb">ETF</div>
+      <div class="yield_row_info">
+        <div class="yield_row_name">KODEX 미국AI테크TOP10</div>
+        <div class="yield_row_meta">
+          <div class="yield_row_meta_item">
+            <span class="yield_row_meta_label">현재가</span>
+            <span class="yield_row_meta_value">15,630</span>
           </div>
-          <div class="yield-row__meta-item">
-            <span class="yield-row__meta-label">3년 수익률</span>
-            <span class="yield-row__meta-value color-rise">3.8%</span>
+          <div class="yield_row_meta_item">
+            <span class="yield_row_meta_label">3년 수익률</span>
+            <span class="yield_row_meta_value color_rise">3.8%</span>
           </div>
         </div>
       </div>
-      <div class="yield-row__arrow">
+      <div class="yield_row_arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M9 6L15 12L9 18" stroke="#B4B6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
     </div>
-    <div class="yield-row">
-      <div class="yield-row__thumb">ETF</div>
-      <div class="yield-row__info">
-        <div class="yield-row__name">KODEX 미국반도체MV</div>
-        <div class="yield-row__meta">
-          <div class="yield-row__meta-item">
-            <span class="yield-row__meta-label">현재가</span>
-            <span class="yield-row__meta-value">22,810</span>
+    <div class="yield_row">
+      <div class="yield_row_thumb">ETF</div>
+      <div class="yield_row_info">
+        <div class="yield_row_name">KODEX 미국반도체MV</div>
+        <div class="yield_row_meta">
+          <div class="yield_row_meta_item">
+            <span class="yield_row_meta_label">현재가</span>
+            <span class="yield_row_meta_value">22,810</span>
           </div>
-          <div class="yield-row__meta-item">
-            <span class="yield-row__meta-label">3년 수익률</span>
-            <span class="yield-row__meta-value color-rise">5.66%</span>
+          <div class="yield_row_meta_item">
+            <span class="yield_row_meta_label">3년 수익률</span>
+            <span class="yield_row_meta_value color_rise">5.66%</span>
           </div>
         </div>
       </div>
-      <div class="yield-row__arrow">
+      <div class="yield_row_arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M9 6L15 12L9 18" stroke="#B4B6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
     </div>
-    <div class="yield-row">
-      <div class="yield-row__thumb">ETF</div>
-      <div class="yield-row__info">
-        <div class="yield-row__name">KODEX 글로벌로봇(합성)</div>
-        <div class="yield-row__meta">
-          <div class="yield-row__meta-item">
-            <span class="yield-row__meta-label">현재가</span>
-            <span class="yield-row__meta-value">9,870</span>
+    <div class="yield_row">
+      <div class="yield_row_thumb">ETF</div>
+      <div class="yield_row_info">
+        <div class="yield_row_name">KODEX 글로벌로봇(합성)</div>
+        <div class="yield_row_meta">
+          <div class="yield_row_meta_item">
+            <span class="yield_row_meta_label">현재가</span>
+            <span class="yield_row_meta_value">9,870</span>
           </div>
-          <div class="yield-row__meta-item">
-            <span class="yield-row__meta-label">3년 수익률</span>
-            <span class="yield-row__meta-value color-rise">9.42%</span>
+          <div class="yield_row_meta_item">
+            <span class="yield_row_meta_label">3년 수익률</span>
+            <span class="yield_row_meta_value color_rise">9.42%</span>
           </div>
         </div>
       </div>
-      <div class="yield-row__arrow">
+      <div class="yield_row_arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M9 6L15 12L9 18" stroke="#B4B6BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -608,86 +606,87 @@
   <!-- ===========================
        8. HOT ETF 배너
        =========================== -->
-  <div class="hot-banner">
-    <div class="hot-banner__txt">
-      <div class="hot-banner__label">HOT ETF</div>
-      <div class="hot-banner__title">AI관련주 투자하며 월배당을 동시에!</div>
-      <div class="hot-banner__sub">KODEX 미국AI테크TOP10 + 15%프리미엄</div>
+  <div class="hot_banner">
+    <div class="hot_banner_txt">
+      <div class="hot_banner_label">HOT ETF</div>
+      <div class="hot_banner_title">AI관련주 투자하며 월배당을 동시에!</div>
+      <div class="hot_banner_sub">KODEX 미국AI테크TOP10 + 15%프리미엄</div>
     </div>
   </div>
 
   <!-- ===========================
        9. 유용한 투자 Tip
        =========================== -->
-  <section class="tip-section">
-    <div class="section-header">
-      <h2 class="section-title">유용한 투자 Tip</h2>
-      <button class="btn-view-all">전체보기 <span class="arrow"></span></button>
+  <section class="tip_section">
+    <div class="section_header">
+      <h2 class="section_title">유용한 투자 Tip</h2>
+      <button class="btn_view_all">전체보기 <span class="arrow"></span></button>
     </div>
 
-    <div class="tip-row">
-      <div class="tip-row__info">
-        <div class="tip-row__category">삼성자산 인사이트</div>
-        <div class="tip-row__title">[ESG Monthly] 화석연료 발전감소로 유럽 탄소배출권 하락</div>
+    <div class="tip_row">
+      <div class="tip_row_info">
+        <div class="tip_row_category">삼성자산 인사이트</div>
+        <div class="tip_row_title">[ESG Monthly] 화석연료 발전감소로 유럽 탄소배출권 하락</div>
       </div>
-      <div class="tip-row__thumb">ESG</div>
+      <div class="tip_row_thumb">ESG</div>
     </div>
-    <div class="tip-row">
-      <div class="tip-row__info">
-        <div class="tip-row__category">시장 전망</div>
-        <div class="tip-row__title">2024년 4월 국내외 채권시장 전망</div>
+    <div class="tip_row">
+      <div class="tip_row_info">
+        <div class="tip_row_category">시장 전망</div>
+        <div class="tip_row_title">2024년 4월 국내외 채권시장 전망</div>
       </div>
-      <div class="tip-row__thumb">시장</div>
+      <div class="tip_row_thumb">시장</div>
     </div>
-    <div class="tip-row">
-      <div class="tip-row__info">
-        <div class="tip-row__category">투자 인사이트</div>
-        <div class="tip-row__title">[매크로] 연초 경제지표 서프라이즈, 이번엔 없을까?</div>
+    <div class="tip_row">
+      <div class="tip_row_info">
+        <div class="tip_row_category">투자 인사이트</div>
+        <div class="tip_row_title">[매크로] 연초 경제지표 서프라이즈, 이번엔 없을까?</div>
       </div>
-      <div class="tip-row__thumb">FOMC</div>
+      <div class="tip_row_thumb">FOMC</div>
     </div>
   </section>
 
   <!-- ===========================
        10. 하단 고정 네비게이션
        =========================== -->
-  <nav class="bottom-nav" id="bottomNav">
-    <div class="bottom-nav__inner">
-      <button class="bottom-nav__item bottom-nav__item--active" data-nav="home">
-        <span class="bottom-nav__icon">
+  <nav class="bottom_nav" id="bottomNav">
+    <div class="bottom_nav_inner">
+      <button class="bottom_nav_item bottom_nav_item_active" data-nav="home">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L4 9v11a1 1 0 001 1h4v-6h6v6h4a1 1 0 001-1V9l-8-6z"/></svg>
         </span>
-        <span class="bottom-nav__label">홈</span>
+        <span class="bottom_nav_label">홈</span>
       </button>
-      <button class="bottom-nav__item" data-nav="etf">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="etf">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="14" width="4" height="7" rx="0.5"/><rect x="10" y="5" width="4" height="16" rx="0.5"/><rect x="17" y="9" width="4" height="12" rx="0.5"/></svg>
         </span>
-        <span class="bottom-nav__label">ETF</span>
+        <span class="bottom_nav_label">ETF</span>
       </button>
-      <button class="bottom-nav__item" data-nav="fund">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="fund">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
         </span>
-        <span class="bottom-nav__label">펀드</span>
+        <span class="bottom_nav_label">펀드</span>
       </button>
-      <button class="bottom-nav__item" data-nav="manage">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="manage">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </span>
-        <span class="bottom-nav__label">포트관리</span>
+        <span class="bottom_nav_label">포트관리</span>
       </button>
-      <button class="bottom-nav__item" data-nav="menu">
-        <span class="bottom-nav__icon">
+      <button class="bottom_nav_item" data-nav="menu">
+        <span class="bottom_nav_icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </span>
-        <span class="bottom-nav__label">메뉴</span>
+        <span class="bottom_nav_label">메뉴</span>
       </button>
     </div>
   </nav>
 
-  <!-- jQuery -->
+  <!-- 스크립트 로드 순서: jQuery → ECharts → common.js -->
   <script src="../js/lib/jquery-3.7.1.min.js"></script>
+  <script src="../js/lib/echarts-5.6.1.min.js"></script>
   <script src="../js/common.js"></script>
   <script>
     /* ===========================
@@ -792,16 +791,16 @@
        하단 네비게이션
        =========================== */
     $('#bottomNav').on('click', '.bottom-nav__item', function() {
-      $('#bottomNav .bottom-nav__item').removeClass('bottom-nav__item--active');
-      $(this).addClass('bottom-nav__item--active');
+      $('#bottomNav .bottom-nav__item').removeClass('bottom_nav_item_active');
+      $(this).addClass('bottom_nav_item_active');
     });
 
     /* ===========================
        칩 활성화 토글
        =========================== */
     $(document).on('click', '.port-chip', function() {
-      $(this).siblings('.port-chip').removeClass('port-chip--active');
-      $(this).addClass('port-chip--active');
+      $(this).siblings('.port-chip').removeClass('port_chip_active');
+      $(this).addClass('port_chip_active');
     });
   </script>
 </body>

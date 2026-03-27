@@ -1,256 +1,494 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>WISH. 홈 (빈 상태)</title>
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    :root { --primary: #1345d1; }
-    * { box-sizing: border-box; }
-    body { background: #f5f7fa; margin: 0; font-family: 'Pretendard', sans-serif; min-height: 100vh; }
+  <head>
+    <meta charset="UTF_8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>WISH. 홈 (빈 상태)</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+      :root {
+        --primary: #1345d1;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background: #f5f7fa;
+        margin: 0;
+        font-family: "Pretendard", sans-serif;
+        min-height: 100vh;
+      }
 
-    /* 헤더 */
-    .page-header {
-      position: fixed; top: 0; left: 0; width: 100%; height: 56px;
-      background: #f5f7fa; display: flex; align-items: center;
-      justify-content: space-between; padding: 0 16px; z-index: 100;
-    }
-    .logo-img { height: 30px; display: block; }
-    .header-actions { display: flex; gap: 4px; align-items: center; }
-    .icon-btn { background: none; border: none; cursor: pointer; padding: 8px; }
+      /* 헤더 */
+      .page_header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 56px;
+        background: #f5f7fa;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        z-index: 100;
+      }
+      .logo_img {
+        height: 30px;
+        display: block;
+      }
+      .header_actions {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+      .icon_btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      }
 
-    /* 메인 */
-    main { padding: 56px 0 80px; }
+      /* 메인 */
+      main {
+        padding: 56px 0 80px;
+      }
 
-    /* 선물 카드 스크롤 */
-    .futures-section { padding: 16px 0 0; }
-    .futures-scroll {
-      display: flex; gap: 8px; overflow-x: auto; padding: 0 16px 12px;
-      scrollbar-width: none;
-    }
-    .futures-scroll::-webkit-scrollbar { display: none; }
-    .futures-card {
-      flex: 0 0 auto; background: #fff; border-radius: 16px; padding: 14px 16px;
-      min-width: 140px;
-      box-shadow: 0 4px 12px rgba(88,92,95,0.08);
-    }
-    .futures-card__name { font-size: 12px; color: #697387; margin-bottom: 4px; }
-    .futures-card__price { font-size: 15px; font-weight: 700; color: #141924; margin-bottom: 2px; }
-    .futures-card__change { font-size: 11px; }
-    .text-rise { color: #f04e4e; }
-    .text-fall { color: #227af1; }
+      /* 선물 카드 스크롤 */
+      .futures_section {
+        padding: 16px 0 0;
+      }
+      .futures_scroll {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 0 16px 12px;
+        scrollbar-width: none;
+      }
+      .futures_scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .futures_card {
+        flex: 0 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        padding: 14px 16px;
+        min-width: 140px;
+        box-shadow: 0 4px 12px rgba(88, 92, 95, 0.08);
+      }
+      .futures_card_name {
+        font-size: 12px;
+        color: #697387;
+        margin-bottom: 4px;
+      }
+      .futures_card_price {
+        font-size: 15px;
+        font-weight: 700;
+        color: #141924;
+        margin-bottom: 2px;
+      }
+      .futures_card_change {
+        font-size: 11px;
+      }
+      .text_rise {
+        color: #f04e4e;
+      }
+      .text_fall {
+        color: #227af1;
+      }
 
-    /* 검색 */
-    .search-section { padding: 8px 16px 16px; }
-    .search-bar {
-      position: relative; border-radius: 12px; padding: 1.5px;
-      background: conic-gradient(from 90deg at 50% 50%, #7c6ffb, #1345d1, #09b5f5, #7c6ffb);
-    }
-    .search-inner {
-      background: #fff; border-radius: 10.5px; padding: 10px 14px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .search-inner svg { flex: 0 0 18px; }
-    .search-inner input {
-      flex: 1; border: none; outline: none; font-size: 14px; color: #697387;
-      background: transparent; font-family: 'Pretendard', sans-serif;
-    }
+      /* 검색 */
+      .search_section {
+        padding: 8px 16px 16px;
+      }
+      .search_bar {
+        position: relative;
+        border-radius: 12px;
+        padding: 1.5px;
+        background: conic-gradient(
+          from 90deg at 50% 50%,
+          #7c6ffb,
+          #1345d1,
+          #09b5f5,
+          #7c6ffb
+        );
+      }
+      .search_inner {
+        background: #fff;
+        border-radius: 10.5px;
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .search_inner svg {
+        flex: 0 0 18px;
+      }
+      .search_inner input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        color: #697387;
+        background: transparent;
+        font-family: "Pretendard", sans-serif;
+      }
 
-    /* 탭 카드 섹션 */
-    .card-section { margin: 0 12px 12px; background: #fff; border-radius: 20px; overflow: hidden; }
-    .card-section__header { padding: 20px 20px 0; }
-    .card-section__title { font-size: 17px; font-weight: 700; color: #141924; margin: 0 0 12px; }
+      /* 탭 카드 섹션 */
+      .card_section {
+        margin: 0 12px 12px;
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .card_section_header {
+        padding: 20px 20px 0;
+      }
+      .card_section_title {
+        font-size: 17px;
+        font-weight: 700;
+        color: #141924;
+        margin: 0 0 12px;
+      }
 
-    /* 탭 */
-    .tabs { display: flex; gap: 6px; margin-bottom: 12px; }
-    .tab {
-      padding: 5px 10px; border-radius: 8px; font-size: 13px; font-weight: 500;
-      cursor: pointer; border: none; background: #f2f3f8; color: #697387;
-    }
-    .tab.active { background: #fff; color: #1345d1; border: 1.5px solid #1345d1; }
+      /* 탭 */
+      .tabs {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .tab {
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        background: #f2f3f8;
+        color: #697387;
+      }
+      .tab.active {
+        background: #fff;
+        color: #1345d1;
+        border: 1.5px solid #1345d1;
+      }
 
-    /* 빈 상태 */
-    .empty-state { padding: 32px 20px 24px; text-align: center; }
-    .empty-icon { margin: 0 auto 16px; }
-    .empty-illust { width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto; }
-    .empty-state__text { font-size: 13px; color: #697387; line-height: 19px; margin-bottom: 16px; }
-    .btn-add-wish {
-      display: inline-block; padding: 10px 20px; background: #1345d1; color: #fff;
-      border-radius: 8px; font-size: 14px; font-weight: 600; border: none; cursor: pointer;
-      font-family: 'Pretendard', sans-serif;
-    }
+      /* 빈 상태 */
+      .empty_state {
+        padding: 32px 20px 24px;
+        text-align: center;
+      }
+      .empty_icon {
+        margin: 0 auto 16px;
+      }
+      .empty_illust {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+      }
+      .empty_state_text {
+        font-size: 13px;
+        color: #697387;
+        line-height: 19px;
+        margin-bottom: 16px;
+      }
+      .btn_add_wish {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #1345d1;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        font-family: "Pretendard", sans-serif;
+      }
 
-    /* 하단 탭바 (pill) */
-    .bottom-nav {
-      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
-      background: #fff; border-radius: 50px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      display: flex; gap: 0; padding: 8px 16px;
-      z-index: 200;
-    }
-    .nav-item {
-      display: flex; flex-direction: column; align-items: center; gap: 3px;
-      padding: 6px 14px; cursor: pointer; min-width: 56px;
-    }
-    .nav-item__icon { width: 22px; height: 22px; color: #b4bbcb; }
-    .nav-item__icon.active { color: #1345d1; }
-    .nav-item__label { font-size: 10px; color: #b4bbcb; font-weight: 500; }
-    .nav-item__label.active { color: #1345d1; }
-  </style>
-</head>
-<body>
-  <!-- 헤더 -->
-  <header class="page-header">
-    <img src="../img/common/logo-wish.png" alt="WISH." class="logo-img">
-    <div class="header-actions">
-      <button class="icon-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141924" stroke-width="2">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-        </svg>
-      </button>
-      <button class="icon-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141924" stroke-width="2">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-      </button>
-      <button class="icon-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141924" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <!-- 선물 가격 카드 -->
-    <div class="futures-section">
-      <div class="futures-scroll">
-        <div class="futures-card">
-          <div class="futures-card__name">S&P500</div>
-          <div class="futures-card__price">5,836.22</div>
-          <div class="futures-card__change text-rise">▲ 1.02%</div>
-        </div>
-        <div class="futures-card">
-          <div class="futures-card__name">나스닥</div>
-          <div class="futures-card__price">20,412.50</div>
-          <div class="futures-card__change text-rise">▲ 0.87%</div>
-        </div>
-        <div class="futures-card">
-          <div class="futures-card__name">다우</div>
-          <div class="futures-card__price">42,165.08</div>
-          <div class="futures-card__change text-fall">▼ 0.23%</div>
-        </div>
-        <div class="futures-card">
-          <div class="futures-card__name">금</div>
-          <div class="futures-card__price">2,631.40</div>
-          <div class="futures-card__change text-rise">▲ 0.54%</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 검색 -->
-    <div class="search-section">
-      <div class="search-bar">
-        <div class="search-inner">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#697387" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      /* 하단 탭바 (pill) */
+      .bottom_nav {
+        position: fixed;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        border-radius: 50px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 0;
+        padding: 8px 16px;
+        z-index: 200;
+      }
+      .nav_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        padding: 6px 14px;
+        cursor: pointer;
+        min-width: 56px;
+      }
+      .nav_item_icon {
+        width: 22px;
+        height: 22px;
+        color: #b4bbcb;
+      }
+      .nav_item_icon.active {
+        color: #1345d1;
+      }
+      .nav_item_label {
+        font-size: 10px;
+        color: #b4bbcb;
+        font-weight: 500;
+      }
+      .nav_item_label.active {
+        color: #1345d1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header class="page_header">
+      <img src="../img/common/logo-wish.png" alt="WISH." class="logo_img" />
+      <div class="header_actions">
+        <button class="icon_btn">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#141924"
+            stroke-width="2"
+          >
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
           </svg>
-          <input type="text" placeholder="ETF 검색" readonly>
-        </div>
-      </div>
-    </div>
-
-    <!-- 마이 리스트 섹션 -->
-    <div class="card-section">
-      <div class="card-section__header">
-        <div class="card-section__title">마이 리스트</div>
-        <div class="tabs">
-          <button class="tab active">관심</button>
-          <button class="tab">국내</button>
-          <button class="tab">해외</button>
-          <button class="tab">채권</button>
-        </div>
-      </div>
-      <div class="empty-state">
-        <div class="empty-icon">
-          <img src="../img/contents/wish-home/empty-mylist.png" alt="관심상품 빈 상태" class="empty-illust">
-        </div>
-        <div class="empty-state__text">관심상품을 담고<br>시세와 수익률 체크를 한 번에!</div>
-        <button class="btn-add-wish">관심상품 등록하기</button>
-      </div>
-    </div>
-
-    <!-- 포트폴리오 섹션 -->
-    <div class="card-section">
-      <div class="card-section__header">
-        <div class="card-section__title">포트폴리오</div>
-        <div class="tabs">
-          <button class="tab active">전체</button>
-          <button class="tab">월배당</button>
-          <button class="tab">연금/ISA</button>
-          <button class="tab">증여</button>
-          <button class="tab">투자형</button>
-        </div>
-      </div>
-      <div class="empty-state">
-        <div class="empty-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="6" y="18" width="4" height="8" rx="1" fill="#d0d3dc"/>
-            <rect x="14" y="12" width="4" height="14" rx="1" fill="#d0d3dc"/>
-            <rect x="22" y="6" width="4" height="20" rx="1" fill="#d0d3dc"/>
+        </button>
+        <button class="icon_btn">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#141924"
+            stroke-width="2"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+            />
           </svg>
-        </div>
-        <div class="empty-state__text">한투온이 나를 위한 포트폴리오를<br>만들어 드려요</div>
-        <button class="btn-add-wish">포트폴리오 만들기</button>
+        </button>
+        <button class="icon_btn">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#141924"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
       </div>
-    </div>
-  </main>
+    </header>
 
-  <!-- 하단 탭바 (pill) -->
-  <nav class="bottom-nav">
-    <div class="nav-item">
-      <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-      </svg>
-      <span class="nav-item__label">ETF상품</span>
-    </div>
-    <div class="nav-item">
-      <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-      </svg>
-      <span class="nav-item__label">투자정보</span>
-    </div>
-    <div class="nav-item">
-      <svg class="nav-item__icon active" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-      </svg>
-      <span class="nav-item__label active">홈</span>
-    </div>
-    <div class="nav-item">
-      <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-      </svg>
-      <span class="nav-item__label">포트폴리오</span>
-    </div>
-    <div class="nav-item">
-      <svg class="nav-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-      <span class="nav-item__label">메뉴</span>
-    </div>
-  </nav>
+    <main>
+      <!-- 선물 가격 카드 -->
+      <div class="futures_section">
+        <div class="futures_scroll">
+          <div class="futures_card">
+            <div class="futures_card_name">S&P500</div>
+            <div class="futures_card_price">5,836.22</div>
+            <div class="futures_card_change text_rise">▲ 1.02%</div>
+          </div>
+          <div class="futures_card">
+            <div class="futures_card_name">나스닥</div>
+            <div class="futures_card_price">20,412.50</div>
+            <div class="futures_card_change text_rise">▲ 0.87%</div>
+          </div>
+          <div class="futures_card">
+            <div class="futures_card_name">다우</div>
+            <div class="futures_card_price">42,165.08</div>
+            <div class="futures_card_change text_fall">▼ 0.23%</div>
+          </div>
+          <div class="futures_card">
+            <div class="futures_card_name">금</div>
+            <div class="futures_card_price">2,631.40</div>
+            <div class="futures_card_change text_rise">▲ 0.54%</div>
+          </div>
+        </div>
+      </div>
 
-  <script src="../js/lib/jquery-3.7.1.min.js"></script>
-  <script src="../js/common.js"></script>
-  <script>
-    // 탭 전환
-    $('.tab').on('click', function() {
-      $(this).siblings().removeClass('active');
-      $(this).addClass('active');
-    });
-  </script>
-</body>
+      <!-- 검색 -->
+      <div class="search_section">
+        <div class="search_bar">
+          <div class="search_inner">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#697387"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input type="text" placeholder="ETF 검색" readonly />
+          </div>
+        </div>
+      </div>
+
+      <!-- 마이 리스트 섹션 -->
+      <div class="card_section">
+        <div class="card_section_header">
+          <div class="card_section_title">마이 리스트</div>
+          <div class="tabs">
+            <button class="tab active">관심</button>
+            <button class="tab">국내</button>
+            <button class="tab">해외</button>
+            <button class="tab">채권</button>
+          </div>
+        </div>
+        <div class="empty_state">
+          <div class="empty_icon">
+            <img
+              src="../img/contents/wish-home/empty-mylist.png"
+              alt="관심상품 빈 상태"
+              class="empty_illust"
+            />
+          </div>
+          <div class="empty_state_text">
+            관심상품을 담고<br />시세와 수익률 체크를 한 번에!
+          </div>
+          <button class="btn_add_wish">관심상품 등록하기</button>
+        </div>
+      </div>
+
+      <!-- 포트폴리오 섹션 -->
+      <div class="card_section">
+        <div class="card_section_header">
+          <div class="card_section_title">포트폴리오</div>
+          <div class="tabs">
+            <button class="tab active">전체</button>
+            <button class="tab">월배당</button>
+            <button class="tab">연금/ISA</button>
+            <button class="tab">증여</button>
+            <button class="tab">투자형</button>
+          </div>
+        </div>
+        <div class="empty_state">
+          <div class="empty_icon" style="background: #eee">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              width="300"
+              height="300"
+              style="
+                object-fit: contain;
+                display: block;
+                margin: 0 auto;
+                background: transparent;
+              "
+            >
+              <source src="../img/contents/webm_test.webm" type="video/webm" />
+            </video>
+          </div>
+          <div class="empty_state_text">
+            한투온이 나를 위한 포트폴리오를<br />만들어 드려요
+          </div>
+          <button class="btn_add_wish">포트폴리오 만들기</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- 하단 탭바 (pill) -->
+    <nav class="bottom_nav">
+      <div class="nav_item">
+        <svg
+          class="nav_item_icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+        </svg>
+        <span class="nav_item_label">ETF상품</span>
+      </div>
+      <div class="nav_item">
+        <svg
+          class="nav_item_icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+        <span class="nav_item_label">투자정보</span>
+      </div>
+      <div class="nav_item">
+        <svg
+          class="nav_item_icon active"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg>
+        <span class="nav_item_label active">홈</span>
+      </div>
+      <div class="nav_item">
+        <svg
+          class="nav_item_icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+        <span class="nav_item_label">포트폴리오</span>
+      </div>
+      <div class="nav_item">
+        <svg
+          class="nav_item_icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+        <span class="nav_item_label">메뉴</span>
+      </div>
+    </nav>
+
+    <script src="../js/lib/jquery-3.7.1.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+      // 탭 전환
+      $(".tab").on("click", function () {
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
+      });
+    </script>
+  </body>
 </html>
